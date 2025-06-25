@@ -1,6 +1,6 @@
 # MUSA
 
-**MUSA** is is a mobile-first museum website designed for deaf users who communicate using Irish Sign Language (ISL). The web-app features ISL interpretation videos for artifacts, interactive 3D renderings for closer exploration, and puzzle games or quizzes to support engagement and information retention.
+**MUSA** is a mobile-first museum website designed for deaf users who communicate using Irish Sign Language (ISL). The web-app features ISL interpretation videos for artifacts, interactive 3D renderings for closer exploration, and puzzle games or quizzes to support engagement and information retention.
 
 This group project is part of the **"Research Project" module (CS7043)** of the **MSc in Interactive Digital Media** at **Trinity College Dublin**.
 
