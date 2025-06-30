@@ -23,7 +23,7 @@ Users can:
 
 ## Technologies
 - **Frontend**:  
-  - HTML5, CSS3, JavaScript;
+  - HTML5, EJS, CSS3, JavaScript;
   - [Bootstrap](https://getbootstrap.com/) for responsive design;
 
 - **Backend**:  
@@ -37,8 +37,8 @@ Users can:
 - Lucy Jacobson: UI/UX Designer
 - Kiera O'Hara: Content Creator
 - Robyn Quigley: Project Manager
-- Xinkai Ge: 3D Modeler, Programming
-- Nithya Samadhi Lokuge: Programming lead - Frontend (EJS, CSS, Bootstrap, JavaScript), Database structure, Backend
+- Xinkai Ge: 3D Modeler, Programming - Frontend (HTML5, CSS3, JavaScript)
+- Nithya Samadhi Lokuge: Programming lead - Frontend (HTML5, EJS, CSS3, Bootstrap, JavaScript), Database structure, Backend
   
 ---
 
