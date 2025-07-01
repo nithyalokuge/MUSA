@@ -44,11 +44,49 @@ Users can:
 
 ## Getting Started
 
+### Installation prerequisites 
+**Before running **Musa**, ensure you have the following installed:**  
+- [Node.js](https://nodejs.org/) (for running the backend)  
+
+### Installation steps
+**1. Download the repository**.
+
+**2. Install all dependencies**: 
+```bash
+npm i
+```
+**3. Set environment variables**: update the `.env` file in the root directory and populate it with the necessary values. You can refer to the [`.env.example`](#envexample) file for guidance.
+
+**4. Run the project**: 
+```bash
+npm start
+```
+
+**5. Visit** http://localhost:PORT **and explore Musa**: 
+
+*Note*: Instead of PORT, insert the PORT number you specified in the `.env` file.
+
+### .env.example
+
+```env
+# MAMP MySQL configuration
+DB_HOST = localhost          # Default for MAMP
+DB_USER = root               # Default for MAMP
+DB_PASSWORD = root           # Default for MAMP
+DB_NAME = musa            
+DB_PORT = 3306               # Default MySQL port
+
+# Server port (Change if needed)
+PORT = 5500
+```
 ---
 
 ## Code organisation
 
-- `public`: stores all static files such as CSS, images, and front-end JavaScript.
+- `public`: stores all static files such as CSS, images, videos and front-end JavaScript.
+- `views`: contains the files that define the UI of the application. It uses the EJS template engine for dynamic content rendering.
+    - `partials`: stores reusable view components such as headers, the sidebar, and the footer.
+- `index.js`: this file is the entry point of the application. It initialises the server, and sets up routes.
 
 ---
 
