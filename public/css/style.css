@@ -5,14 +5,19 @@
 :root {
   --font-heading: 'ClashDisplay-Medium', sans-serif;
   --font-body: 'Mona Sans', sans-serif;
+  --font-dyslexia: 'Lexend Deca', sans-serif;
   --text-color: #121212;
   --heading-color: #000;
+  --bg-color: #f0f0f0;
   --body-font-size: clamp(1rem, 2.5vw, 1.125rem); 
   --h1-size: clamp(1.5rem, 5vw, 2rem);
   --h2-size: clamp(1.25rem, 4vw, 1.5rem);
   --h3-size: clamp(1.125rem, 3vw, 1.25rem);
   --lead-size: clamp(1.125rem, 3vw, 1.25rem);
   --small-size: clamp(0.875rem, 2vw, 1rem);
+  --hamburger-btn-bg: #000;
+  --default-btn-bg: #272727;
+  --default-btn-col: #ffffff;
 }
 
 body {
@@ -21,11 +26,29 @@ body {
   line-height: 1.6;
   font-weight: 400;
   color: var(--text-color);
-  background-color: #f0f0f0;
+  background-color: var(--bg-color);
+}
+
+body.dark-mode {
+  --heading-color: #ffffff;
+  --text-color: #f0f0f0;
+  --bg-color: #121212;
+  --default-btn-bg: #4b4b4b;
+  --hamburger-btn-bg: #ffffff;
+  --visual-box-text-color: #000;
+}
+
+body.large-text {
+  --body-font-size: clamp(1.150rem, 1.5vw, 1.375rem);
+  --h1-size: clamp(2.5rem, 6vw, 3rem);
+  --h2-size: clamp(2rem, 5vw, 2.5rem);
+  --h3-size: clamp(1.5rem, 4vw, 2rem);
+  --lead-size: clamp(1.375rem, 3.5vw, 1.625rem);
+  --small-size: clamp(1rem, 2.5vw, 1.125rem);
 }
 
 body.dyslexia-font {
-  font-family: 'Lexend Deca', sans-serif;
+  font-family: var(--font-dyslexia);
 }
 
 html {
@@ -75,20 +98,6 @@ small {
   font-size: var(--small-size);
 }
 
-body.large-text {
-  --body-font-size: clamp(1.150rem, 1.5vw, 1.375rem);
-  --h1-size: clamp(2.5rem, 6vw, 3rem);
-  --h2-size: clamp(2rem, 5vw, 2.5rem);
-  --h3-size: clamp(1.5rem, 4vw, 2rem);
-  --lead-size: clamp(1.375rem, 3.5vw, 1.625rem);
-  --small-size: clamp(1rem, 2.5vw, 1.125rem);
-}
-
-body.dark-mode {
-  background-color: #121212;
-  color: #f0f0f0;
-}
-
 .hamburger-btn {
   font-size: 1.25rem;
   position: fixed;
@@ -98,14 +107,10 @@ body.dark-mode {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000;
+  background-color: var(--hamburger-btn-bg);
   border-radius: 50%;
   padding: 0.25rem;
   z-index: 10;
-}
-
-.dark-mode .hamburger-btn {
-  background-color: white;
 }
 
 @media (min-width: 768px) {
@@ -224,8 +229,8 @@ footer hr {
 }
 
 .default-btn {
-  background-color: #272727;
-  color: white;
+  background-color: var(--default-btn-bg);
+  color: var(--default-btn-col);
   border: none;
   border-radius: 10px;
   padding: 0.75rem 1.5rem;
@@ -249,14 +254,13 @@ body:has(.hero) .navbar {
 
 .hero {
   height: 100vh;
-  background-color: #a1a0a0;
+  background-color: #A9A9A9;
   display: flex;
   position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: #fff;
 }
 
 .hero h1 {
@@ -283,20 +287,12 @@ body:has(.hero) .navbar {
 }
 
 .scroll-arrow a {
-  color: #fff;
-}
-
-.intro {
-  background-color: #b9b9b9;
-}
-
-.dark-mode .intro {
-  background-color: #121212;
+  color: var(--text-color);
 }
 
 .quote {
   min-height: 65vh;
-  background-color: #f6f5f5;
+  background-color: #D9D9D9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -392,7 +388,7 @@ body:has(.hero) .navbar {
 }
 
 .dark-mode .typewriter {
-  border-right-color: #121212;
+  border-right-color: #f0f0f0;
 }
 
 @keyframes typing {
@@ -405,12 +401,7 @@ body:has(.hero) .navbar {
 }
 
 .involve {
-  background-color: #f2f2f2;
   display: flex;
-}
-
-.dark-mode .involve {
-  background-color: #121212;
 }
 
 input.form-control,
@@ -419,21 +410,13 @@ textarea.form-control {
   border: 1px solid #ccc;
 }
 
-.testimonials {
-  background-color: #ffffff;
-}
-
-.dark-mode .testimonials {
-  background-color: #121212;
-}
-
 .testimonials h3 {
   font-size: 1.35rem;
 }
 
 .testimonial-bubble {
   position: relative;
-  background-color: #f1f1f1;
+  background-color: #D9D9D9;
   padding: 1.5rem;
   border-radius: 15px;
   max-width: 370px;
@@ -451,7 +434,7 @@ textarea.form-control {
   transform: translateX(-50%) rotate(45deg);
   width: 20px;
   height: 20px;
-  background-color: #f1f1f1;
+  background-color: #D9D9D9;
 }
 
 .testimonial-img {
@@ -478,14 +461,6 @@ textarea.form-control {
     transform: rotate(45deg);
     z-index: 0;
   }
-}
-
-.team {
-  background-color: #ffffff;
-}
-
-.dark-mode .team {
-  background-color: #121212;
 }
 
 .team-member {
@@ -623,6 +598,7 @@ textarea.form-control {
   align-items: center;
   text-align: center;
   position: relative;
+  cursor: pointer;
 }
 
 .radio-option input {
@@ -639,7 +615,6 @@ textarea.form-control {
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
@@ -647,9 +622,9 @@ textarea.form-control {
   border: 1px solid #282828;
 }
 
-.dark-mode .radio-option:has(input:checked) {
+/* .dark-mode .radio-option:has(input:checked) {
   border: 1px solid #f1f1f1;
-}
+} */
 
 .radio-option input[type="radio"]:checked::before {
   content: "";
@@ -663,6 +638,24 @@ textarea.form-control {
   transform: translate(-50%, -50%);
 }
 
+.visual-box {
+  width: 90px;       
+  height: 50px;      
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--visual-box-text-color, var(--text-color));
+}
+
+.visual-box i {
+  font-size: 1.5rem;
+}
+
+.option-label {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
 .text-style-options {
   display: flex;
   flex-direction: row;
@@ -674,25 +667,3 @@ textarea.form-control {
     flex-direction: column;
   }
 }
-
-.visual-box {
-  width: 90px;       
-  height: 50px;      
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.visual-box i {
-  font-size: 1.5rem;
-}
-
-.dark-mode .visual-box i, .dark-mode .visual-box span {
-  color: black;
-}
-
-.option-label {
-  text-align: center;
-  margin-top: 0.5rem;
-}
-
