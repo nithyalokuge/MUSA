@@ -7,7 +7,7 @@ const lines = [
   "Sheri Byrne-Haber"
 ];
 
-const speed = 25;
+const speed = 70;
 let lineIndex = 0;
 let charIndex = 0;
 let hasStartedTyping = false;
@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (settings.contrast === "dark") {
     const quoteLeft = document.querySelector('.quote-start');
     const quoteRight = document.querySelector('.quote-end');
-    if (quoteLeft) quoteLeft.src = "/public/img/quote-left-white.png";
-    if (quoteRight) quoteRight.src = "/public/img/quote-right-white.png";
+    if (quoteLeft) quoteLeft.src = "/img/quote-left-white.png";
+    if (quoteRight) quoteRight.src = "/img/quote-right-white.png";
   }
 
   const quoteSection = document.querySelector(".quote");
