@@ -1,0 +1,61 @@
+<header>
+    <!-- Navbar -->
+    <nav class="navbar py-5">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="/">
+                <img src="/img/logo.png" alt="Musa's logo">
+            </a>
+            <button class="navbar-toggler hamburger-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-label="Toggle sidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<!-- Sidebar -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar">
+    <div class="offcanvas-body d-flex flex-column">
+        <div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close sidebar"></button>
+        </div>
+        <div class="text-center">
+            <div class="my-5">
+                <h2>Musa</h2>
+            </div>
+            <ul class="navbar-nav my-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn nav-link mx-auto d-block" type="button" data-bs-toggle="collapse" data-bs-target="#museumsMenu" aria-label="Museums dropdown" aria-expanded="false" aria-controls="museumsMenu">Museums
+                        <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="collapse" id="museumsMenu">
+                        <ul class="list-unstyled">
+                            <li>
+                                <a class="nav-link" href="">The Hunt Museum</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/speech-to-text">Speech-to-text</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/settings">Settings</a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-socials mt-auto text-center">
+            <a href="#" class="me-3" aria-label="LinkedIn">
+                <i class="bi bi-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="#" aria-label="YouTube">
+                <i class="bi bi-youtube" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+</div>
