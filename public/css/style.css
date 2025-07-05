@@ -1,10 +1,9 @@
 /* General style */
 
-@import url('clash-display.css');
-
 :root {
-  --font-heading: 'ClashDisplay-Medium', sans-serif;
-  --font-body: 'Mona Sans', sans-serif;
+  --font-heading: 'Onest', sans-serif;
+  --font-body: 'Noto Sans', sans-serif;
+  --font-accent: 'PT Sans', sans-serif;
   --font-dyslexia: 'Lexend Deca', sans-serif;
   --text-color: #121212;
   --heading-color: #000;
@@ -13,7 +12,6 @@
   --h1-size: clamp(1.5rem, 5vw, 2rem);
   --h2-size: clamp(1.25rem, 4vw, 1.5rem);
   --h3-size: clamp(1.125rem, 3vw, 1.25rem);
-  --lead-size: clamp(1.125rem, 3vw, 1.25rem);
   --small-size: clamp(0.875rem, 2vw, 1rem);
   --hamburger-btn-bg: #000;
   --hamburger-btn-width: 66px;
@@ -45,10 +43,7 @@ body.large-text {
   --h1-size: clamp(2.5rem, 6vw, 3rem);
   --h2-size: clamp(2rem, 5vw, 2.5rem);
   --h3-size: clamp(1.5rem, 4vw, 2rem);
-  --lead-size: clamp(1.375rem, 3.5vw, 1.625rem);
   --small-size: clamp(1rem, 2.5vw, 1.125rem);
-  --hamburger-btn-width: 66px;
-  --hamburger-btn-height: 66px;
 }
 
 body.dyslexia-font {
@@ -94,10 +89,6 @@ p, li, a {
   font-size: var(--body-font-size);
 }
 
-.lead {
-  font-size: var(--lead-size);
-}
-
 small {
   font-size: var(--small-size);
 }
@@ -105,7 +96,7 @@ small {
 .hamburger-btn {
   font-size: 1.25rem;
   position: fixed;
-  right: 1rem; 
+  right: 0.5rem; 
   width: 56px;
   height: 56px;
   display: flex;
@@ -143,22 +134,20 @@ small {
 }
 
 .navbar-toggler {
-  color: black;
-  top: 2rem;
-}
-
-.dark-mode .navbar-toggler {
   color: transparent;
 }
 
 .nav-link {
   padding: 0.5rem 1rem;
   display: block;
-  transition: color 0.2s ease;
 }
 
 .nav-link:hover {
-  color: #141414;
+  text-decoration: underline;
+}
+
+.nav-link.active {
+  font-weight: bold;
 }
 
 .btn-close {
@@ -173,17 +162,11 @@ small {
 
 .sidebar-socials a {
   color: rgb(0, 0, 0);
-  transition: color 0.2s ease;
   font-size: 1.25rem;
-}
-
-.sidebar-socials a:hover {
-  color: #1e1e1e;
 }
 
 footer {
   background-color: #A9A9A9;
-  color: rgb(214, 214, 214);
 }
 
 /* footer img {
@@ -196,7 +179,7 @@ footer {
 footer a {
   text-decoration: none;
   display: block;
-  color: white; 
+  color: #1C1B1F; 
 }
 
 footer a:hover {
@@ -210,15 +193,11 @@ footer .social-links {
 }
 
 footer .social-links a {
-  display: inline-flex;
-  align-items: center;
-  color: white;
   font-size: 1.25rem;
-  text-decoration: none;
 }
 
 .footer .text-muted {
-  color: #E8E8E8 !important;
+  color: #1C1B1F !important;
 }
 
 /* Show <hr> only on small screens */
@@ -252,8 +231,10 @@ footer hr {
 
 body:has(.hero) .navbar {
   position: absolute;
-  z-index: 10;
-  background: transparent; 
+}
+
+body:has(.hero) .hamburger-btn {
+  top: 2.6rem;
 }
 
 .hero {
@@ -322,20 +303,15 @@ body:has(.hero) .navbar {
 
 .quote h2 {
   margin: 2rem auto;
-  font-size: 1.5rem;
-  font-weight: 500;
   position: relative;
-  z-index: 1;
 }
 
 .quote-start,
 .quote-end {
-  opacity: 0.6;
   position: absolute;
   width: 40px; 
   height: auto;
   transition: all 0.3s ease-in-out;
-  z-index: 1;
 }
 
 .quote-start {
@@ -386,13 +362,8 @@ body:has(.hero) .navbar {
 
 .typewriter {
   overflow: hidden;
-  border-right: 0.15em solid black; /* Typing cursor */
   animation: typing 2s steps(50, end), blink 0.75s step-end infinite;
   max-width: 100%;
-}
-
-.dark-mode .typewriter {
-  border-right-color: #f0f0f0;
 }
 
 @keyframes typing {
@@ -404,14 +375,19 @@ body:has(.hero) .navbar {
   50% { border-color: transparent }
 }
 
-.involve {
-  display: flex;
+.dark-mode .typewriter {
+  border-right-color: #f0f0f0;
 }
 
 input.form-control,
 textarea.form-control {
-  background-color: #f2f2f2 !important;
+  background-color: #D9D9D9 !important;
   border: 1px solid #ccc;
+}
+
+.accent {
+  font-family: var(--font-accent);
+  font-style: italic;
 }
 
 .testimonials h3 {
@@ -463,7 +439,6 @@ textarea.form-control {
   .testimonial-bubble::after {
     left: 30px;
     transform: rotate(45deg);
-    z-index: 0;
   }
 }
 
@@ -485,8 +460,8 @@ textarea.form-control {
   gap: 0.5rem;
 }
 
-.team-member small a:hover, .team-member i.bi-linkedin {
-  color: #000; 
+.team-member a:hover, .team-member i.bi-linkedin {
+  color: #000 !important; 
 }
 
 .dark-mode .team-member small a, .dark-mode .team-member small a:hover{
@@ -497,7 +472,7 @@ textarea.form-control {
   color: white !important;
 }
 
-/* Speech-To-Text, Contact, Info & Support, Settings pages */
+/* Speech-to-text, Contact Us, Info & Support, Settings pages */
 
 .back-to-home {
   text-decoration: none;
@@ -537,7 +512,7 @@ textarea.form-control {
 }
 
 .dark-mode .output-box {
-  color: black
+  color: var(--text-color);
 }
 
 .speech-buttons {
@@ -583,12 +558,8 @@ textarea.form-control {
 }
 
 .access-stm a {
-  color: black;
+  color: var(--text-color);
   text-decoration: underline;
-}
-
-.dark-mode .access-stm a {
-  color: white;
 }
 
 .radio-group {
@@ -618,7 +589,6 @@ textarea.form-control {
 
 .radio-option input[type="radio"] {
   appearance: none;
-  -webkit-appearance: none;
   top: 0.5rem;
   left: 0.5rem;
   background-color: #fff;
@@ -631,10 +601,6 @@ textarea.form-control {
 .radio-option:has(input:checked) {
   border: 1px solid #282828;
 }
-
-/* .dark-mode .radio-option:has(input:checked) {
-  border: 1px solid #f1f1f1;
-} */
 
 .radio-option input[type="radio"]:checked::before {
   content: "";
@@ -653,7 +619,7 @@ textarea.form-control {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--visual-box-text-color, var(--text-color));
+  color: var(--visual-box-text-color);
 }
 
 .visual-box i {
@@ -668,7 +634,6 @@ textarea.form-control {
 .text-style-options {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -676,3 +641,4 @@ textarea.form-control {
     flex-direction: column;
   }
 }
+
