@@ -18,18 +18,16 @@ document.addEventListener("DOMContentLoaded", function() {
         const serviceID = "service_1ctybzj";
         const templateID = "template_tke9agv";
     
-        emailjs.sendForm(serviceID, templateID, this).then(
-        () => {
-                btn.innerHTML = successText;
-                btn.className = "default-btn";
-                this.reset();
+        emailjs.sendForm(serviceID, templateID, this).then(() => {
+            btn.innerHTML = successText;
+            btn.className = "default-btn";
+            this.reset();
 
-                setTimeout(() => {
-                    btn.innerHTML = defaultText;
-                    btn.disabled = false;
-                }, 1250);
-            },
-            (err) => {
+            setTimeout(() => {
+                btn.innerHTML = defaultText;
+                btn.disabled = false;
+            }, 1250);
+        },  (err) => {
                 console.error("EmailJS error: ", err);
                 btn.innerHTML = errorText;
                 btn.className = "default-btn";
