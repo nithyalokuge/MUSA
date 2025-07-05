@@ -37,6 +37,31 @@ app.get("/info-support", (req, res) => {
   res.render("info-support"); 
 });
 
+// The Hunt Museum home page
+app.get("/hunt/home", (req, res) => {
+  res.render("hunt/home"); 
+});
+
+// The Hunt Museum explore page
+app.get("/hunt/explore", (req, res) => {
+  res.render("hunt/explore"); 
+});
+
+// The Hunt Museum scan page
+app.get("/hunt/scan", (req, res) => {
+  res.render("hunt/scan"); 
+});
+
+// The Hunt Museum map page
+app.get("/hunt/map", (req, res) => {
+  res.render("hunt/map"); 
+});
+
+// The Hunt Museum games page
+app.get("/hunt/games", (req, res) => {
+  res.render("hunt/games"); 
+});
+
 app.listen(PORT, () => {
   console.log(`The server is running at http://localhost:${PORT}!`);
 });
