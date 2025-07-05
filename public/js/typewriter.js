@@ -1,11 +1,24 @@
 // Typewriter script
 
-const lines = [
-  "Accessibility is not a problem to be solved.",
-  "Accessibility is a culture to be built.",
-  "",
-  "Sheri Byrne-Haber"
-];
+const pathname = window.location.pathname;
+
+let lines = [];
+
+if (pathname === "/") {
+  lines = [
+    "Accessibility is not a problem to be solved.",
+    "Accessibility is a culture to be built.",
+    "",
+    "Sheri Byrne-Haber"
+  ];
+} else if (pathname === "/hunt/home") {
+  lines = [
+    "The power of the Web is in its universality.",
+    "Access by everyone regardless of disability is an essential aspect.",
+    "",
+    "Tim Berners-Lee"
+  ];
+} 
 
 const speed = 70;
 let lineIndex = 0;
