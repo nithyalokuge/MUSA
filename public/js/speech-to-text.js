@@ -87,7 +87,28 @@ if (isIOS) {
 
   recognition.onerror = (event) => {
     console.error('Speech recognition error: ', event.error);
-    notyf.error('Speech recognition error');
+    switch (event.error) {
+      case 'no-speech':
+        notyf.error('No speech detected.');
+        break;
+      case 'audio-capture':
+        notyf.error('No microphone found or access is blocked.');
+        break;
+      case 'not-allowed':
+        notyf.error('Microphone access denied. Please allow permission.');
+        break;
+      case 'aborted':
+        notyf.error('Speech input was interrupted.');
+        break;
+      case 'network':
+        notyf.error('Network error. Please check your connection.');
+        break;
+      case 'service-not-allowed':
+        notyf.error('Speech service is blocked by browser settings.');
+        break;
+      default:
+        notyf.error('Speech recognition error occurred.');
+    }
   };
 
   recognition.onend = () => {
@@ -128,7 +149,6 @@ if (isIOS) {
       notyf.error('Could not copy text. Sorry!');
     }
   };
-
 } else {
   notyf.error('Speech recognition is not supported in this browser. Try Chrome, Edge or Opera.');
   startBtn.disabled = true;
