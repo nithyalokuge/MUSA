@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const scanContent = document.getElementById("scan-content");
   const qrError = document.getElementById("qr-error");
 
+  let qrScanner;
+  let isScanning = false;
+  let scanTimeout = null;
+
   function loadInitialLayout() {
     scanContent.innerHTML = `
       <i class="bi bi-qr-code-scan"></i>
@@ -16,9 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   loadInitialLayout();
-
-  let qrScanner;
-  let isScanning = false;
 
   scanContent.addEventListener("click", async (e) => {
     if (e.target.id === "start-scan") {
@@ -32,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <button id="stop-scan" class="btn default-btn">STOP SCANNING</button>
         `;
 
-        scanBox.style.height = "auto"; 
+        scanBox.style.height = "auto";
         qrError.style.display = "none";
         qrError.textContent = "";
 
@@ -55,7 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 qrError.textContent = "";
 
                 if (/^https?:\/\//i.test(decodedText)) {
-                  setTimeout(() => (window.location.href = decodedText), 1000);
+                  scanTimeout = setTimeout(() => {
+                    window.location.href = decodedText;
+                  }, 1200);
                 }
               });
             }
@@ -84,6 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
       if (qrScanner && isScanning) {
         await qrScanner.stop();
         isScanning = false;
+      }
+      if (scanTimeout) {
+        clearTimeout(scanTimeout);
+        scanTimeout = null;
       }
       loadInitialLayout();
     }
