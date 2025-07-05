@@ -375,10 +375,6 @@ body:has(.hero) .hamburger-btn {
   50% { border-color: transparent }
 }
 
-.dark-mode .typewriter {
-  border-right-color: #f0f0f0;
-}
-
 input.form-control,
 textarea.form-control {
   background-color: #D9D9D9 !important;
