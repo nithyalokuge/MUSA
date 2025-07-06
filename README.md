@@ -86,6 +86,7 @@ PORT = 5500
 - `public`: stores all static files such as CSS, images, videos and front-end JavaScript.
 - `views`: contains the files that define the UI of the application. It uses the EJS template engine for dynamic content rendering.
     - `hunt`: stores views of The Hunt Museum.
+        - `games`: stores views of The Hunt Museum's games.
     - `partials`: contains reusable view components such as headers, the sidebar, and the footer.
 - `index.js`: this file is the entry point of the application. It initialises the server, and sets up routes.
 
