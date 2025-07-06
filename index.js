@@ -37,29 +37,49 @@ app.get("/info-support", (req, res) => {
   res.render("info-support"); 
 });
 
-// The Hunt Museum home page
+// The Hunt Museum Home page
 app.get("/hunt/home", (req, res) => {
   res.render("hunt/home"); 
 });
 
-// The Hunt Museum explore page
+// The Hunt Museum Explore page
 app.get("/hunt/explore", (req, res) => {
   res.render("hunt/explore"); 
 });
 
-// The Hunt Museum scan page
+// The Hunt Museum Scan page
 app.get("/hunt/scan", (req, res) => {
   res.render("hunt/scan"); 
 });
 
-// The Hunt Museum map page
+// The Hunt Museum Map page
 app.get("/hunt/map", (req, res) => {
   res.render("hunt/map"); 
 });
 
-// The Hunt Museum games page
+// The Hunt Museum Games page
 app.get("/hunt/games", (req, res) => {
   res.render("hunt/games"); 
+});
+
+// The Hunt Museum Quiz game page
+app.get("/hunt/games/quiz", (req, res) => {
+  res.render("hunt/games/quiz"); 
+});
+
+// The Hunt Museum Puzzle game page
+app.get("/hunt/games/puzzle", (req, res) => {
+  res.render("hunt/games/puzzle"); 
+});
+
+// The Hunt Museum Match game page
+app.get("/hunt/games/match", (req, res) => {
+  res.render("hunt/games/match"); 
+});
+
+// The Hunt Museum Catch game page
+app.get("/hunt/games/catch", (req, res) => {
+  res.render("hunt/games/catch"); 
 });
 
 app.listen(port, () => {
