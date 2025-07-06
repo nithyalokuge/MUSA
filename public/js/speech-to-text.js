@@ -9,25 +9,12 @@ const clearBtn = document.getElementById('clearBtn');
 const copyBtn = document.getElementById('copyBtn');
 const output = document.getElementById('output');
 const iosHelper = document.getElementById('ios-helper');
+const modal = document.getElementById('modal');
+const modalText = modal.querySelector('p'); 
+const modalIcon = modal.querySelector('.modal-icon');
 
 // Detect iOS
 const isIOS = /iPad|iPhone/.test(navigator.userAgent);
-
-// Toast notifications
-const notyf = new Notyf({
-  types: [
-    {
-      type: 'success',
-      background: '#198754',
-      icon: false
-    },
-    {
-      type: 'error',
-      background: '#61941D',
-      icon: false
-    }
-  ]
-});
 
 function updateCopyButtonState() {
   copyBtn.disabled = output.textContent.trim().length === 0;
@@ -55,9 +42,9 @@ if (isIOS) {
     if (output.textContent.trim().length === 0) return;
     try {
       await navigator.clipboard.writeText(output.textContent);
-      notyf.success('Copied to clipboard!');
+      showModal('Copied to clipboard!', 'bi-check-circle-fill');
     } catch {
-      notyf.error('Could not copy text. Sorry!');
+      showModal('Could not copy text. Sorry!', 'bi-x-circle-fill');
     }
   };
 } else if ('webkitSpeechRecognition' in window) {
@@ -89,25 +76,25 @@ if (isIOS) {
     console.error('Speech recognition error: ', event.error);
     switch (event.error) {
       case 'no-speech':
-        notyf.error('No speech detected.');
+        showModal('No speech detected.', 'bi-x-circle-fill');
         break;
       case 'audio-capture':
-        notyf.error('No microphone found or access is blocked.');
+        showModal('No microphone found or access is blocked.', 'bi-x-circle-fill');
         break;
       case 'not-allowed':
-        notyf.error('Microphone access denied. Please allow permission.');
+        showModal('Microphone access denied. Please allow permission.', 'bi-x-circle-fill');
         break;
       case 'aborted':
-        notyf.error('Speech input was interrupted.');
+        showModal('Speech input was interrupted.', 'bi-x-circle-fill');
         break;
       case 'network':
-        notyf.error('Network error. Please check your connection.');
+        showModal('Network error. Please check your connection.', 'bi-x-circle-fill');
         break;
       case 'service-not-allowed':
-        notyf.error('Speech service is blocked by browser settings.');
+        showModal('Speech service is blocked by browser settings.', 'bi-x-circle-fill');
         break;
       default:
-        notyf.error('Speech recognition error occurred.');
+        showModal('Speech recognition error occurred.', 'bi-x-circle-fill');
     }
   };
 
@@ -144,15 +131,25 @@ if (isIOS) {
   copyBtn.onclick = async () => {
     try {
       await navigator.clipboard.writeText(output.textContent);
-      notyf.success('Copied to clipboard!');
+      showModal('Copied to clipboard!', 'bi-check-circle-fill');
     } catch (err) {
-      notyf.error('Could not copy text. Sorry!');
+      showModal('Could not copy text. Sorry!', 'bi-x-circle-fill');
     }
   };
 } else {
-  notyf.error('Speech recognition is not supported in this browser. Try Chrome, Edge or Opera.');
+  showModal('Speech recognition is not supported in this browser. Try Chrome, Edge or Opera.', 'bi-x-circle-fill');
   startBtn.disabled = true;
   stopBtn.disabled = true;
   clearBtn.disabled = true;
   copyBtn.disabled = true;
+}
+
+function showModal(message, iconClass) {
+  modalText.textContent = message;
+  modalIcon.className = `modal-icon ${iconClass}`;
+  modal.classList.add('active');
+
+  setTimeout(() => {
+    modal.classList.remove('active');
+  }, 1300); 
 }

@@ -9,6 +9,9 @@ let matchesFound = 0;
 
 const board = document.getElementById('gameBoard');
 const scoreDisplay = document.getElementById('score');
+const modal = document.getElementById('modal');
+const modalText = modal.querySelector('p'); 
+const modalIcon = modal.querySelector('.modal-icon');
 
 fetch('/js/match.json')
   .then(response => response.json())
@@ -88,7 +91,7 @@ function handleCardClick(card) {
         updateScore();
 
         if (matchesFound === cardsData.length) {
-          showSuccessModal('Well done! You matched all pairs!', 'bi-check-circle-fill'); 
+          showModal('Well done! You matched all pairs!', 'bi-check-circle-fill'); 
           setTimeout(initializeGame, 1300); 
         }
       } else {
@@ -105,14 +108,9 @@ function updateScore() {
   scoreDisplay.textContent = `Score: ${score}`;
 }
 
-function showSuccessModal(message, iconClass) {
-  const modal = document.getElementById('modal');
-  const modalText = modal.querySelector('p'); 
-  const modalIcon = modal.querySelector('.modal-icon');
-
+function showModal(message, iconClass) {
   modalText.textContent = message; 
   modalIcon.className = `modal-icon ${iconClass}`; 
-
   modal.classList.add('active'); 
 
   setTimeout(() => {
