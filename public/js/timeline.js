@@ -37,6 +37,7 @@ function renderList(items, showDates) {
         <p class="title">${artifact.title}</p>
         ${showDates ? `<p>${artifact.date}</p>` : ''}
       </div>
+      <span class="drag-handle" aria-label="Drag to reorder"><i class="bi bi-grip-vertical" aria-hidden="true"></i></span>
     `;
 
     timelineList.appendChild(li);
@@ -58,8 +59,8 @@ function startGame() {
   renderList(rearrangeArray([...artifacts]), false);
 
   if (sortableInstance) sortableInstance.destroy(); // Remove any previous drag-and-drop functionality from the list
-  // Activate Sortable.js on the timeline list - users can click, drag, and rearrange items
-  sortableInstance = Sortable.create(timelineList, { animation: 150 });
+  // Activate Sortable.js on the timeline list - users can drag and rearrange items using the handle
+  sortableInstance = Sortable.create(timelineList, { animation: 150, handle: '.drag-handle', });
 
   checkButton.classList.remove('d-none');
   resetButton.classList.add('d-none');
