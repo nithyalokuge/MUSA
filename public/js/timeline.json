@@ -2,17 +2,17 @@
   {
     "title": "Meissen Pietà",
     "date": "18th century AD",
-    "image": "/img/pieta-game.jpg"
+    "image": "/img/games/pieta-game.jpg"
   },
   {
     "title": "Plat Del Dia",
     "date": "20th century AD",
-    "image": "/img/plat-del-dia-game.png"
+    "image": "/img/games/plat-del-dia-game.png"
   },
   {
     "title": "O Dea Mitre",
     "date": "15th century AD",
-    "image": "/img/o-dea-mitre.png"
+    "image": "/img/games/o-dea-mitre-game.png"
   },
   {
     "title": "Dekadrachm Coin",
@@ -22,7 +22,7 @@
   {
     "title": "An Atlantic Drive",
     "date": "20th century AD",
-    "image": "/img/atlantic-drive-game.jpg"
+    "image": "/img/games/atlantic-drive-game.jpg"
   },
   {
     "title": "Dish with Crowned Woman Design",
@@ -32,21 +32,21 @@
   {
     "title": "Suzanne Boterell",
     "date": "20th century AD",
-    "image": "/img/suzanne-boterell-game.jpg"
+    "image": "/img/games/suzanne-boterell-game.jpg"
   },
   {
     "title": "A Day at the Hunt",
     "date": "21st century",
-    "image": "/img/a-day-at-the-hunt-game.jpg"
+    "image": "/img/games/a-day-at-the-hunt-game.jpg"
   },
   {
     "title": "Sheela-na-nig",
     "date": "15th century AD",
-    "image": "/img/sheela-na-nig.png"
+    "image": "/img/games/sheela-na-nig-game.png"
   },
   {
     "title": "Drinking Horn",
     "date": "15th century AD",
-    "image": "/img/drinking-horn-game.jpg"
+    "image": "/img/games/drinking-horn-game.jpg"
   }
 ]
