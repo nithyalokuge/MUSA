@@ -72,14 +72,19 @@ app.get("/hunt/games/puzzle", (req, res) => {
   res.render("hunt/games/puzzle"); 
 });
 
-// The Hunt Museum Match game page
-app.get("/hunt/games/match", (req, res) => {
-  res.render("hunt/games/match"); 
+// The Hunt Museum Matching game page
+app.get("/hunt/games/matching", (req, res) => {
+  res.render("hunt/games/matching"); 
 });
 
-// The Hunt Museum Catch game page
-app.get("/hunt/games/catch", (req, res) => {
-  res.render("hunt/games/catch"); 
+// The Hunt Museum Memory game page
+app.get("/hunt/games/memory", (req, res) => {
+  res.render("hunt/games/memory"); 
+});
+
+// The Hunt Museum Timeline game page
+app.get("/hunt/games/timeline", (req, res) => {
+  res.render("hunt/games/timeline"); 
 });
 
 app.listen(port, () => {
