@@ -330,7 +330,14 @@ footer hr {
 
 .modal-icon {
   font-size: 3rem;
+}
+
+.modal-icon .bi-check-circle-fill {
   color: #455849;
+}
+
+.modal-icon .bi-x-circle-fill {
+  color: rgb(78, 12, 12);
 }
 
 .modal-content p {
@@ -701,7 +708,7 @@ body:has(.hero) .subnav {
   font-weight: 600;
 }
 
-/* Matching game page */
+/* Memory and matching game pages */
 
 .game-board {
   display: grid;
@@ -719,8 +726,9 @@ body:has(.hero) .subnav {
   transform-style: preserve-3d;
   transition: transform 0.6s;
   border-radius: 10px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   background-color: var(--bg-color);
+  border: 1px;
 }
 
 .card.flipped {
@@ -776,3 +784,65 @@ body:has(.hero) .subnav {
   }
 }
 
+.card.selectable {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 5px solid transparent;
+  background-color: #21428e;
+}
+
+.card.selected {
+  border-color: #8789bb;
+}
+
+.card img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  font-weight: 600;
+}
+
+.card-body p {
+  color: #f0f0f0;
+}
+
+/* Timeline game */
+
+.sortable-list {
+  padding: 0;
+}
+
+.timeline-item {
+  background: #fed600;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.timeline-item img {
+  width: 90px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.timeline-info p {
+  margin: 0;
+}
+
+.timeline-info .title {
+  font-weight: 600;
+}
