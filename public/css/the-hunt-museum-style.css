@@ -846,3 +846,9 @@ body:has(.hero) .subnav {
 .timeline-info .title {
   font-weight: 600;
 }
+
+.drag-handle {
+  cursor: grab;
+  font-size: 1.4rem;
+  margin-left: auto;
+}
