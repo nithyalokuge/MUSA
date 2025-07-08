@@ -1,12 +1,65 @@
 /* General style */
 
+@font-face {
+  font-family: 'Museo Slab Accent';
+  src: url('/fonts/Museo_Slab_300.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Slab';
+  src: url('/fonts/Museo_Slab_700.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Slab Heading';
+  src: url('/fonts/Museo_Slab_900.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans Regular';
+  src: url('/fonts/MuseoSans-300.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans Bold';
+  src: url('/fonts/MuseoSans_500.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans Extra Bold';
+  src: url('/fonts/MuseoSans_700.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('/fonts/MuseoSans_900.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
-  --font-heading: 'Onest', sans-serif;
-  --font-body: 'Noto Sans', sans-serif;
-  --font-accent: 'PT Sans', sans-serif;
+  --font-heading: 'Museo Slab Heading', sans-serif;
+  --font-body: 'Museo Sans Regular', sans-serif;
+  --font-body-bold: 'Museo Sans Bold', sans-serif;
+  --font-body-extra-bold: 'Museo Sans Extra Bold', sans-serif;
+  --font-accent: 'Museo Slab Accent', sans-serif;
   --font-dyslexia: 'Lexend Deca', sans-serif;
+  --font-sidebar: 'Onest', sans-serif;
+  --font-footer: 'Noto Sans', sans-serif;
   --text-color: #121212;
-  --heading-color: #000;
+  --heading-color: #454544;
   --bg-color: #E8E8E8;
   --body-font-size: clamp(1rem, 2.5vw, 1.125rem); 
   --h1-size: clamp(1.5rem, 5vw, 2rem);
@@ -25,7 +78,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--body-font-size);
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--text-color);
   background-color: var(--bg-color);
 }
@@ -52,7 +105,7 @@ body.dyslexia-font {
 }
 
 .accent {
-  font-family: var(--font-accent);
+  font-family: var(--font-accent) !important;
 }
 
 html {
@@ -73,6 +126,7 @@ main {
 
 h1, h2, h3 {
   font-family: var(--font-heading);
+  color: var(--heading-color);
 }
 
 h1 {
@@ -126,7 +180,7 @@ small {
 }
 
 .navbar {
-  background-color: #A9A9A9;
+  background-color: #D5CEC8;
 }
 
 .navbar-toggler-icon {
@@ -139,17 +193,46 @@ small {
 }
 
 .offcanvas {
-  background-color: #A9A9A9;
+  background-color: #5C0023;
+  font-family: var(--font-sidebar);
+  color: #F9F4EE;
+}
+
+.offcanvas img {
+  height: 40px;
 }
 
 .navbar-toggler {
   color: transparent;
 }
 
+.logo-close {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-close {
+  filter: invert(1);
+}
+
+.nav-link-container {
+  display: flex;
+  justify-content: center;
+}
+
 .nav-link {
-  padding: 0.5rem 1rem;
+  margin-bottom: 0.65rem;
   display: block;
   font-size: var(--nav-link-size);
+}
+
+#museumsMenu a {
+  font-weight: 200;
+}
+
+.navbar-brand img {
+  height: 60px !important;
 }
 
 .nav-link:hover {
@@ -160,18 +243,12 @@ small {
   font-weight: bold;
 }
 
-.btn-close {
-  display: flex;
-  justify-content: start;
-}
-
 .sidebar-socials {
-  margin-top: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .sidebar-socials i {
-  color: #000;
+  color: #F9F4EE;
   font-size: 1.30rem;
 }
 
@@ -195,6 +272,15 @@ small {
   font-weight: bold;
 }
 
+.subnav-link i {
+  color: #6B6B6B;
+  font-size: 1.25rem; 
+}
+
+.subnav-link.active i {
+  color: #454544;
+}
+
 .subnav-container {
   display: flex;
   text-align: center;
@@ -206,10 +292,6 @@ small {
   }
 }
 
-.subnav-link i {
-  font-size: 1.25rem; 
-}
-
 @media (max-width: 576px) {
   .subnav-link small {
     font-size: 0.75rem; 
@@ -217,24 +299,31 @@ small {
 }
 
 footer {
-  background-color: #A9A9A9;
+  background-color: #D5CEC8;
+  font-family: var(--font-footer);
 }
-
-/* footer img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-} */
 
 footer a {
   text-decoration: none;
   display: block;
-  color: #1C1B1F
+  color: #1C1B1F; 
+  font-weight: 500;
 }
 
 footer a:hover {
   text-decoration: underline;
+}
+
+@media(max-width: 768px){
+  .footer img {
+    height: 60px;
+  }
+}
+
+@media(min-width: 768px){
+  .footer img {
+    height: 80px;
+  }
 }
 
 footer .social-links {
@@ -245,10 +334,6 @@ footer .social-links {
 
 footer .social-links a {
   font-size: 1.25rem;
-}
-
-.footer .text-muted {
-  color: #1C1B1F !important;
 }
 
 /* Show <hr> only on small screens */
@@ -262,11 +347,15 @@ footer hr {
   }
 }
 
+.text-muted {
+  color: #3d3b41 !important;
+}
+
 .default-btn {
   background-color: var(--default-btn-bg);
   color: var(--default-btn-col);
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   margin-top: 1.2rem;
@@ -358,10 +447,6 @@ footer hr {
 
 /* Home page */
 
-body:has(.hero) .hamburger-btn {
-  top: 2.6rem;
-}
-
 .hero {
   background-color: #7FA0D5;
   position: relative;
@@ -382,12 +467,7 @@ body:has(.hero) .subnav {
 
 .hero h1 {
   font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .hero h1 {
-    font-size: 1.75rem;
-  }
+  color: #FFFFFF !important;
 }
 
 @media (min-width: 768px) {
@@ -478,7 +558,7 @@ body:has(.hero) .subnav {
 }
 
 .font1 {
-  font-family: var(--font-body);
+  font-family: var(--font-body-extra-bold);
 }
 
 .font2 {
@@ -491,6 +571,7 @@ body:has(.hero) .subnav {
 
 .quote h2 {
   margin: 2rem auto;
+  color: #ffffff;
   position: relative;
 }
 
@@ -573,7 +654,7 @@ body:has(.hero) .subnav {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 10px;
   display: block;
 }
 
@@ -596,13 +677,25 @@ body:has(.hero) .subnav {
   color: #D2D2D3;
 }
 
+.hunt-location h2, .hunt-location h3 {
+  color: #D2D2D3 !important;
+}
+
+iframe {
+  border-radius: 10px;
+}
+
+.lead-p {
+  font-family: var(--font-body-extra-bold);
+}
+
 /* Scan page */
 
 #scan-box {
   max-width: 500px;
   margin: 0 auto;
   border: 1px solid #000;
-  border-radius: 0.5rem;
+  border-radius: 10px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -622,12 +715,12 @@ body:has(.hero) .subnav {
 }
 
 #qr-error {
-  color: rgb(173, 28, 28);
+  color: #EA1D2D;
 }
 
 .bi-qr-code-scan {
   font-size: 4rem;
-  color: #6c757d;
+  color: #6E6F72;
   margin-bottom: 0.5rem;
 }
 
@@ -650,7 +743,7 @@ body:has(.hero) .subnav {
   display: none;
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 1rem;
 }
 
@@ -670,16 +763,19 @@ body:has(.hero) .subnav {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-body-extra-bold);
+  background-color: #25408F;
+  color: #FFFFFF;
+}
+
+.btn-active:hover, .btn-not-active:hover {
+  background-color: #25408F;
+  color: #FFFFFF;
 }
 
 .btn-active {
-  background-color: #25408F !important;
+  background-color: #152554 !important;
   color: #FFFFFF !important;
-}
-
-.btn-not-active {
-  border-color: #25408F !important;
-  color: #101010 !important;
 }
 
 /* Games page */
@@ -705,7 +801,7 @@ body:has(.hero) .subnav {
 }
 
 .games p {
-  font-weight: 600;
+  font-family: var(--font-body-extra-bold);
 }
 
 /* Memory and matching game pages */
@@ -791,11 +887,11 @@ body:has(.hero) .subnav {
   justify-content: center;
   text-align: center;
   border: 5px solid transparent;
-  background-color: #21428e;
+  background-color: #D5CEC8;
 }
 
 .card.selected {
-  border-color: #8789bb;
+  border-color: #21428e;
 }
 
 .card img {
@@ -810,11 +906,11 @@ body:has(.hero) .subnav {
   align-items: center;
   justify-content: center;
   height: 200px;
-  font-weight: 600;
+  font-family: var(--font-body-extra-bold);
 }
 
 .card-body p {
-  color: #f0f0f0;
+  color: var(--text-color);
 }
 
 /* Timeline game */
@@ -844,7 +940,7 @@ body:has(.hero) .subnav {
 }
 
 .timeline-info .title {
-  font-weight: 600;
+  font-family: var(--font-body-bold);
 }
 
 .drag-handle {
