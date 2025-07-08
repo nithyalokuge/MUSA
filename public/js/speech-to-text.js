@@ -17,7 +17,9 @@ const modalIcon = modal.querySelector('.modal-icon');
 const isIOS = /iPad|iPhone/.test(navigator.userAgent);
 
 function updateCopyButtonState() {
-  copyBtn.disabled = output.textContent.trim().length === 0;
+  const hasText = output.textContent.trim().length > 0;
+  copyBtn.disabled = !hasText;
+  clearBtn.disabled = !hasText;
 }
 
 // iOS Devices 
