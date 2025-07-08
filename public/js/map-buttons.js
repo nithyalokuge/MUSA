@@ -4,11 +4,16 @@ function filterImages(floor) {
   const allImages = document.querySelectorAll('.gallery-img');
   allImages.forEach(img => img.classList.remove('active'));
 
-  const selectedImg = document.querySelector(`.gallery-img.${floor}`);
-  if (selectedImg) {
-    selectedImg.classList.add('active');
-  } else if (floor === 'all') {
-    document.querySelector('.gallery-img.all').classList.add('active');
+  if (floor === 'all') {
+    const allFloorImage = document.querySelector('.gallery-img.all');
+    if (allFloorImage) {
+      allFloorImage.classList.add('active');
+    }
+  } else {
+    const selectedImg = document.querySelector(`.gallery-img.${floor}`);
+    if (selectedImg) {
+      selectedImg.classList.add('active');
+    }
   }
 
   const buttons = document.querySelectorAll('.button-row .btn');
@@ -19,9 +24,9 @@ function filterImages(floor) {
 
   const buttonMap = {
     all: 'All',
-    floor1: 'Floor 1',
-    floor2: 'Floor 2',
-    floor3: 'Floor 3'
+    floor3: 'Top',
+    floor2: 'First',
+    floor1: 'Ground'
   };
 
   const clickedBtn = Array.from(buttons).find(
