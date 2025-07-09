@@ -518,12 +518,6 @@ body:has(.hero) .subnav {
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .artwork-container p {
-    max-width: 380px;
-  }
-}
-
 .artwork-container img {
   width: 300px;
   height: auto;
