@@ -8,7 +8,7 @@
   --text-color: #121212;
   --heading-color: #000;
   --bg-color: #f0f0f0;
-  --body-font-size: clamp(1rem, 2.5vw, 1.125rem); 
+  --body-font-size: clamp(1rem, 2.5vw, 1.120rem); 
   --h1-size: clamp(1.5rem, 5vw, 2rem);
   --h2-size: clamp(1.25rem, 4vw, 1.5rem);
   --h3-size: clamp(1.125rem, 3vw, 1.25rem);
@@ -17,7 +17,7 @@
   --hamburger-btn-bg: #000;
   --hamburger-btn-width: 66px;
   --hamburger-btn-height: 66px;
-  --default-btn-bg: #5C0023;
+  --default-btn-bg: #272727;
   --default-btn-col: #F9F4EE;
   --visual-box-text-color: #121212;
 }
@@ -71,6 +71,7 @@ main {
 h1, h2, h3 {
   font-family: var(--font-heading);
   color: var(--heading-color);
+  font-weight: bold;
 }
 
 h1 {
@@ -390,9 +391,57 @@ body:has(.hero) .hamburger-btn {
   color: var(--text-color);
 }
 
+.light-blue {
+  font-weight: bold;
+  color: #80C5E4;
+}
+
+.dark-red {
+  font-weight: bold;
+  color: #5C0023;
+}
+
+.hand-top, .hand-bottom {
+  display: flex;
+  justify-content: center;
+  background-color: var(--bg-color);
+  margin-bottom: -70px;
+}
+
+.hand-top-img, .hand-bottom-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hand-bottom {
+  background-color: #E6B244;
+  margin-top: -30px;
+  margin-bottom: -30px;
+}
+
+.hand-bottom-img {
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .hand-top, .hand-bottom {
+    display: none;
+  }
+
+  .intro2 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+.intro2 {
+  background-color: #80C5E4;
+}
+
 .quote {
   min-height: 65vh;
-  background-color: #A8B9C6;
+  background-color: #E6B244;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -406,10 +455,12 @@ body:has(.hero) .hamburger-btn {
 
 .font1 {
   font-family: var(--font-heading);
+  font-weight: 500;
 }
 
 .font2 {
   font-family: var(--font-accent);
+  font-weight: 500;
 }
 
 .quote div {
@@ -492,20 +543,22 @@ body:has(.hero) .hamburger-btn {
 
 input.form-control,
 textarea.form-control {
-  background-color: #D9D9D9 !important;
-  border: 1px solid #ccc;
+  background-color: #D5CEC8 !important;
+  border: 1px solid #D5CEC8;
 }
 
-.testimonials h3 {
-  font-size: 1.35rem;
-  font-family: var(--font-accent);
+.testimonials {
+  background-color: #A8B9C6;
+  text-align: center;
 }
 
 .testimonial-bubble {
-  position: relative;
-  background-color: #D5CEC8;
+  text-align: center;
+  background-color: #F9F4EE;
   padding: 1.5rem;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
   max-width: 370px;
 }
 
@@ -513,40 +566,26 @@ textarea.form-control {
   color: black;
 }
 
-.testimonial-bubble::after {
-  content: "";
-  position: absolute;
-  bottom: -10px;
-  left: 15%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 20px;
-  height: 20px;
-  background-color: #D5CEC8;
-}
-
 .testimonial-img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid white;
-  background-color: #fff;
+  background-color: #E6B244;
 }
 
 @media (max-width: 990px) {
   .testimonial-bubble {
-    margin: 2rem auto;
     max-width: 99%;
   }
 
   .large-text .testimonial-bubble {
     max-width: 99%;
   }
+}
 
-  .testimonial-bubble::after {
-    left: 30px;
-    transform: rotate(45deg);
-  }
+.intro p, .intro h2, .intro2 p, .intro2 h2, .involve p, .involve h2, .team p, .team h2 {
+  text-align: center;
 }
 
 .team-member {
@@ -586,7 +625,7 @@ textarea.form-control {
 /* Speech-to-text page */
 
 .output-box {
-  border: 1px solid #000;
+  border: 1px solid #272727;
   border-radius: 10px;
   background-color: #fff;
   padding: 1rem;
@@ -606,7 +645,7 @@ textarea.form-control {
 }
 
 .speech-btn {
-  background-color: #D9D9D9;
+  background-color: #D5CEC8;
   border: none;
   border-radius: 50%;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
@@ -625,7 +664,7 @@ textarea.form-control {
 }
 
 .speech-btn:hover {
-  background-color: #D5CEC8;
+  background-color: #A8B9C6;
 }
 
 .speech-btn:disabled {
@@ -651,7 +690,7 @@ textarea.form-control {
 }
 
 .note textarea {
-  border: 1px solid #000;
+  border: 1px solid #272727;
   border-radius: 10px;
   background-color: #fff !important;
   padding: 1rem;
@@ -666,6 +705,10 @@ textarea.form-control {
 
 /* Settings page */
 
+.settings h3 {
+  font-weight: 500;
+}
+
 .radio-group {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -674,8 +717,8 @@ textarea.form-control {
 
 .radio-option {
   width: 100%;
-  border: 1px solid #ccc;
-  background-color: #D9D9D9;
+  border: 1px solid #D5CEC8;
+  background-color: #D5CEC8;
   border-radius: 10px; 
   padding: 1rem; 
   display: flex;
@@ -713,7 +756,7 @@ textarea.form-control {
   left: 50%;
   width: 0.5rem;
   height: 0.5rem;
-  background-color: #A9A9A9;
+  background-color: #D5CEC8;
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
