@@ -1,7 +1,7 @@
 /* General style */
 
 @font-face {
-  font-family: 'Museo Slab Accent';
+  font-family: 'Museo Slab';
   src: url('/fonts/Museo_Slab_300.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
@@ -15,28 +15,28 @@
 }
 
 @font-face {
-  font-family: 'Museo Slab Heading';
+  font-family: 'Museo Slab';
   src: url('/fonts/Museo_Slab_900.otf') format('opentype');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Sans Regular';
+  font-family: 'Museo Sans';
   src: url('/fonts/MuseoSans-300.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Sans Bold';
+  font-family: 'Museo Sans';
   src: url('/fonts/MuseoSans_500.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Sans Extra Bold';
+  font-family: 'Museo Sans';
   src: url('/fonts/MuseoSans_700.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
@@ -50,10 +50,8 @@
 }
 
 :root {
-  --font-heading: 'Museo Slab Heading', sans-serif;
-  --font-body: 'Museo Sans Regular', sans-serif;
-  --font-body-bold: 'Museo Sans Bold', sans-serif;
-  --font-body-extra-bold: 'Museo Sans Extra Bold', sans-serif;
+  --font-heading: 'Museo Slab', sans-serif;
+  --font-body: 'Museo Sans', sans-serif;
   --font-accent: 'Museo Slab Accent', sans-serif;
   --font-dyslexia: 'Lexend Deca', sans-serif;
   --font-sidebar: 'Onest', sans-serif;
@@ -104,10 +102,6 @@ body.dyslexia-font {
   font-family: var(--font-dyslexia);
 }
 
-.accent {
-  font-family: var(--font-accent) !important;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -126,6 +120,7 @@ main {
 
 h1, h2, h3 {
   font-family: var(--font-heading);
+  font-weight: 900;
   color: var(--heading-color);
 }
 
@@ -240,7 +235,7 @@ small {
 } 
 
 .nav-link.active {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .sidebar-socials {
@@ -261,6 +256,7 @@ small {
   padding: 0.5rem;
   white-space: nowrap;
   transition: color 0.3s;
+  font-weight: 500;
 }
 
 .subnav-link:hover {
@@ -269,7 +265,7 @@ small {
 
 .subnav-link.active {
   color: #454544;
-  font-weight: bold;
+  font-weight: 900;
 }
 
 .subnav-link i {
@@ -430,7 +426,7 @@ footer hr {
 }
 
 .modal-content p {
-  font-weight: 600;   
+  font-weight: 500;   
   color: var(--text-color);
 }
 
@@ -458,7 +454,7 @@ body:has(.hero) .subnav-link, body:has(.hero) .subnav-link i {
 }
 
 body:has(.hero) .subnav-link.active {
-  font-weight: bold;
+  font-weight: 900;
 }
 
 body:has(.hero) .subnav {
@@ -466,7 +462,6 @@ body:has(.hero) .subnav {
 }
 
 .hero h1 {
-  font-weight: 600;
   color: #FFFFFF !important;
 }
 
@@ -558,11 +553,13 @@ body:has(.hero) .subnav {
 }
 
 .font1 {
-  font-family: var(--font-body-extra-bold);
+  font-family: var(--font-body);
+  font-weight: 700;
 }
 
 .font2 {
   font-family: var(--font-heading);
+  font-weight: 300;
 }
 
 .quote div {
@@ -686,7 +683,7 @@ iframe {
 }
 
 .lead-p {
-  font-family: var(--font-body-extra-bold);
+  font-weight: 700;
 }
 
 /* Scan page */
@@ -763,7 +760,7 @@ iframe {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-body-extra-bold);
+  font-weight: 700;
   background-color: #25408F;
   color: #FFFFFF;
 }
@@ -801,7 +798,7 @@ iframe {
 }
 
 .games p {
-  font-family: var(--font-body-extra-bold);
+  font-weight: 700;
 }
 
 /* Memory and matching game pages */
@@ -906,7 +903,7 @@ iframe {
   align-items: center;
   justify-content: center;
   height: 200px;
-  font-family: var(--font-body-extra-bold);
+  font-weight: 700;
 }
 
 .card-body p {
@@ -940,7 +937,7 @@ iframe {
 }
 
 .timeline-info .title {
-  font-family: var(--font-body-bold);
+  font-weight: 500;
 }
 
 .drag-handle {
