@@ -50,13 +50,23 @@ function getCentury(dateStr) {
   return match ? parseInt(match[1]) : 21; // Defaults to 21 if no number is found
 }
 
-function rearrangeArray(array) {
-  return array.sort(() => Math.random() - 0.5);
+/* 
+  Rearrange the array randomly using the Fisher-Yates shuffle algorithm to ensure the artifacts are displayed in a random order each time.
+  https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/ (Accessed July 6, 2025)
+*/
+
+function rearrange(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
 // Function for starting or resetting the game
 function startGame() {
-  renderList(rearrangeArray([...artifacts]), false);
+  renderList(rearrange([...artifacts]), false);
 
   if (sortableInstance) sortableInstance.destroy(); // Remove any previous drag-and-drop functionality from the list
   // Activate Sortable.js on the timeline list - users can drag and rearrange items using the handle
