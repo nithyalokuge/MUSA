@@ -52,7 +52,6 @@
 :root {
   --font-heading: 'Museo Slab', sans-serif;
   --font-body: 'Museo Sans', sans-serif;
-  --font-accent: 'Museo Slab Accent', sans-serif;
   --font-dyslexia: 'Lexend Deca', sans-serif;
   --font-sidebar: 'Onest', sans-serif;
   --font-footer: 'Noto Sans', sans-serif;
@@ -801,6 +800,119 @@ iframe {
   font-weight: 700;
 }
 
+/* Quiz game */
+
+#quiz-container {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#quiz-container.show {
+  opacity: 1;
+}
+
+.quiz-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+}
+
+@media (min-width: 321px) {
+  .quiz-image {
+    width: auto;
+    max-height: 320px;
+  }
+}
+
+.game-content {
+  text-align: center;
+  width: 100%;
+  color: #f0f0f0;;
+  background-color: #21428e;
+}
+
+.question-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+@media (min-width: 868px) {
+  .question-timer {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .question-timer h3 {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+}
+
+#question {
+  font-weight: 700;
+  color: #f0f0f0;
+  margin: 0;
+}
+
+.timer-badge {
+  font-style: italic;
+  color: #f0f0f0;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .quiz-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.quiz-score {
+  font-style: italic;
+}
+
+.quiz-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #E8E8E8;
+  background-color: #E8E8E8;
+  color: var(--text-color);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.quiz-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+}
+
+.quiz-btn.correct {
+  background-color: #28a745;
+  border-color: #28a745;
+  color: #f0f0f0;
+}
+
+.quiz-btn.wrong {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #f0f0f0;
+}
+
 /* Memory and matching game pages */
 
 .game-board {
@@ -945,3 +1057,4 @@ iframe {
   font-size: 1.4rem;
   margin-left: auto;
 }
+
