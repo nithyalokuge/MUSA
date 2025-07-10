@@ -1,64 +1,64 @@
 /* General style */
 
 @font-face {
-  font-family: 'Museo Slab';
-  src: url('/fonts/Museo_Slab_300.otf') format('opentype');
+  font-family: "Museo Slab";
+  src: url("/fonts/Museo_Slab_300.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Slab';
-  src: url('/fonts/Museo_Slab_700.otf') format('opentype');
+  font-family: "Museo Slab";
+  src: url("/fonts/Museo_Slab_700.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Slab';
-  src: url('/fonts/Museo_Slab_900.otf') format('opentype');
+  font-family: "Museo Slab";
+  src: url("/fonts/Museo_Slab_900.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Sans';
-  src: url('/fonts/MuseoSans-300.otf') format('opentype');
+  font-family: "Museo Sans";
+  src: url("/fonts/MuseoSans-300.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Sans';
-  src: url('/fonts/MuseoSans_500.otf') format('opentype');
+  font-family: "Museo Sans";
+  src: url("/fonts/MuseoSans_500.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Sans';
-  src: url('/fonts/MuseoSans_700.otf') format('opentype');
+  font-family: "Museo Sans";
+  src: url("/fonts/MuseoSans_700.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Museo Sans';
-  src: url('/fonts/MuseoSans_900.otf') format('opentype');
+  font-family: "Museo Sans";
+  src: url("/fonts/MuseoSans_900.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
 }
 
 :root {
-  --font-heading: 'Museo Slab', sans-serif;
-  --font-body: 'Museo Sans', sans-serif;
-  --font-dyslexia: 'Lexend Deca', sans-serif;
-  --font-sidebar: 'Onest', sans-serif;
-  --font-footer: 'Noto Sans', sans-serif;
+  --font-heading: "Museo Slab", sans-serif;
+  --font-body: "Museo Sans", sans-serif;
+  --font-dyslexia: "Lexend Deca", sans-serif;
+  --font-sidebar: "Onest", sans-serif;
+  --font-footer: "Noto Sans", sans-serif;
   --text-color: #121212;
   --heading-color: #454544;
-  --bg-color: #E8E8E8;
-  --body-font-size: clamp(1rem, 2.5vw, 1.125rem); 
+  --bg-color: #e8e8e8;
+  --body-font-size: clamp(1rem, 2.5vw, 1.125rem);
   --h1-size: clamp(1.5rem, 5vw, 2rem);
   --h2-size: clamp(1.25rem, 4vw, 1.5rem);
   --h3-size: clamp(1.125rem, 3vw, 1.25rem);
@@ -67,7 +67,7 @@
   --hamburger-btn-bg: #000;
   --hamburger-btn-width: 66px;
   --hamburger-btn-height: 66px;
-  --default-btn-bg: #C6B987;
+  --default-btn-bg: #c6b987;
   --default-btn-col: #454645;
 }
 
@@ -84,12 +84,12 @@ body.dark-mode {
   --heading-color: #ffffff;
   --text-color: #f0f0f0;
   --bg-color: #121212;
-  --default-btn-bg: #C6B987;
+  --default-btn-bg: #c6b987;
   --hamburger-btn-bg: #ffffff;
 }
 
 body.large-text {
-  --body-font-size: clamp(1.150rem, 1.5vw, 1.375rem);
+  --body-font-size: clamp(1.15rem, 1.5vw, 1.375rem);
   --h1-size: clamp(2.5rem, 6vw, 3rem);
   --h2-size: clamp(2rem, 5vw, 2.5rem);
   --h3-size: clamp(1.5rem, 4vw, 2rem);
@@ -105,7 +105,8 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -114,10 +115,12 @@ html, body {
 }
 
 main {
-  flex: 1; 
+  flex: 1;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-heading);
   font-weight: 900;
   color: var(--heading-color);
@@ -134,7 +137,7 @@ h2 {
 }
 
 h3 {
-  font-size: var(--h3-size); 
+  font-size: var(--h3-size);
   margin-bottom: 1rem;
 }
 
@@ -149,7 +152,7 @@ small {
 .hamburger-btn {
   font-size: 1.25rem;
   position: fixed;
-  right: 0.5rem; 
+  right: 0.5rem;
   width: 56px;
   height: 56px;
   display: flex;
@@ -174,22 +177,22 @@ small {
 }
 
 .navbar {
-  background-color: #D5CEC8;
+  background-color: #d5cec8;
 }
 
 .navbar-toggler-icon {
   background-size: contain;
-  filter: invert(1); 
+  filter: invert(1);
 }
 
 .dark-mode .navbar-toggler-icon {
-  filter: invert(0); 
+  filter: invert(0);
 }
 
 .offcanvas {
-  background-color: #5C0023;
+  background-color: #5c0023;
   font-family: var(--font-sidebar);
-  color: #F9F4EE;
+  color: #f9f4ee;
 }
 
 .offcanvas img {
@@ -231,7 +234,7 @@ small {
 
 .nav-link:hover {
   text-decoration: underline;
-} 
+}
 
 .nav-link.active {
   font-weight: bold !important;
@@ -242,15 +245,15 @@ small {
 }
 
 .sidebar-socials i {
-  color: #F9F4EE;
-  font-size: 1.30rem;
+  color: #f9f4ee;
+  font-size: 1.3rem;
 }
 
 /* Subnav */
 
 .subnav-link {
   text-decoration: none;
-  color: #6B6B6B;
+  color: #6b6b6b;
   flex: 1 0 auto;
   padding: 0.5rem;
   white-space: nowrap;
@@ -268,8 +271,8 @@ small {
 }
 
 .subnav-link i {
-  color: #6B6B6B;
-  font-size: 1.25rem; 
+  color: #6b6b6b;
+  font-size: 1.25rem;
 }
 
 .subnav-link.active i {
@@ -289,19 +292,19 @@ small {
 
 @media (max-width: 576px) {
   .subnav-link small {
-    font-size: 0.75rem; 
+    font-size: 0.75rem;
   }
 }
 
 footer {
-  background-color: #D5CEC8;
+  background-color: #d5cec8;
   font-family: var(--font-footer);
 }
 
 footer a {
   text-decoration: none;
   display: block;
-  color: #1C1B1F; 
+  color: #1c1b1f;
   font-weight: 500;
 }
 
@@ -309,13 +312,13 @@ footer a:hover {
   text-decoration: underline;
 }
 
-@media(max-width: 768px){
+@media (max-width: 768px) {
   .footer img {
     height: 60px;
   }
 }
 
-@media(min-width: 768px){
+@media (min-width: 768px) {
   .footer img {
     height: 80px;
   }
@@ -357,7 +360,8 @@ footer hr {
 }
 
 .default-btn:hover,
-.default-btn:focus, .default-btn:active {
+.default-btn:focus,
+.default-btn:active {
   background-color: #444444 !important;
   color: white !important;
 }
@@ -379,7 +383,7 @@ footer hr {
 
 @media (max-width: 768px) {
   .back-to-home {
-    font-size: 1.10rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -394,22 +398,22 @@ footer hr {
   left: 50%;
   top: 50%;
   display: none;
-  transform: translate(-50%, -50%); 
-  max-width: 450px; 
-  width: 95%; 
+  transform: translate(-50%, -50%);
+  max-width: 450px;
+  width: 95%;
   justify-content: center;
   align-items: center;
 }
 
 .modal.active {
-  display: flex; 
+  display: flex;
 }
 
 .modal-content {
   padding: 40px;
   border-radius: 10px;
   text-align: center;
-  background: #E2E2E2;
+  background: #e2e2e2;
 }
 
 .modal-icon {
@@ -425,7 +429,7 @@ footer hr {
 }
 
 .modal-content p {
-  font-weight: 500;   
+  font-weight: 500;
   color: var(--text-color);
 }
 
@@ -443,12 +447,13 @@ footer hr {
 /* Home page */
 
 .hero {
-  background-color: #7FA0D5;
+  background-color: #7fa0d5;
   position: relative;
   overflow: hidden;
 }
 
-body:has(.hero) .subnav-link, body:has(.hero) .subnav-link i {
+body:has(.hero) .subnav-link,
+body:has(.hero) .subnav-link i {
   color: #ffffff;
 }
 
@@ -457,11 +462,11 @@ body:has(.hero) .subnav-link.active {
 }
 
 body:has(.hero) .subnav {
-  background-color: #7FA0D5;
+  background-color: #7fa0d5;
 }
 
 .hero h1 {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 @media (min-width: 768px) {
@@ -477,7 +482,7 @@ body:has(.hero) .subnav {
 }
 
 .welcome-box {
-  background-color: #002D7C;
+  background-color: #002d7c;
   color: white;
   padding: 1rem 1rem;
 }
@@ -521,7 +526,7 @@ body:has(.hero) .subnav {
 .artwork-container img {
   width: 300px;
   height: auto;
-  margin: 0 auto 1rem auto; 
+  margin: 0 auto 1rem auto;
 }
 
 @media (max-width: 768px) {
@@ -532,7 +537,7 @@ body:has(.hero) .subnav {
 
 .quote {
   min-height: 65vh;
-  background-color: #25408F;
+  background-color: #25408f;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -568,7 +573,7 @@ body:has(.hero) .subnav {
 .quote-start,
 .quote-end {
   position: absolute;
-  width: 40px; 
+  width: 40px;
   height: auto;
   transition: all 0.3s ease-in-out;
 }
@@ -626,18 +631,24 @@ body:has(.hero) .subnav {
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink {
-  50% { border-color: transparent }
+  50% {
+    border-color: transparent;
+  }
 }
 
 .gallery-grid {
   display: grid;
   gap: 0.5rem;
-  grid-template-columns: repeat(2, 1fr); 
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .gallery-grid img {
@@ -658,17 +669,18 @@ body:has(.hero) .subnav {
   }
 
   .gallery-grid img:last-child {
-    grid-column: 1 / -1; 
+    grid-column: 1 / -1;
   }
 }
 
 .hunt-location {
   background-color: #444444;
-  color: #D2D2D3;
+  color: #d2d2d3;
 }
 
-.hunt-location h2, .hunt-location h3 {
-  color: #D2D2D3 !important;
+.hunt-location h2,
+.hunt-location h3 {
+  color: #d2d2d3 !important;
 }
 
 iframe {
@@ -705,12 +717,12 @@ iframe {
 }
 
 #qr-error {
-  color: #EA1D2D;
+  color: #ea1d2d;
 }
 
 .bi-qr-code-scan {
   font-size: 4rem;
-  color: #6E6F72;
+  color: #6e6f72;
   margin-bottom: 0.5rem;
 }
 
@@ -719,7 +731,8 @@ iframe {
   height: 100%;
 }
 
-#qr-message, #stop-scan {
+#qr-message,
+#stop-scan {
   margin-top: 1rem;
 }
 
@@ -745,7 +758,8 @@ iframe {
   display: flex;
 }
 
-.btn-active, .btn-not-active {
+.btn-active,
+.btn-not-active {
   width: 83px;
   height: 40px;
   overflow: hidden;
@@ -754,18 +768,19 @@ iframe {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  background-color: #25408F;
-  color: #FFFFFF;
+  background-color: #25408f;
+  color: #ffffff;
 }
 
-.btn-active:hover, .btn-not-active:hover {
-  background-color: #25408F;
-  color: #FFFFFF;
+.btn-active:hover,
+.btn-not-active:hover {
+  background-color: #25408f;
+  color: #ffffff;
 }
 
 .btn-active {
   background-color: #152554 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 /* Games page */
@@ -782,7 +797,7 @@ iframe {
 }
 
 .game-card img {
-  border-radius: 10px; 
+  border-radius: 10px;
 }
 
 .games a {
@@ -824,7 +839,7 @@ iframe {
 .game-content {
   text-align: center;
   width: 100%;
-  color: #f0f0f0;;
+  color: #f0f0f0;
   background-color: #21428e;
 }
 
@@ -882,8 +897,8 @@ iframe {
 .quiz-btn {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 2px solid #E8E8E8;
-  background-color: #E8E8E8;
+  border: 2px solid #e8e8e8;
+  background-color: #e8e8e8;
   color: var(--text-color);
   border-radius: 10px;
   transition: all 0.2s ease;
@@ -949,9 +964,9 @@ iframe {
 .card-front {
   background-color: #ff671c;
   z-index: 2;
-  background-image: url('/img/hunt-logo.png'); 
-  background-position: center; 
-  background-repeat: no-repeat; 
+  background-image: url("/img/hunt-logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .card-back {
@@ -964,7 +979,7 @@ iframe {
 .card-back img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   border-radius: 10px;
 }
 
@@ -990,7 +1005,7 @@ iframe {
   justify-content: center;
   text-align: center;
   border: 5px solid transparent;
-  background-color: #D5CEC8;
+  background-color: #d5cec8;
 }
 
 .card.selected {
@@ -1052,3 +1067,79 @@ iframe {
   margin-left: auto;
 }
 
+/* Falling Game */
+.frame-container {
+  position: relative;
+  width: 90vw;
+  height: calc(90vw * 1.5);
+  max-width: 600px;
+  max-height: 720px;
+  margin: auto;
+  background-image: url("/img/games/backg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+#game {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width: 80%;
+  height: 75%;
+  pointer-events: none;
+}
+
+#girl {
+  position: absolute;
+  bottom: -145px;
+  width: 25%;
+  pointer-events: auto;
+}
+
+.flower {
+  position: absolute;
+  width: 25%;
+  pointer-events: none;
+}
+
+#score,
+#lives {
+  position: absolute;
+  left: 4%;
+
+  font-size: 1.8vw;
+  font-weight: 400;
+  color: #222;
+  z-index: 5;
+  pointer-events: none;
+}
+
+#lives {
+  top: 6%;
+}
+
+#gameOver {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2vw;
+  font-weight: bold;
+  color: darkred;
+  display: none;
+  text-align: center;
+  z-index: 10;
+}
+
+#restartBtn {
+  margin-top: 1vw;
+  padding: 0.5vw 1vw;
+  font-size: 1.8vw;
+  cursor: pointer;
+  background: white;
+  border: 2px solid #000;
+  border-radius: 8px;
+  pointer-events: auto;
+}
