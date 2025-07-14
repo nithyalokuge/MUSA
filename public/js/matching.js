@@ -94,7 +94,7 @@ function handleCardClick(card) {
         updateScore();
 
         if (matchesFound === cardsData.length) {
-          showModal('Well done! You matched all pairs!', 'bi-check-circle-fill');
+          showModal('Well done! You matched all pairs!', 'bi-emoji-wink-fill');
           setTimeout(initializeGame, 2000);
         }
       } else {
@@ -117,5 +117,5 @@ function showModal(message, iconClass) {
 
   setTimeout(() => {
     modal.classList.remove('active');
-  }, 1500);
+  }, 1800);
 }

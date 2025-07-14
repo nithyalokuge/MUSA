@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const currentPath = window.location.pathname;
 
-    const navLinks = document.querySelectorAll('.subnav-link, .navbar-nav .nav-link');
+    const navLinks = document.querySelectorAll('.circular-menu .nav-link, .subnav-link');
 
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
@@ -13,3 +13,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+

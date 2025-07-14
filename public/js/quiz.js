@@ -7,6 +7,9 @@ let score = 0;
 let time = 30; // Countdown timer value for each question
 let timer = null; // Start and stop countdown when a question is shown or answered
 
+const startBtn = document.getElementById("start-btn");
+const startScreen = document.getElementById('intro-screen');
+const quizContainer = document.getElementById("quiz-container");
 const questionEl = document.getElementById("question");
 const optionsEl = document.getElementById("options");
 const imageEl = document.getElementById("quiz-image");
@@ -16,9 +19,6 @@ const scoreDisplay = document.getElementById("score-display");
 const modal = document.getElementById("modal");
 const modalIcon = modal.querySelector(".modal-icon");
 const modalText = modal.querySelector("p");
-const startScreen = document.getElementById("quiz-start-screen");
-const startBtn = document.getElementById("start-btn");
-const quizContainer = document.getElementById("quiz-container");
 
 document.addEventListener("DOMContentLoaded", () => {
   fetch("/js/quiz.json")
@@ -51,7 +51,6 @@ function rearrange(array) {
   array.forEach(q => {
     q.options = rearrangeOptions([...q.options]);
   });
-
   return array;
 }
 
@@ -155,7 +154,7 @@ function showAnswer(selected) {
 }
 
 function endGame() {
-  showModal(`Game completed! Your score is: ${score}/${quiz.length}.`, "bi bi-emoji-wink");
+  showModal(`Game completed! Your score is: ${score}/${quiz.length}.`, "bi-emoji-wink-fill");
 }
 
 function showModal(message, iconClass) {
@@ -166,7 +165,7 @@ function showModal(message, iconClass) {
   setTimeout(() => {
     modal.classList.remove('active');
     showStartScreen();
-  }, 2000);
+  }, 2010);
 }
 
 function showStartScreen() {

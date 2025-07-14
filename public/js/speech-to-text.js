@@ -44,9 +44,9 @@ if (isIOS) {
     if (output.textContent.trim().length === 0) return;
     try {
       await navigator.clipboard.writeText(output.textContent);
-      showModal('Copied to clipboard!', 'bi-check-circle-fill');
+      showModal('Copied to clipboard!', 'bi-emoji-wink-fill');
     } catch {
-      showModal('Could not copy text. Sorry!', 'bi-x-circle-fill');
+      showModal('Could not copy text. Sorry!', 'bi-emoji-tear-fill');
     }
   };
 } else if ('webkitSpeechRecognition' in window) {
@@ -78,25 +78,25 @@ if (isIOS) {
     console.error('Speech recognition error: ', event.error);
     switch (event.error) {
       case 'no-speech':
-        showModal('No speech detected.', 'bi-x-circle-fill');
+        showModal('No speech detected.', 'bi-emoji-tear-fill');
         break;
       case 'audio-capture':
-        showModal('No microphone found or access is blocked.', 'bi-x-circle-fill');
+        showModal('No microphone found or access is blocked.', 'bi-emoji-tear-fill');
         break;
       case 'not-allowed':
-        showModal('Microphone access denied. Please allow permission.', 'bi-x-circle-fill');
+        showModal('Microphone access denied. Please allow permission.', 'bi-emoji-tear-fill');
         break;
       case 'aborted':
-        showModal('Speech input was interrupted.', 'bi-x-circle-fill');
+        showModal('Speech input was interrupted.', 'bi-emoji-tear-fill');
         break;
       case 'network':
-        showModal('Network error. Please check your connection.', 'bi-x-circle-fill');
+        showModal('Network error. Please check your connection.', 'bi-emoji-tear-fill');
         break;
       case 'service-not-allowed':
-        showModal('Speech service is blocked by browser settings.', 'bi-x-circle-fill');
+        showModal('Speech service is blocked by browser settings.', 'bi-emoji-tear-fill');
         break;
       default:
-        showModal('Speech recognition error occurred.', 'bi-x-circle-fill');
+        showModal('Speech recognition error occurred.', 'bi-emoji-tear-fill');
     }
   };
 
@@ -133,13 +133,13 @@ if (isIOS) {
   copyBtn.onclick = async () => {
     try {
       await navigator.clipboard.writeText(output.textContent);
-      showModal('Copied to clipboard!', 'bi-check-circle-fill');
+      showModal('Copied to clipboard!', 'bi-emoji-wink-fill');
     } catch (err) {
-      showModal('Could not copy text. Sorry!', 'bi-x-circle-fill');
+      showModal('Could not copy text. Sorry!', 'bi-emoji-tear-fill');
     }
   };
 } else {
-  showModal('Speech recognition is not supported in this browser. Try Chrome, Edge or Opera.', 'bi-x-circle-fill');
+  showModal('Speech recognition is not supported in this browser. Try Chrome, Edge or Opera.', 'bi-emoji-tear-fill');
   startBtn.disabled = true;
   stopBtn.disabled = true;
   clearBtn.disabled = true;
@@ -153,5 +153,5 @@ function showModal(message, iconClass) {
 
   setTimeout(() => {
     modal.classList.remove('active');
-  }, 1300); 
+  }, 1800); 
 }

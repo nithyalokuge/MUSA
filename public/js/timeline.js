@@ -82,7 +82,7 @@ checkButton.addEventListener('click', () => {
   const isCorrect = currentTitles.every((title, index) => title === correctTitles[index]);
 
   if (isCorrect) {
-    showModal('Well done!', 'bi bi-check-circle-fill');
+    showModal('Well done!', 'bi-emoji-wink-fill');
     checkButton.classList.add('d-none');
 
     setTimeout(() => {
@@ -90,7 +90,7 @@ checkButton.addEventListener('click', () => {
     }, 2010);
 
   } else {
-    showModal('Sorry! That\'s not the right order. Here\'s the correct timeline: ', 'bi bi-x-circle-fill');
+    showModal('Sorry! That\'s not the right order. Here\'s the correct timeline: ', 'bi-emoji-tear-fill');
     checkButton.classList.add('d-none');
     resetButton.classList.add('d-none');
 
@@ -99,6 +99,7 @@ checkButton.addEventListener('click', () => {
       resetButton.classList.remove('d-none');
       if (sortableInstance) sortableInstance.destroy(); // No dragging functionality when the correct order is shown
       sortableInstance = null;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 2010);
   }
 });
@@ -110,9 +111,10 @@ function showModal(message, iconClass) {
 
   setTimeout(() => {
     modal.classList.remove('active');
-  }, 2000);
+  }, 2010);
 }
 
 resetButton.addEventListener('click', () => {
   startGame();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });  
