@@ -6,9 +6,9 @@
         <title>Matching Game - The Hunt Museum</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Onest:wght@300&display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&display=swap">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <script src="/js/apply-settings.js"></script>
         <link rel="stylesheet" href="/css/the-hunt-museum-style.css">
     </head>
@@ -16,19 +16,19 @@
         <%- include("../../partials/header-hunt2") %>
 
         <main>
-            <section class="py-5 match">
+            <section class="py-4 match">
                 <div class="container">
-                    <div class="mb-5">
+                    <div>
                         <a href="/hunt/games" class="back-to-home" aria-label="Back to The Hunt Museum's Games page">
                             <i class="bi bi-arrow-90deg-left" aria-hidden="true"></i>
                         </a>
                         <h2 class="d-inline">Match the artifact to the artist</h2>
                         <p class="mt-4">Tap one artwork and one artist to find the correct match!</p>
                     </div>
-                    <div class="mb-4">
-                        <p id="score" class="accent text-end"></p>
+                    <div>
+                        <p id="score" class="accent text-end"><!-- Content dynamically inserted by JS --></p>
                     </div>
-                    <div class="game-board" id="gameBoard"></div>
+                    <div id="gameBoard" class="game-board"><!-- Content dynamically inserted by JS --></div>
                 </div>
             </section>
         </main>
@@ -39,6 +39,7 @@
         <!-- Footer -->
         <%- include("../../partials/footer") %>
 
+        <script src="/js/menu.js"></script>
         <script src="/js/matching.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
