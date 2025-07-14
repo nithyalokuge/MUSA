@@ -35,9 +35,9 @@ Users can:
 
 ## Roles 
 - Lucy Jacobson: UI/UX Designer
-- Kiera O'Hara: Content Creator
-- Robyn Quigley: Project Manager
-- Xinkai Ge: 3D Modeler, Programming - Frontend (HTML5, CSS3, JavaScript)
+- Kiera O'Hara: Content Creator & Collabs
+- Robyn Quigley: Project Manager & Video editor
+- Xinkai Ge: 3D Modeler, Programming - Frontend (HTML5, CSS3, Bootstrap, JavaScript)
 - Nithya Samadhi Lokuge: Programming lead - Frontend (HTML5, EJS, CSS3, Bootstrap, JavaScript), Database structure, Backend
   
 ---
