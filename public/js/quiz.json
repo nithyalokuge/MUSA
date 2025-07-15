@@ -25,7 +25,7 @@
   },
   {
     "question": "What phrase is inscribed on the gold band around the coin?",
-    "image": "/img/dekadrachm-coin.jpg",
+    "image": "/img/games/dekadrachm-coin.jpg",
     "options": ["In God We Trust", "Victory for the Charioteer", "This is the price of blood", "Paid in silver"],
     "answer": "This is the price of blood"
   },
