@@ -1,5 +1,12 @@
 /* General style */
 
+@font-face {
+  font-family: 'Arial Rounded';
+  src: url('/fonts/Arial-Rounded.ttf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   --font-heading: 'Onest', sans-serif;
   --font-body: 'Noto Sans', sans-serif;
@@ -523,22 +530,25 @@ body:has(.hero) .hamburger-btn {
 
 .welcome-text, .to-text {
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: all 1s ease;
+  transform: translateX(0);
+  font-size: 3rem;
   margin: 0;
 }
 
 .welcome-text {
-  font-size: 3rem;
-}
-
-.dark-mode .welcome-text, .dark-mode .to-text {
-  color: #272727;
+  transform: translateX(100px); 
 }
 
 .to-text {
-  font-size: 2rem;
   margin-top: -0.5rem;
-  margin-left: 11rem; 
+  margin-left: -10rem; 
+  transform: translateX(-100px);
+}
+
+.welcome-text.visible, .to-text.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .hero-visuals {
@@ -550,7 +560,7 @@ body:has(.hero) .hamburger-btn {
 .hand-container {
   position: relative;
   width: 180px;
-  height: 220px;
+  height: 240px;
 }
 
 .hand {
@@ -561,8 +571,11 @@ body:has(.hero) .hamburger-btn {
   height: 100%;
   object-fit: contain;
   opacity: 0;
-  transition: opacity 0.2s ease;
   filter: grayscale(100%);
+}
+
+.fade-hand {
+  transition: opacity 0.8s ease;
 }
 
 .hand.active {
@@ -572,22 +585,18 @@ body:has(.hero) .hamburger-btn {
 
 .rotated-text {
   position: absolute;
-  top: 70%; 
-  left: 103%; 
+  top: 62%; 
+  left: 108%; 
   opacity: 0;
   transition: opacity 1s ease;
 }
 
 .rotated-text p {
+  font-family: 'Arial Rounded', sans-serif;
   transform: rotate(-90deg);
   transform-origin: left center;
   white-space: nowrap;
-  font-weight: 600;
   font-size: 1rem;
-}
-
-.dark-mode .rotated-text p {
-  color: #272727;
 }
 
 .scroll-arrow {
@@ -595,16 +604,6 @@ body:has(.hero) .hamburger-btn {
   margin-top: 8rem;
   animation: bounce 2s infinite;
   transition: opacity 1s ease;
-}
-
-@media (max-width: 768px) {
-  .scroll-arrow {
-    margin-top: 5rem;
-  }
-}
-
-.scroll-arrow.visible {
-  opacity: 1;
 }
 
 @keyframes bounce {
@@ -616,11 +615,21 @@ body:has(.hero) .hamburger-btn {
   }
 }
 
+.scroll-arrow.visible {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .scroll-arrow {
+    margin-top: 5rem;
+  }
+}
+
 .scroll-arrow a {
   color: var(--text-color);
 }
 
-.dark-mode .scroll-arrow a {
+.dark-mode .scroll-arrow a, .dark-mode .welcome-text, .dark-mode .to-text, .dark-mode .rotated-text p {
   color: #272727;
 }
 

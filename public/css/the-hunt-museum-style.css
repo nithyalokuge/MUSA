@@ -831,6 +831,63 @@ iframe {
 
 .explore {
   text-align: center;
+  position: relative;
+}
+
+.scan-icon-link {
+  position: absolute;
+  top: 11.5rem; 
+  left: 0.6rem;
+  background-color: #25408F; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  z-index: 999; 
+  transition: background-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .scan-icon-link {
+    left: 1.8rem;
+  }
+}
+
+@media (min-width: 820px) {
+  .scan-icon-link {
+    left: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .scan-icon-link {
+    left: 5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .scan-icon-link {
+    left: 5rem;
+  }
+}
+
+@media (min-width: 2260px) {
+  .scan-icon-link {
+    left: 40rem;
+  }
+}
+
+.scan-icon-link:hover {
+  background-color: #25408F;
+  text-decoration: none;
+}
+
+.explore .bi-qr-code-scan {
+  font-size: 1.3rem;
+  margin-bottom: 0rem;
+  color: #fff;
 }
 
 /* Scan page */
