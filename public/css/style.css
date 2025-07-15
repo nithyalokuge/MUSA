@@ -513,7 +513,7 @@ body:has(.hero) .hamburger-btn {
 
 .hero {
   min-height: 100vh;
-  background-color: #D5CEC8;
+  background-color: #FFFCF9;
   display: flex;
   align-items: center;
   justify-content: center;
