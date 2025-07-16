@@ -703,7 +703,7 @@ body:has(.hero) .subnav {
 }
 
 .quote {
-  min-height: 35vh;
+  min-height: 40vh;
   background-color: #25408F;
   color: #ffffff;
   display: flex;
@@ -729,6 +729,7 @@ body:has(.hero) .subnav {
 .font2 {
   font-family: var(--font-heading);
   font-weight: 300;
+  margin-bottom: 0rem;
 }
 
 .quote h2 {
@@ -741,6 +742,38 @@ body:has(.hero) .subnav {
 
 .dark-mode .quote h2 {
   color: #272727;
+}
+
+.arch {
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  margin-bottom: 2rem;
+}
+
+.arch-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 375px) {
+  .arch {
+    display: none;
+  }
+  .quote {
+    padding-bottom: 3rem;
+  }
+}
+
+@media (width: 390px) {
+  .arch {
+    display: block;
+  }
+  .quote {
+    padding-top: 1.5rem !important;
+    padding-bottom: 0rem;
+  }
 }
 
 .gallery-grid {
