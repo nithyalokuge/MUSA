@@ -75,9 +75,9 @@ npm i
 ```
 **4. Set environment variables**: update the `.env` file in the root directory and populate it with the necessary values. You can refer to the [`.env.example`](#envexample) file for guidance.
 
-**5. Database and Tables won't be created for you:**
+**5. Tables won't be created for you:**
 
-Using MySQL phpAdmin dashboard, create a database called `musa`. Then click on `Import` and upload the `musa.sql` file provided in the `docs` folder. In this way, all tables and their data will be automatically uploaded.
+Using the MySQL phpAdmin dashboard, click on `Import` and upload the `musa.sql` file provided in the `docs` folder. In this way, all tables and their data will be automatically uploaded.
 
 **6. Run the project**: 
 ```bash
@@ -109,7 +109,7 @@ PORT = 5500
 - `controllers`: store the controller that handles the application's logic for searching, filtering artifacts and viewing their details.
 - `docs`: contains the `musa.sql` dump and a screeshot of the database structure.
 - `models`: contains the database model that defines the structure of the application's data.
-- `public`: stores all static files such as CSS, images, fonts and front-end JavaScript.
+- `public`: stores files such as CSS, images, fonts and JavaScript.
 - `views`: contains the files that define the UI of the application. It uses the EJS template engine for dynamic content rendering.
     - `hunt`: stores views of The Hunt Museum.
         - `games`: stores views of The Hunt Museum's games.
