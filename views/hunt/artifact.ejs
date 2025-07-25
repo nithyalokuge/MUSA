@@ -141,7 +141,7 @@
                         <a href="<%= artifact.game %>">Play game</a>
                     </div>
                 <% } %>
-                <div class="artifact-nav">
+                <div class="artifact-nav mb-5">
                     <a href="/hunt/artifacts/<%= previousArtifact.id %>" class="next-prev-link me-2">
                         <div class="next-prev-icon">
                             <i class="bi bi-chevron-left me-2" aria-hidden="true"></i>
@@ -159,6 +159,14 @@
                         </div>
                     </a>
                 </div>
+                <% if (artifact.sources && artifact.sources.length > 0) { %>
+                    <div>
+                        <p class="sources">
+                            <span class="sources-title">Sources</span>:
+                            <span class="sources-italic preserve-format"><%= artifact.sources %></span>
+                        </p>
+                    </div>
+                <% } %>
             </div>
         </section>
     </main>
