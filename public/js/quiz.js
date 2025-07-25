@@ -154,7 +154,7 @@ function showAnswer(selected) {
 }
 
 function endGame() {
-  showModal(`Game completed! Your score is: ${score}/${quiz.length}.`, "bi-emoji-wink-fill");
+  showModal(`Game completed! Your score is: ${score}/${quiz.length}.`, "bi-emoji-smile-fill");
 }
 
 function showModal(message, iconClass) {
@@ -165,10 +165,11 @@ function showModal(message, iconClass) {
   setTimeout(() => {
     modal.classList.remove('active');
     showStartScreen();
-  }, 2010);
+  }, 2500);
 }
 
 function showStartScreen() {
   quizContainer.classList.add('d-none');
   startScreen.classList.remove('d-none');
+  startBtn.textContent = "PLAY AGAIN";
 }

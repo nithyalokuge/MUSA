@@ -89,8 +89,11 @@ function handleCardClick(card) {
         updateScore();
 
         if (matchesFound === cardsData.length) {
-          showModal('Well done! You matched all pairs!', 'bi-emoji-wink-fill');
-          setTimeout(initializeGame, 2000);
+          showModal('Well done! You matched all pairs! Resetting...', 'bi-emoji-wink-fill');
+          setTimeout(() => {
+            initializeGame();
+            window.scrollTo({ top: 0, behavior: 'smooth' }); 
+          }, 2500);
         }
       } else {
         firstCard.classList.remove('flipped');
@@ -114,5 +117,5 @@ function showModal(message, iconClass) {
 
   setTimeout(() => {
     modal.classList.remove('active');
-  }, 1800);
+  }, 2500);
 }

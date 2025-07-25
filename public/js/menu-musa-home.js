@@ -1,4 +1,4 @@
-// Script for creating a circular overlay menu that expands from the center of the hamburger menu icon and collapses back into it when closed (for MUSA)
+// Script for creating a circular overlay menu that expands from the center of the hamburger menu icon and collapses back into it when closed (for MUSA home page)
 
 const hamburger = document.getElementById('hamburger');
 const circularMenu = document.getElementById('circularMenu');
@@ -13,7 +13,11 @@ function getHamburgerCenterPercent() {
   } else if (width >= 1440) {
     return { xPercent: 94.5, yPercent: 5.5 };
   } else if (width >= 1200) {
-    return { xPercent: 93.5, yPercent: 6.5 };
+    return { xPercent: 93.5, yPercent: 7 };
+  } else if (width >= 1024) {
+    return { xPercent: 95, yPercent: 6 };
+  } else if (width >= 820) {
+    return { xPercent: 92, yPercent: 4 };
   } else {
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect (Accessed July 13, 2025)
     const rect = hamburger.getBoundingClientRect();
@@ -47,7 +51,3 @@ closeMenu.addEventListener('click', () => {
     circularMenu.removeEventListener('transitionend', handler);
   });
 });
-
-
-
-

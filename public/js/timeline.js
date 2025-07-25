@@ -1,120 +1,185 @@
 // Script for the timeline game
 
 let artifacts = [];
-let correctOrder = []; // Array of artifacts in chronological order
-let sortableInstance = null; // Variable that will store the Sortable.js instance - https://sortablejs.github.io/Sortable/ (Accessed July 07, 2025)
+let correctOrder = [];
+let currentOrder = [];
+let lockedIndexes = new Set(); // Indices that have been guessed correctly
+let wrongAttempts = 0; // Count of user mistakes
+const MAX_ATTEMPTS = 3; // Max number of allowed wrong tries
 
 const timelineList = document.getElementById('timeline-list');
 const checkButton = document.getElementById('check-order');
-const resetButton = document.getElementById('reset-game');
 const modal = document.getElementById('modal');
-const modalIcon = modal.querySelector('.modal-icon');
 const modalText = modal.querySelector('p');
+const modalIcon = modal.querySelector('.modal-icon');
 
 document.addEventListener('DOMContentLoaded', () => {
   fetch('/js/timeline.json')
     .then(res => res.json())
     .then(data => {
       artifacts = data;
-      // Oldest to newest artwork
       correctOrder = [...artifacts].sort((a, b) => getCentury(a.date) - getCentury(b.date));
       startGame();
     })
-    .catch(err => console.error('Error loading timeline.json: ', err));
+    .catch(err => console.error('Error loading JSON: ', err));
 });
 
-function renderList(items, showDates) {
-  timelineList.innerHTML = '';
-
-  items.forEach(artifact => {
-    const li = document.createElement('li');
-    li.classList.add('timeline-item');
-    li.dataset.title = artifact.title;
-
-    li.innerHTML = `
-      <img src="${artifact.image}" alt="${artifact.title}">
-      <div class="timeline-info">
-        <p class="title">${artifact.title}</p>
-        ${showDates ? `<p>${artifact.date}</p>` : ''}
-      </div>
-      <span class="drag-handle" aria-label="Drag to reorder"><i class="bi bi-grip-vertical" aria-hidden="true"></i></span>
-    `;
-
-    timelineList.appendChild(li);
-  });
+function getCentury(dateStr) {
+  const match = dateStr.match(/(\d+)[a-z]{2}/i);
+  return match ? parseInt(match[1]) : 21;
 }
 
-// Function that extracts the century number from a string, so for e.g "16th century" becomes 16
-function getCentury(dateStr) {
-  const match = dateStr.match(/(\d+)[a-z]{2}\scentury/i);
-  return match ? parseInt(match[1]) : 21; // Defaults to 21 if no number is found
+function startGame() {
+  wrongAttempts = 0;
+  lockedIndexes = new Set();
+  currentOrder = rearrange([...artifacts]);
+  checkButton.textContent = 'CHECK ORDER';
+  renderList();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 /* 
-  Rearrange the array randomly using the Fisher-Yates shuffle algorithm to ensure the artifacts are displayed in a random order each time.
+  Rearrange the array randomly using the Fisher-Yates shuffle algorithm to ensure the game cards are displayed in a random order each time.
   https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/ (Accessed July 6, 2025)
 */
 
 function rearrange(array) {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
+  for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+    [array[i], array[j]] = [array[j], array[i]];
   }
-  return arr;
+  return array;
 }
 
-// Function for starting or resetting the game
-function startGame() {
-  renderList(rearrange([...artifacts]), false);
+function renderList() {
+  timelineList.innerHTML = '';
 
-  if (sortableInstance) sortableInstance.destroy(); // Remove any previous drag-and-drop functionality from the list
-  // Activate Sortable.js on the timeline list - users can drag and rearrange items using the handle
-  sortableInstance = Sortable.create(timelineList, { animation: 150, handle: '.drag-handle', });
+  currentOrder.forEach((item, index) => {
+    const li = document.createElement('li');
+    li.classList.add('timeline-item');
+    if (lockedIndexes.has(index)) li.classList.add('locked');
+    li.dataset.index = index;
 
-  checkButton.classList.remove('d-none');
-  resetButton.classList.add('d-none');
+    li.innerHTML = `
+      <img src="${item.image}" alt="${item.title}">
+      <div class="timeline-info">
+        <p class="title">${item.title}</p>
+        <p class="date" style="display: none;">${item.date}</p>
+      </div>
+      <div class="move-buttons">
+        <button class="move-up" aria-label="Move up"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
+        <button class="move-down" aria-label="Move down"><i class="bi bi-arrow-down" aria-hidden="true"></i></button>
+      </div>
+    `;
+
+    timelineList.appendChild(li);
+  });
+
+  attachArrowHandlers();
+}
+
+function attachArrowHandlers() {
+  const items = Array.from(timelineList.children);
+
+  items.forEach((li, index) => {
+    const upBtn = li.querySelector('.move-up');
+    const downBtn = li.querySelector('.move-down');
+
+    const canMoveUp = getNextUnlockedIndex(index, -1) !== null;
+    const canMoveDown = getNextUnlockedIndex(index, 1) !== null;
+
+    upBtn.disabled = lockedIndexes.has(index) || !canMoveUp;
+    downBtn.disabled = lockedIndexes.has(index) || !canMoveDown;
+
+    upBtn?.addEventListener('click', () => moveItem(index, -1));
+    downBtn?.addEventListener('click', () => moveItem(index, 1));
+  });
+}
+
+function getNextUnlockedIndex(fromIndex, direction) {
+  let i = fromIndex + direction;
+  while (i >= 0 && i < currentOrder.length) {
+    if (!lockedIndexes.has(i)) return i;
+    i += direction;
+  }
+  return null;
+}
+
+function moveItem(index, direction) {
+  const newIndex = index + direction;
+
+  let targetIndex = newIndex;
+  while (lockedIndexes.has(targetIndex)) {
+    targetIndex += direction;
+    if (targetIndex < 0 || targetIndex >= currentOrder.length) return;
+  }
+
+  if (targetIndex < 0 || targetIndex >= currentOrder.length || lockedIndexes.has(index) || lockedIndexes.has(targetIndex)) return;
+
+  [currentOrder[index], currentOrder[targetIndex]] = [currentOrder[targetIndex], currentOrder[index]];
+
+  renderList();
 }
 
 checkButton.addEventListener('click', () => {
-  const currentTitles = Array.from(timelineList.children).map(li => li.dataset.title);
-  const correctTitles = correctOrder.map(item => item.title);
-  const isCorrect = currentTitles.every((title, index) => title === correctTitles[index]);
-
-  if (isCorrect) {
-    showModal('Well done!', 'bi-emoji-wink-fill');
-    checkButton.classList.add('d-none');
-
-    setTimeout(() => {
-      startGame();
-    }, 2010);
-
-  } else {
-    showModal('Sorry! That\'s not the right order. Here\'s the correct timeline: ', 'bi-emoji-tear-fill');
-    checkButton.classList.add('d-none');
-    resetButton.classList.add('d-none');
-
-    setTimeout(() => {
-      renderList(correctOrder, true); 
-      resetButton.classList.remove('d-none');
-      if (sortableInstance) sortableInstance.destroy(); // No dragging functionality when the correct order is shown
-      sortableInstance = null;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 2010);
+  if (checkButton.textContent === 'PLAY AGAIN') {
+    startGame();
+    return;
   }
+
+  let correctCount = 0;
+
+  currentOrder.forEach((item, index) => {
+    if (item.title === correctOrder[index].title) {
+      lockedIndexes.add(index);
+      correctCount++;
+    }
+  });
+
+  if (correctCount === currentOrder.length) {
+    showModal('Well done! You got them all in order! Resetting...', 'bi-emoji-wink-fill');
+    setTimeout(() => {
+      startGame(); 
+    }, 2500); 
+  } else {
+      wrongAttempts++;
+      if (wrongAttempts >= MAX_ATTEMPTS) {
+        showModal('No more attempts left! Here is the correct order: ', 'bi-emoji-tear-fill');
+        renderCorrectTimeline();
+        checkButton.textContent = 'PLAY AGAIN';
+      } else {
+        const triesLeft = MAX_ATTEMPTS - wrongAttempts;
+        const msg = triesLeft === 1
+          ? 'You have one attempt left.'
+          : `You got ${correctCount} correct and have ${triesLeft} attempts left.`;
+        showModal(msg, 'bi-emoji-smile-fill');
+        renderList();
+      }
+    }
 });
+
+function renderCorrectTimeline() {
+  document.getElementById('timeline-list').scrollIntoView({ behavior: 'smooth' });
+  timelineList.innerHTML = '';
+  timelineList.classList.add('reveal-dates');
+
+  correctOrder.forEach(item => {
+    const li = document.createElement('li');
+    li.classList.add('timeline-item');
+    li.innerHTML = `
+      <img src="${item.image}" alt="${item.title}">
+      <div class="timeline-info">
+        <p class="title">${item.title}</p>
+        <p class="date">${item.date}</p>
+      </div>
+    `;
+    timelineList.appendChild(li);
+  });
+}
 
 function showModal(message, iconClass) {
   modalText.textContent = message;
   modalIcon.className = `modal-icon ${iconClass}`;
   modal.classList.add('active');
-
-  setTimeout(() => {
-    modal.classList.remove('active');
-  }, 2010);
+  setTimeout(() => modal.classList.remove('active'), 2500);
 }
-
-resetButton.addEventListener('click', () => {
-  startGame();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});  

@@ -94,15 +94,18 @@ function handleCardClick(card) {
         updateScore();
 
         if (matchesFound === cardsData.length) {
-          showModal('Well done! You matched all pairs!', 'bi-emoji-wink-fill');
-          setTimeout(initializeGame, 2000);
+          showModal('Well done! You matched all pairs! Resetting...', 'bi-emoji-wink-fill');
+          setTimeout(() => {
+            initializeGame();
+            window.scrollTo({ top: 0, behavior: 'smooth' }); 
+          }, 2500);
         }
       } else {
         card1.classList.remove('selected');
         card2.classList.remove('selected');
       }
       selectedCards = [];
-    }, 800); // If cards don’t match, their border will return to blue after a delay of 800ms. Their opacity will reduce after 800ms if they match.
+    }, 800); // If cards don’t match, their border will return to normal after a delay of 800ms. Their opacity will reduce after 800ms if they match.
   }
 }
 
@@ -117,5 +120,5 @@ function showModal(message, iconClass) {
 
   setTimeout(() => {
     modal.classList.remove('active');
-  }, 1800);
+  }, 2500);
 }

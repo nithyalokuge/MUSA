@@ -220,15 +220,15 @@ function endGame() {
   setTimeout(() => {
     modal.classList.add("active");
     modalContent.textContent = `You caught ${score} flower${score === 1 ? "" : "s"} before losing all your lives!`;
-    modalIcon.className = "modal-icon bi bi-emoji-wink-fill";
+    modalIcon.className = "modal-icon bi bi-emoji-smile-fill";
 
     setTimeout(() => {
       modal.classList.remove("active");
       gameContainer.classList.add("d-none");
       introScreen.classList.remove("d-none");
-      startBtn.textContent = "START";
+      startBtn.textContent = "PLAY AGAIN";
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 2010);
+    }, 2500);
   }, 1000);
 }
 

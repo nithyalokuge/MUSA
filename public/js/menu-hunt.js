@@ -1,4 +1,4 @@
-// Script for creating a circular overlay menu that expands from the center of the hamburger menu icon and collapses back into it when closed (for MUSA)
+// Script for creating a circular overlay menu that expands from the center of the hamburger menu icon and collapses back into it when closed (for The Hunt Museum)
 
 const hamburger = document.getElementById('hamburger');
 const circularMenu = document.getElementById('circularMenu');
@@ -9,11 +9,11 @@ function getHamburgerCenterPercent() {
   const width = window.innerWidth;
 
   if (width >= 2560) {
-    return { xPercent: 75, yPercent: 2.5 };
+    return { xPercent: 75, yPercent: 2 };
   } else if (width >= 1440) {
-    return { xPercent: 94.5, yPercent: 5.5 };
+    return { xPercent: 94, yPercent: 4 };
   } else if (width >= 1200) {
-    return { xPercent: 93.5, yPercent: 6.5 };
+    return { xPercent: 94, yPercent: 7 };
   } else {
     // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect (Accessed July 13, 2025)
     const rect = hamburger.getBoundingClientRect();
@@ -47,7 +47,3 @@ closeMenu.addEventListener('click', () => {
     circularMenu.removeEventListener('transitionend', handler);
   });
 });
-
-
-
-

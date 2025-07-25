@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (checkPuzzle()) {
         setTimeout(() => {
-          showModal("Well done! Puzzle completed!", "bi-emoji-wink-fill");
-        }, 1200);
+          showModal("Well done! Puzzle completed! Resetting...", "bi-emoji-wink-fill");
+        }, 1700);
       }
     }
   });
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       modal.classList.remove('active');
       rearrange();
-    }, 1800);
+    }, 2500);
   }
 
   rearrange();
