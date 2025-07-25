@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Musa</title>
+    <title>Home - MUSA</title>
+    <link rel="icon" href="/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&display=swap">
@@ -53,23 +54,25 @@
       </section>
 
       <!-- Intro section -->
-      <section class="intro py-5" id="MusaIntro">
+      <section class="intro my-5 py-5" id="MusaIntro">
         <div class="container">
           <p class="accent">Why we do it</p>
-          <h2>Musa: Museums for All</h2>
+          <h2>MUSA:<br>MUSeums for All</h2>
           <p>
-            MUSA IS A MOBILE FIRST MUSEUM PLATFORM BUILT FOR THE <span class="highlight">DEAF COMMUNITY</span>, FEATURING <span class="highlight">ISL VIDEOS</span>, 
-            <span class="highlight">INTERACTIVE 3D ARTIFACTS</span>, AND <span class="highlight">PLAYFUL LEARNING TOOLS</span> TO 
-            MAKE CULTURE <span class="highlight">ACCESSIBLE</span> AND <span class="highlight">ENGAGING</span>.
+            MUSA is a mobile first museum platform built for the <span class="highlight">Deaf community</span>, featuring <span class="highlight">ISL videos</span>, 
+            <span class="highlight">interactive 3D artifacts</span>, and <span class="highlight">playful learning tools</span> to 
+            make culture <span class="highlight">accessible</span> and <span class="highlight">engaging</span>.
           </p>
           <div class="ratio ratio-16x9 my-4">
-            <video controls aria-label="Introductory video to Musa">
-              <source src="/videos/MusaIntro.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+            <iframe src="https://www.youtube-nocookie.com/embed/XKYizvgslNU?rel=0&modestbranding=1"
+              title="Introduction to MUSA"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
           </div>
           <div class="text-center">
-            <button class="btn default-btn" data-bs-toggle="offcanvas" data-bs-target="#sidebar">Explore Musa</button>
+            <button class="btn default-btn" data-bs-toggle="offcanvas" data-bs-target="#sidebar">Explore MUSA</button>
           </div>
         </div>
       </section>
@@ -79,40 +82,33 @@
         <img src="/img/hand.png" alt="Decorative image" class="hand-top-img">
       </div>
 
-      <!-- How to use Musa section -->
+      <!-- How to use MUSA section -->
       <section class="intro2 py-5">
         <div class="container">
-          <p class="accent">New to Musa?</p>
+          <p class="accent">New to MUSA?</p>
           <h2>Start with a Tutorial</h2>
           <p>Learn how to navigate the site and explore artwork ISL videos in just a few steps.</p>
           <div class="ratio ratio-16x9 my-4">
-            <video controls aria-label="Introductory video explaining how the Musa web-app works">
-              <source src="/videos/HowToMusa.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+            <iframe src="https://www.youtube-nocookie.com/embed/XKYizvgslNU?rel=0&modestbranding=1"
+              title="Tutorial on how to use the MUSA web-app"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
           </div>
         </div>
       </section>
 
-      <!-- Hand bottom section -->
-      <div class="hand-bottom">
-        <img src="/img/hand2.png" alt="Decorative image" class="hand-bottom-img">
-      </div>
-
       <!-- Quote section -->
       <section class="quote py-5">
         <div class="container">
-          <img src="/img/quote-left-white.png" class="quote-start" alt="Opening quote mark">
-          <h2 id="typewriter-text">
-            <span id="font-group-1" class="font1"></span>
-            <span id="font-group-2" class="font2"></span>
-          </h2>
-          <img src="/img/quote-right-white.png" class="quote-end" alt="Closing quote mark">
+          <p class="font1">“Accessibility is <br>not a problem<br> to be solved.<br> Accessibility is<br> a culture to<br> be built.”</p>
+          <p class="font2">Sheri Byrne-Haber</p>
         </div>
       </section>
 
       <!-- Get in Touch section -->
-      <section class="involve py-5">
+      <section class="involve mt-5 py-5">
         <div class="container">
           <p class="accent">Let's Create Together</p>
           <h2>Get in Touch</h2>
@@ -144,8 +140,8 @@
       <!-- Testimonials section -->
       <section class="testimonials py-5">
         <div class="container">
-          <p class="accent p">What People are Saying</p>
-          <h2 class="text-center">From the Musa Community</h2>
+          <p class="accent">What People are Saying</p>
+          <h2>From the MUSA Community</h2>
           <!-- Carousel on mobile -->
           <div id="testimonialCarousel" class="carousel slide d-md-none" data-bs-ride="carousel">
             <div class="carousel-inner text-center">
@@ -202,14 +198,20 @@
       <!-- Team section -->
       <section class="team py-5">
         <div class="container">
-          <p class="accent">Meet the People Behind Musa</p>
+          <p class="accent">Meet the People Behind MUSA</p>
           <h2>Our Team</h2>
-          <p>We're five Master's students wanting to make culture accessible to everyone.</p>
+          <p class="p">We're five Master's students wanting to make culture accessible to everyone.</p>
           <div class="row justify-content-center g-4 mt-4">
             <div class="col-6 col-sm-6 col-md-4 col-lg-2 team-member">
-              <img src="/img/Lucy.png"  alt="Lucy">
+              <img src="/img/Lucy.png" alt="Lucy">
               <div class="d-flex flex-column">
-                <p><span class="team-labels">Lucy</span><br>UI/UX<br>Designer</p>
+                <div>
+                  <span class="team-labels">Lucy</span>
+                  <button class="menu-btn" aria-label="More about Lucy" data-member="Lucy">
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <p>UI/UX<br>Designer</p>
                 <small>
                   <a href="https://www.linkedin.com/in/lucyjacobson/" class="text-muted accent" target="_blank" aria-label="Lucy's LinkedIn">
                     <i class="bi bi-linkedin" aria-hidden="true"></i> Connect
@@ -220,7 +222,13 @@
             <div class="col-6 col-sm-6 col-md-4 col-lg-2 team-member">
               <img src="/img/Nithya.png" alt="Nithya">
               <div class="d-flex flex-column">
-                <p><span class="team-labels">Nithya</span><br>Full-Stack<br>Developer</p>
+                <div>
+                  <span class="team-labels">Nithya</span>
+                  <button class="menu-btn" aria-label="More about Nithya" data-member="Nithya">
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <p>Full-Stack<br>Developer</p>
                 <small>
                   <a href="https://www.linkedin.com/in/nithyalokuge/" class="text-muted accent" target="_blank" aria-label="Nithya's LinkedIn">
                     <i class="bi bi-linkedin" aria-hidden="true"></i> Connect
@@ -231,7 +239,13 @@
             <div class="col-6 col-sm-6 col-md-4 col-lg-2 team-member">
               <img src="/img/Kiera.jpg" alt="Kiera">
               <div class="d-flex flex-column">
-                <p><span class="team-labels">Kiera</span><br>Content & <br>Partnerships</p>
+                <div>
+                  <span class="team-labels">Kiera</span>
+                  <button class="menu-btn" aria-label="More about Kiera" data-member="Kiera">
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <p>Content &<br>Partnerships</p>
                 <small>
                   <a href="https://www.linkedin.com/in/kiera-o-5051441b0/" class="text-muted accent" target="_blank" aria-label="Kiera's LinkedIn">
                     <i class="bi bi-linkedin" aria-hidden="true"></i> Connect
@@ -242,10 +256,16 @@
             <div class="col-6 col-sm-6 col-md-4 col-lg-2 team-member">
               <img src="/img/Robyn.png" alt="Robyn">
               <div class="d-flex flex-column">
-                <p><span class="team-labels">Robyn</span><br>Project<br>Manager</p>
+                <div>
+                  <span class="team-labels">Robyn</span>
+                  <button class="menu-btn" aria-label="More about Robyn" data-member="Robyn">
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <p>Project<br>Manager</p>
                 <small>
-                  <a href="#" class="text-muted accent" target="_blank" aria-label="Robyn's LinkedIn">
-                    <i class="bi bi-linkedin" aria-hidden="true"></i>Connect
+                  <a href="https://www.linkedin.com/in/" class="text-muted accent" target="_blank" aria-label="Robyn's LinkedIn">
+                    <i class="bi bi-linkedin" aria-hidden="true"></i> Connect
                   </a>
                 </small>
               </div>
@@ -253,10 +273,16 @@
             <div class="col-6 col-sm-6 col-md-4 col-lg-2 team-member">
               <img src="/img/Kai.png" alt="Kai">
               <div class="d-flex flex-column">
-                <p><span class="team-labels">Kai</span><br>3D<br>Modeler</p>
+                <div>
+                  <span class="team-labels">Kai</span>
+                  <button class="menu-btn" aria-label="More about Kai" data-member="Kai">
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <p>3D<br>Modeler</p>
                 <small>
                   <a href="https://www.linkedin.com/in/kai-ge-a7aa5a343/" class="text-muted accent" target="_blank" aria-label="Kai's LinkedIn">
-                    <i class="bi bi-linkedin" aria-hidden="true"></i>Connect
+                    <i class="bi bi-linkedin" aria-hidden="true"></i> Connect
                   </a>
                 </small>
               </div>
@@ -266,16 +292,19 @@
       </section>
     </main>
 
+    <!-- Popup modal -->
+    <%- include("partials/popup") %>
+
     <!-- Footer -->
     <%- include("partials/footer") %>
 
-    <script src="/js/menu.js"></script>
+    <script src="/js/menu-musa-home.js"></script>
     <script src="/js/active-link.js"></script>
     <script src="/js/hero.js"></script>
-    <script src="/js/typewriter.js"></script>
     <script src="/js/contact.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script> emailjs.init('I1yjLoU6-v5XKcLDp') </script>
+    <script src="/js/popup.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
