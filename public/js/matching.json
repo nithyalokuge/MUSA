@@ -1,0 +1,32 @@
+[
+    {
+        "artwork": "Meissen Pietà",
+        "artist": "J. J. Kändler",
+        "img": "/img/games/pieta-game.jpg"
+    },
+    {
+        "artwork": "Plat Del Dia",
+        "artist": "Picasso",
+        "img": "/img/games/plat-del-dia-game.png"
+    },
+    {
+        "artwork": "An Atlantic Drive",
+        "artist": "Jack B. Yeats",
+        "img": "/img/games/atlantic-drive-game.jpg"
+    },
+    {
+        "artwork": "Suzanne Boterell",
+        "artist": "William Leech",
+        "img": "/img/games/suzanne-boterell-game.jpg"
+    },
+    {
+        "artwork": "Cello Player",
+        "artist": "Christy Keeney",
+        "img": "/img/games/cello-player-game.jpg"
+    },
+    {
+        "artwork": "St Cecilia",
+        "artist": "Diana Jane Perry",
+        "img": "/img/games/st-cecilia-game.png"
+    }
+]
