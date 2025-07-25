@@ -1,8 +1,9 @@
-// Entry point of Musa 
+// Entry point of MUSA 
 
 require('dotenv').config();
 const express = require("express");
 const path = require("path");
+const artifactRoutes = require('./routes/artifactRoute');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -12,14 +13,11 @@ app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use('/hunt/artifacts', artifactRoutes);
+
 // Home page
 app.get("/", (req, res) => {
   res.render("index"); 
-});
-
-// Speech-to-text page
-app.get("/speech-to-text", (req, res) => {
-  res.render("speech-to-text"); 
 });
 
 // Contact Us page
@@ -85,6 +83,21 @@ app.get("/hunt/games/memory", (req, res) => {
 // The Hunt Museum Timeline game page
 app.get("/hunt/games/timeline", (req, res) => {
   res.render("hunt/games/timeline"); 
+});
+
+// The Hunt Museum Falling object game page
+app.get("/hunt/games/falling-object", (req, res) => {
+  res.render("hunt/games/falling-object");
+});
+
+// The Hunt Museum Speech-to-Text page
+app.get("/hunt/speech-to-text", (req, res) => {
+  res.render("hunt/speech-to-text"); 
+});
+
+// The Hunt Museum Settings page
+app.get("/hunt/settings", (req, res) => {
+  res.render("hunt/settings"); 
 });
 
 app.listen(port, () => {
