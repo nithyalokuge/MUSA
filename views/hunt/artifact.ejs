@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= artifact.title %> - MUSA x The Hunt Museum</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="/js/apply-settings.js"></script>
+    <link rel="stylesheet" href="/css/the-hunt-museum-style.css">
+  </head>
+  <body>
+    <%- include("../partials/header-hunt") %>
+
+    <main>
+        <section class="py-5 artifact">
+            <div class="container">
+                <div class="artifact-section1 mb-4">
+                    <a href="/hunt/explore" class="fs-3 artifact-close-btn" aria-label="Back to Hunt's Explore page">&times;</a>
+                    <div>
+                        <% if (artifact.author) { %>
+                            <small class="medium">(<%=artifact.author%>)</small>
+                        <% } %>
+                        <h2 class="m-0"><%= artifact.title %></h2>
+                    </div>
+                </div>
+                <div class="artifact-carousel mb-4">
+                    <div id="artifactCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <% artifact.images.forEach((img, index) => { %>
+                                <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                                    <img src="<%= img %>" class="d-block mx-auto img-fluid rounded" alt="<%= artifact.title %>">
+                                </div>
+                            <% }) %>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#artifactCarousel" data-bs-slide="prev">
+                            <span><i class="bi bi-chevron-left" aria-hidden="true"></i></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#artifactCarousel" data-bs-slide="next">
+                            <span><i class="bi bi-chevron-right" aria-hidden="true"></i></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <% 
+                    const hiddenCategories = ['The Story of Our Building', 'The Hunts'];
+                    const visibleCategory = artifact.categories.find(name => !hiddenCategories.includes(name));
+                %>
+                <% if (artifact.floor_number || visibleCategory) { %>
+                    <p>
+                        <small class="medium">
+                            <% if (artifact.floor_number) { %>
+                                <%= artifact.floor_number %> Floor
+                            <% } %>
+                            <% if (artifact.floor_number && visibleCategory) { %> | <% } %>
+                            <% if (visibleCategory) { %>
+                                <%= visibleCategory %>
+                            <% } %>
+                        </small>
+                    </p>
+                <% } %>
+                <% if (artifact.blurb) { %>
+                    <p class="mb-4"><%= artifact.blurb %></p>
+                <% } %>
+                <% if (artifact.date_info || artifact.materials?.length || artifact.dimensions) { %>
+                    <div class="artifact-details-box mb-5">
+                        <div class="row">
+                            <% if (artifact.date_info) { %>
+                                <div class="col-4 border-end">
+                                    <div class="small">Date Made</div>
+                                    <div class="medium2"><%= artifact.date_info %></div>
+                                </div>
+                            <% } %>
+                            <% if (artifact.materials && artifact.materials.length) { %>
+                                <div class="col-4 border-end">
+                                    <div class="small">Materials</div>
+                                    <div class="medium2"><%= artifact.materials.join(', ') %></div>
+                                </div>
+                            <% } %>
+                            <% if (artifact.dimensions) { %>
+                                <div class="col-4">
+                                    <div class="small">Size (cm)</div>
+                                    <div class="medium2"><%= artifact.dimensions %></div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                <% } %>
+                <% if (artifact.isl_video_url) { %>
+                    <h3>Interpretive Video</h3>
+                    <div class="ratio ratio-16x9 mb-5">
+                        <iframe 
+                            src="https://www.youtube-nocookie.com/embed/<%= artifact.isl_video_url %>?rel=0&modestbranding=1"
+                            title="<%= artifact.title %> video"
+                            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
+                    </div>
+                <% } %>
+                <div class="mb-5">
+                    <h3>Transcript</h3>
+                    <% const isLong = artifact.transcript && artifact.transcript.length > 200; %>
+                    <% if (isLong) { %>
+                        <p id="transcript-short" class="preserve-format"><%= artifact.transcript.slice(0, 200) %>...</p>
+                        <p id="transcript-full" class="d-none preserve-format"><%= artifact.transcript %></p>
+                        <div class="text-center">
+                            <button id="toggleTranscriptBtn" class="btn default-btn">
+                                READ MORE <i class="bi bi-chevron-double-down" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    <% } else { %>
+                        <p><%= artifact.transcript %></p>
+                    <% } %>
+                </div>
+                <div class="mb-5">
+                    <% if (artifact.model_url) { %>
+                        <h3>Explore in 3D</h3>
+                        <div class="sketchfab-embed-wrapper ratio ratio-16x9 my-4">
+                            <iframe
+                                title="<%= artifact.title %> 3D Model"
+                                src="https://sketchfab.com/models/<%= artifact.model_url %>/embed"
+                                allow="autoplay; fullscreen; xr-spatial-tracking"
+                                frameborder="0"
+                                xr-spatial-tracking
+                                execution-while-out-of-viewport
+                                execution-while-not-rendered
+                                web-share>
+                            </iframe>
+                        </div>
+                    <% } %>
+                </div>
+                <% if (artifact.game) { %>
+                    <div class="mb-5 artifact-game">
+                        <a href="<%= artifact.game %>">Play game</a>
+                    </div>
+                <% } %>
+                <div class="artifact-nav">
+                    <a href="/hunt/artifacts/<%= previousArtifact.id %>" class="next-prev-link me-2">
+                        <div class="next-prev-icon">
+                            <i class="bi bi-chevron-left me-2" aria-hidden="true"></i>
+                        </div>
+                        <div class="next-prev-title">
+                            <span class="medium3"><%= previousArtifact.title %></span>
+                        </div>
+                    </a>
+                    <a href="/hunt/artifacts/<%= nextArtifact.id %>" class="next-prev-link next ms-2">
+                        <div class="next-prev-title text-end">
+                            <span class="medium3"><%= nextArtifact.title %></span>
+                        </div>
+                        <div class="next-prev-icon ms-2">
+                            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <%- include("../partials/footer") %>
+
+    <script src="/js/menu-hunt.js"></script>
+    <script src="/js/active-link.js"></script>
+    <script src="/js/transcript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

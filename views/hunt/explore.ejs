@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore - The Hunt Museum</title>
+    <title>Explore - MUSA x The Hunt Museum</title>
+    <link rel="icon" href="/img/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&display=swap">
@@ -16,17 +17,80 @@
     <%- include("../partials/header-hunt") %>
 
     <main>
-      <section class="py-4 explore">
-        <h2>Explore</h2>
-        <p>Coming soon</p>
+      <section class="py-5 explore">
+        <div class="container">
+          <h2 class="mb-4">Explore</h2>
+          <div class="row">
+            <div class="col-lg">
+              <div class="d-flex gap-2">
+                <div class="position-relative w-100">
+                  <i class="bi bi-search search-icon" aria-hidden="true"></i>
+                  <input type="text" class="form-control" placeholder="Type here to search" id="searchInput">
+                </div>
+                <div class="dropdown">
+                  <button class="btn filter-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Filter dropdown">
+                    Filter <i class="bi bi-caret-down" aria-hidden="true"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end py-4 px-3">
+                    <h6>Category</h6>
+                    <div class="form-check">
+                      <label for="cat1">The Story of Our Building</label>
+                      <input type="checkbox" value="1" id="cat1">
+                    </div>
+                    <div class="form-check">
+                      <label for="cat2">The Hunts</label>
+                      <input type="checkbox" value="2" id="cat2">
+                    </div>
+                    <div class="form-check">
+                      <label for="cat3">Hunt Museum Collection</label>
+                      <input type="checkbox" value="3" id="cat3">
+                    </div>
+                    <div class="form-check">
+                      <label for="cat4">Irish Contemporary<br>Ceramics Collection</label>
+                      <input type="checkbox" value="4" id="cat4">
+                    </div>
+                    <hr>
+                    <h6>Artifact Type</h6>
+                    <% const artifactTypes = ["Sculpture", "Painting", "Containers", "Ceramics", "Ritual objects"]; %>
+                    <% artifactTypes.forEach((type, i) => { %>
+                      <div class="form-check">
+                        <label for="type<%= i %>"><%= type %></label>
+                        <input type="checkbox" value="<%= i+1 %>" id="type<%= i %>">
+                      </div>
+                    <% }) %>
+                    <hr>
+                    <h6>Floor</h6>
+                    <% const floors = ["Ground", "First", "Top"]; %>
+                    <% floors.forEach((floor, i) => { %>
+                      <div class="form-check">
+                        <label for="floor<%= i %>"><%= floor %></label>
+                        <input type="checkbox" value="<%= floor.toLowerCase() %>" id="floor<%= i %>">
+                      </div>
+                    <% }) %>
+                    <div class="explore-btns mt-4">
+                      <button class="btn" id="clearFilters">CLEAR</button>
+                      <button class="btn" id="applyFilters">APPLY</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="artifactResults" class="row mt-4 gx-2 gy-4"></div>
+        </div>
       </section>
     </main>
+    <a href="/hunt/scan" class="scan-icon-link" aria-label="Go to Scan page">
+      <i class="bi bi-qr-code-scan" aria-hidden="true"></i>
+    </a>
 
     <!-- Footer -->
     <%- include("../partials/footer") %>
 
-    <script src="/js/menu.js"></script>
+    <script src="/js/menu-hunt.js"></script>
     <script src="/js/active-link.js"></script>
+    <script src="/js/explore.js"></script>
+    <script src="/js/explore-scan.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
