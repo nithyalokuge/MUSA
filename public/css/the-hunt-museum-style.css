@@ -1304,6 +1304,23 @@ body.dark-mode .arch-img {
   align-items: center;
 }
 
+.sources {
+  font-size: 10px;
+  color: #454544;
+}
+
+.sources-title {
+  font-weight: bold;
+}
+
+.sources-italic {
+  font-style: italic;
+}
+
+.dark-mode .sources {
+  color: #ffffff;
+}
+
 /* Scan page */
 
 #scan-box {
