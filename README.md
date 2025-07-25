@@ -20,7 +20,7 @@ This group project is part of the **"Research Project" module (CS7043)** of the 
 ## Features 
 - **ISL Videos**: interpreted videos offering clear, engaging artwork descriptions and stories.
 - **Interactive 3D Artifacts**: explore each artwork in-depth with interactive 3D models.
-- **Quiz & Puzzle Games**: Interactive games that reinforce learning and enhance the experience for Deaf visitors. 
+- **Games**: Interactive games that reinforce learning and enhance the experience for Deaf visitors. 
 
 ---
 
@@ -66,6 +66,7 @@ This group project is part of the **"Research Project" module (CS7043)** of the 
       - Go to "Preferences" → "Ports".
       - Set Apache Port to 80 and MySQL Port to 3306 (these are the default values).
       - Click OK and try starting the servers again.
+        
 **2. Download the repository**.
 
 **3. Install all dependencies**: 
