@@ -18,10 +18,13 @@ This group project is part of the **"Research Project" module (CS7043)** of the 
 ---
 
 ## Features 
-- **ISL Videos**: interpreted videos offering clear, engaging artwork descriptions and stories.
-- **Interactive 3D Artifacts**: explore each artwork in-depth with interactive 3D models.
-- **Games**: Interactive games that reinforce learning and enhance the experience for Deaf visitors. 
-
+- **ISL videos**: interpreted videos offering clear, engaging artwork descriptions and stories.
+- **Interactive 3D artifacts**: explore each artwork in-depth with interactive 3D models.
+- **Games**: interactive games that reinforce learning and enhance the experience for Deaf visitors.
+- **QR code scanning**: scan QR codes to access specific artifacts.
+- **Speech-to-text**: available on Chrome, Opera, and Edge (excluding iOS), this feature allows users to follow docents guided tours, which are then converted into text.
+- **Search and filter for artifacts**: search bar and filter system help users quickly find artifacts based on category, type, and floor.
+  
 ---
 
 ## Technologies
