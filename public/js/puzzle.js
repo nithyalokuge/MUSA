@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById('modal');
   const modalIcon = modal.querySelector('.modal-icon');
   const modalText = modal.querySelector('p');
+  const showPictureBtn = document.getElementById('showPictureBtn');
+  const imageModal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const closeModalBtn = document.querySelector('.modal-close-btn');
 
   const originalOrder = [
     "puzzle-game1.jpg", "puzzle-game2.jpg", "puzzle-game3.jpg",
@@ -13,10 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     "puzzle-game7.jpg", "puzzle-game8.jpg", "puzzle-game9.jpg"
   ];
 
-/* 
-  Rearrange the array randomly using the Fisher-Yates shuffle algorithm to ensure the game tiles are displayed in a random order each time.
-  https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/ (Accessed July 6, 2025)
-*/
+  const originalImageSrc = "/img/games/puzzle-game.jpg"; 
+  const originalImageAlt = "Original puzzle image";
+
+  /* 
+    Rearrange the array randomly using the Fisher-Yates shuffle algorithm to ensure the game tiles are displayed in a random order each time.
+    https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/ (Accessed July 6, 2025)
+  */
 
   function rearrange() {
     const pieces = Array.from(container.children);
@@ -77,6 +84,23 @@ document.addEventListener("DOMContentLoaded", () => {
       rearrange();
     }, 2500);
   }
+
+  showPictureBtn.addEventListener('click', () => {
+    modalImage.src = originalImageSrc;
+    modalImage.alt = originalImageAlt;
+    imageModal.style.display = 'flex';
+    closeModalBtn.classList.add('puzzle');
+  });
+
+  closeModalBtn.addEventListener('click', () => {
+    imageModal.style.display = 'none';
+  });
+
+  imageModal.addEventListener('click', (e) => {
+    if (e.target === imageModal) {
+      imageModal.style.display = 'none';
+    }
+  });
 
   rearrange();
 });
