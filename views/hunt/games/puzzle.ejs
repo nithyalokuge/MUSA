@@ -19,12 +19,15 @@
         <main>
             <section class="py-5">
                 <div class="container">
-                    <div class="mb-4">
+                    <div>
                         <a href="/hunt/games" class="back-to-home" aria-label="Back to The Hunt Museum's Games page">
                             <i class="bi bi-x-lg" aria-hidden="true"></i>
                         </a>
                         <h2 class="d-inline">Puzzle</h2>
                         <p class="mt-4">Tap two pieces in sequence to swap them.</p>
+                    </div>
+                    <div class="show-pic mb-3">
+                        <button id="showPictureBtn" class="btn default-btn" aria-label="Show the original image">SHOW FULL IMAGE</button>
                     </div>
                     <div class="puzzle-container">
                         <img src="/img/games/puzzle-game1.jpg" alt="Puzzle piece row1-col1" class="puzzle-piece">
@@ -40,6 +43,9 @@
                 </div>
             </section>
         </main>
+
+        <!-- Original picture for reference -->
+        <%- include("../../partials/gallery") %>
 
         <!-- Modal -->
         <%- include("../../partials/modal") %>
