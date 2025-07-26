@@ -267,6 +267,20 @@ header {
   }
 }
 
+/* Delete if wrong on Iphone 15 */
+@media (min-width: 393px) {
+  .close-btn {
+    margin-right: -2rem;
+  }
+}
+
+/* Delete if wrong on Iphone 15 */
+@media (min-width: 394px) {
+  .close-btn {
+    margin-right: -0.3rem;
+  }
+}
+
 @media(min-width: 768px) {
   .circular-menu {
     padding-left: 2.15rem;
@@ -1060,7 +1074,7 @@ body.dark-mode .arch-img {
   height: 3rem;
   border-radius: 50%;
   z-index: 999; 
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, top 0.2s ease;
 }
 
 .scan-icon-link:hover {

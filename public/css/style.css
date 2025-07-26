@@ -239,6 +239,20 @@ body.dark-mode .header-logo {
   }
 }
 
+/* Delete if wrong on Iphone 15 */
+@media (min-width: 393px) {
+  .close-btn {
+    margin-right: -2rem;
+  }
+}
+
+/* Delete if wrong on Iphone 15 */
+@media (min-width: 394px) {
+  .close-btn {
+    margin-right: -0.3rem;
+  }
+}
+
 @media(min-width: 768px) {
   .circular-menu {
     padding-left: 2.20rem;
