@@ -85,9 +85,9 @@ app.get("/hunt/games/timeline", (req, res) => {
   res.render("hunt/games/timeline"); 
 });
 
-// The Hunt Museum Falling object game page
-app.get("/hunt/games/falling-object", (req, res) => {
-  res.render("hunt/games/falling-object");
+// The Hunt Museum Catching game page
+app.get("/hunt/games/catching", (req, res) => {
+  res.render("hunt/games/catching");
 });
 
 // The Hunt Museum Speech-to-Text page
