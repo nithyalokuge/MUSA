@@ -1,6 +1,6 @@
 // Script for the catching game
 
-let baseFallSpeed = 6;
+let baseFallSpeed = 4;
 let dropStartTime = null;
 const game = document.getElementById("game");
 const frame = document.querySelector(".frame-container");
@@ -107,9 +107,9 @@ function dropLoop() {
   }
 
   const handBox = getGirlHandBox();
-  const debugHandBox = document.getElementById("debug-hand-box");
-
+  
   /* Debug hand box position and size
+  const debugHandBox = document.getElementById("debug-hand-box");
   debugHandBox.style.position = "absolute";
   debugHandBox.style.left = `${handBox.left}px`;
   debugHandBox.style.top = `${handBox.top}px`;
@@ -206,7 +206,7 @@ function resetGame() {
   score = 0;
   lives = 3;
   movementDetected = false;
-  scoreDisplay.textContent = `Blooms caught: 0`;
+  scoreDisplay.textContent = `Flowers caught: 0`;
   updateLives();
   flowers.forEach(f => f.el.remove());
   flowers = [];
@@ -222,13 +222,16 @@ function endGame() {
     modalContent.textContent = `You caught ${score} flower${score === 1 ? "" : "s"} before losing all your lives!`;
     modalIcon.className = "modal-icon bi bi-emoji-smile-fill";
 
+    document.body.style.pointerEvents = 'none';
+
     setTimeout(() => {
       modal.classList.remove("active");
+      document.body.style.pointerEvents = 'auto';
       gameContainer.classList.add("d-none");
       introScreen.classList.remove("d-none");
       startBtn.textContent = "PLAY AGAIN";
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 2500);
+    }, 4500);
   }, 1000);
 }
 
@@ -237,8 +240,8 @@ startBtn.addEventListener("click", () => {
   gameContainer.classList.remove("d-none");
   setTimeout(() => {
     startTip.style.display = "block";
-    setTimeout(() => startTip.style.display = "none", 2500);
-  }, 500);
+    setTimeout(() => startTip.style.display = "none", 5500);
+  }, 200);
 
   resetGame();
   gameRunning = true;

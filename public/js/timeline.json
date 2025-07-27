@@ -1,28 +1,18 @@
 [
   {
-    "title": "Meissen Pietà",
-    "date": "18th century AD",
-    "image": "/img/games/pieta-game.jpg"
-  },
-  {
     "title": "Dekadrachm Coin",
     "date": "5th century AD",
     "image": "/img/games/dekadrachm-coin-game.jpg"
   },
   {
-    "title": "The Artist and His Wife",
-    "date": "19h century AD",
-    "image": "/img/games/the-artist-and-his-wife-game.jpg"
-  },
-  {
-    "title": "An Atlantic Drive",
+    "title": "Plat del Dia",
     "date": "20th century AD",
-    "image": "/img/games/atlantic-drive-game.jpg"
+    "image": "/img/games/plat-del-dia-game.png"
   },
   {
-    "title": "Dish with Crowned Woman Design",
-    "date": "13th century AD",
-    "image": "/img/games/dish-with-crowned-woman-design-game.jpg"
+    "title": "Apollo - Genius of the Arts",
+    "date": "17th century AD",
+    "image": "/img/games/apollo-game.jpg"
   },
   {
     "title": "A Day at the Hunt",
@@ -30,8 +20,8 @@
     "image": "/img/games/a-day-at-the-hunt-game.jpg"
   },
   {
-    "title": "Drinking Horn",
+    "title": "Sheela-na-gig",
     "date": "15th century AD",
-    "image": "/img/games/drinking-horn-game.jpg"
+    "image": "/img/games/sheela-na-nig-game.png"
   }
 ]

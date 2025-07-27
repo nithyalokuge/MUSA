@@ -89,11 +89,11 @@ function handleCardClick(card) {
         updateScore();
 
         if (matchesFound === cardsData.length) {
-          showModal('Well done! You matched all pairs! Resetting...', 'bi-emoji-wink-fill');
+          showModal('Well done! Resetting...', 'bi-emoji-wink-fill');
           setTimeout(() => {
             initializeGame();
             window.scrollTo({ top: 0, behavior: 'smooth' }); 
-          }, 2500);
+          }, 4500);
         }
       } else {
         firstCard.classList.remove('flipped');
@@ -102,7 +102,7 @@ function handleCardClick(card) {
 
       firstCard = null;
       lock = false;
-    }, 900); // If cards don’t match, they are flipped back over after a delay of 900ms. Their opacity will reduce after 900ms if they match.
+    }, 900); // If cards don't match, they are flipped back over after a delay of 900ms. Their opacity will reduce after 900ms if they match.
   }
 }
 
@@ -115,7 +115,10 @@ function showModal(message, iconClass) {
   modalIcon.className = `modal-icon ${iconClass}`;
   modal.classList.add('active');
 
+  document.body.style.pointerEvents = 'none';
+
   setTimeout(() => {
     modal.classList.remove('active');
-  }, 2500);
+    document.body.style.pointerEvents = 'auto';
+  }, 4500);
 }

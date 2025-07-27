@@ -150,7 +150,7 @@ function showAnswer(selected) {
     } else {
       endGame();
     }
-  }, 1500);
+  }, 2000);
 }
 
 function endGame() {
@@ -162,10 +162,13 @@ function showModal(message, iconClass) {
   modalIcon.className = `modal-icon ${iconClass}`;
   modal.classList.add('active');
 
+  document.body.style.pointerEvents = 'none';
+  
   setTimeout(() => {
     modal.classList.remove('active');
+    document.body.style.pointerEvents = 'auto';
     showStartScreen();
-  }, 2500);
+  }, 4500);
 }
 
 function showStartScreen() {

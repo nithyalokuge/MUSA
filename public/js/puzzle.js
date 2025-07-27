@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (checkPuzzle()) {
         setTimeout(() => {
           showModal("Well done! Puzzle completed! Resetting...", "bi-emoji-wink-fill");
-        }, 1700);
+        }, 2000);
       }
     }
   });
@@ -79,10 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
     modalIcon.className = `modal-icon ${iconClass}`;
     modal.classList.add('active');
 
+    document.body.style.pointerEvents = 'none';
+    
     setTimeout(() => {
       modal.classList.remove('active');
+      document.body.style.pointerEvents = 'auto';
       rearrange();
-    }, 2500);
+    }, 4500);
   }
 
   showPictureBtn.addEventListener('click', () => {

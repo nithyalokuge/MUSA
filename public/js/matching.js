@@ -98,14 +98,14 @@ function handleCardClick(card) {
           setTimeout(() => {
             initializeGame();
             window.scrollTo({ top: 0, behavior: 'smooth' }); 
-          }, 2500);
+          }, 4500);
         }
       } else {
         card1.classList.remove('selected');
         card2.classList.remove('selected');
       }
       selectedCards = [];
-    }, 800); // If cards don’t match, their border will return to normal after a delay of 800ms. Their opacity will reduce after 800ms if they match.
+    }, 800); // If cards don't match, their border will return to normal after a delay of 800ms. Their opacity will reduce after 800ms if they match.
   }
 }
 
@@ -118,7 +118,10 @@ function showModal(message, iconClass) {
   modalIcon.className = `modal-icon ${iconClass}`;
   modal.classList.add('active');
 
+  document.body.style.pointerEvents = 'none';
+
   setTimeout(() => {
     modal.classList.remove('active');
-  }, 2500);
+    document.body.style.pointerEvents = 'auto';
+  }, 4500);
 }

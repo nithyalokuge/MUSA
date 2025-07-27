@@ -140,7 +140,7 @@ checkButton.addEventListener('click', () => {
     showModal('Well done! You got them all in order! Resetting...', 'bi-emoji-wink-fill');
     setTimeout(() => {
       startGame(); 
-    }, 2500); 
+    }, 4000); 
   } else {
       wrongAttempts++;
       if (wrongAttempts >= MAX_ATTEMPTS) {
@@ -181,5 +181,11 @@ function showModal(message, iconClass) {
   modalText.textContent = message;
   modalIcon.className = `modal-icon ${iconClass}`;
   modal.classList.add('active');
-  setTimeout(() => modal.classList.remove('active'), 2500);
+
+  document.body.style.pointerEvents = 'none';
+  
+  setTimeout(() => {
+    modal.classList.remove('active');
+    document.body.style.pointerEvents = 'auto';
+  }, 4000);
 }

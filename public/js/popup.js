@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     Robyn: {
       img: '/img/Robyn.png',
-      blurb: 'Hi, I\'m Robyn!'
+      blurb: 'Hi, I\'m Robyn!<br><br> I\'m the project manager and videographer for MUSA. I created all the videos featured in our mobile web app and collaborated closely with Kiera on the content. As a deaf individual, this project is deeply personal, as I\'ve experienced the inaccessibility of many Irish museums and want to help change that. When I\'m not editing, you\'ll find me travelling, playing sports, or spending time with friends and family.'
     },
     Kai: {
       img: '/img/Kai.png',
