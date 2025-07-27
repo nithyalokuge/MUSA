@@ -47,8 +47,8 @@ This group project is part of the **"Research Project" module (CS7043)** of the 
 - Lucy Jacobson: UI/UX Designer & Marketing materials
 - Kiera O'Hara: Content Creator & Partnerships
 - Robyn Quigley: Project Manager & Video editor
-- Xinkai Ge: 3D Modeler, Programming - Contributed to Quiz game and Falling Object game
-- Nithya Samadhi Lokuge: Programming Lead - Frontend (HTML5, EJS, CSS3, Bootstrap, JavaScript), Database structure, Backend
+- Xinkai Ge: 3D Modeler & Programming - Contributed to Quiz game and Catching game
+- Nithya Samadhi Lokuge: Full-Stack Developer - Frontend, Database structure, Backend
   
 ---
 
