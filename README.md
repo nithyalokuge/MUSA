@@ -48,7 +48,7 @@ This group project is part of the **"Research Project" module (CS7043)** of the 
 - Kiera O'Hara: Content Creator & Partnerships
 - Robyn Quigley: Project Manager & Video editor
 - Xinkai Ge: 3D Modeler & Programming - Contributed to Quiz game and Catching game
-- Nithya Samadhi Lokuge: Full-Stack Developer - Frontend, Database structure, Backend
+- Nithya Samadhi Lokuge: Full-stack Developer - Frontend, Database structure, Backend
   
 ---
 
