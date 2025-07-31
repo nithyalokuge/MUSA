@@ -27,11 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const res = await fetch(`/hunt/artifacts/search?${params.toString()}`);
         const json = await res.json();
-        renderResults(json.data || []);
+        renderResults(json.data || [], q);
     };
 
-    const renderResults = (artifacts) => {
+    const renderResults = (artifacts, searchQuery) => {
         resultsContainer.innerHTML = '';
+
         if (!artifacts.length) {
             resultsContainer.innerHTML = `<p class="text-center">No items found.</p>`;
             if (qrBtn) qrBtn.style.display = 'none';
@@ -40,28 +41,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (qrBtn) qrBtn.style.display = 'flex';
 
-        artifacts.forEach(artifact => {
-            const col = document.createElement('div');
-            col.className = 'col-6 col-md-4 col-lg-3';
-            col.innerHTML = `
-                <a href="/hunt/artifacts/${artifact.id}" class="artifact-link">
-                    <img src="${artifact.image_url}" alt="${artifact.title}" class="artifact-img">
-                    <div class="artifact-title mt-3">${artifact.title}</div>
-                </a>
-            `;
-            resultsContainer.appendChild(col);
-        });
+        if (!searchQuery) {
+            const firstTwoArtifacts = artifacts.filter(artifact => artifact.id === 17 || artifact.id === 16);
+            const remainingArtifacts = artifacts.filter(artifact => artifact.id !== 17 && artifact.id !== 16);
+
+            // Display the first two artifacts (ids 17 and 16) if they exist
+            firstTwoArtifacts.forEach(artifact => {
+                const col = document.createElement('div');
+                col.className = 'col-6 col-md-4 col-lg-3';
+                col.innerHTML = `
+                    <a href="/hunt/artifacts/${artifact.id}" class="artifact-link">
+                        <img src="${artifact.image_url}" alt="${artifact.title}" class="artifact-img">
+                        <div class="artifact-title mt-3">${artifact.title}</div>
+                    </a>
+                `;
+                resultsContainer.appendChild(col);
+            });
+
+            // If artifact(s) with ids 17 and/or 16 are/is displayed, there will be a breaking line before the other artifacts
+            if (firstTwoArtifacts.length > 0 && remainingArtifacts.length > 0) {
+                const hr = document.createElement('hr');
+                resultsContainer.appendChild(hr);
+            }
+
+            // Show the remaining artifacts (after ids 17 and 16)
+            remainingArtifacts.forEach(artifact => {
+                const col = document.createElement('div');
+                col.className = 'col-6 col-md-4 col-lg-3';
+                col.innerHTML = `
+                    <a href="/hunt/artifacts/${artifact.id}" class="artifact-link">
+                        <img src="${artifact.image_url}" alt="${artifact.title}" class="artifact-img">
+                        <div class="artifact-title mt-3">${artifact.title}</div>
+                    </a>
+                `;
+                resultsContainer.appendChild(col);
+            });
+        } else {
+            // If search query exists, results will be displayed with order defined by back-end
+            artifacts.forEach(artifact => {
+                const col = document.createElement('div');
+                col.className = 'col-6 col-md-4 col-lg-3';
+                col.innerHTML = `
+                    <a href="/hunt/artifacts/${artifact.id}" class="artifact-link">
+                        <img src="${artifact.image_url}" alt="${artifact.title}" class="artifact-img">
+                        <div class="artifact-title mt-3">${artifact.title}</div>
+                    </a>
+                `;
+                resultsContainer.appendChild(col);
+            });
+        }
     };
 
-  searchInput.addEventListener('input', fetchAndRender);
+    searchInput.addEventListener('input', fetchAndRender);
 
-  applyBtn.addEventListener('click', () => {fetchAndRender();});
+    applyBtn.addEventListener('click', () => {fetchAndRender();});
 
-  clearBtn.addEventListener('click', () => {
-    document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
-    searchInput.value = '';
+    clearBtn.addEventListener('click', () => {
+        document.querySelectorAll('input[type=checkbox]').forEach(cb => cb.checked = false);
+        searchInput.value = '';
+        fetchAndRender();
+    });
+
     fetchAndRender();
-  });
-
-  fetchAndRender();
 });
