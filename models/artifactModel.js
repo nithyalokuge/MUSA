@@ -1,6 +1,7 @@
 // Artifact model
 
 const db = require('../config/db');
+const customOrder = [17, 16, 6, 3, 10, 5, 7, 2, 14, 1, 15, 13, 9, 11, 18, 4, 12, 8]; // Artifacts will appear in this order as it reflects The Hunt's Museum tour order
 
 // On page load fetch all artifacts with 1st image and title 
 const getAllArtifactsWithPreview = async () => {
@@ -13,8 +14,8 @@ const getAllArtifactsWithPreview = async () => {
       GROUP BY artifact_id
     ) AS first_images ON a.id = first_images.artifact_id
     LEFT JOIN artifact_images ai ON ai.id = first_images.first_image_id
-    ORDER BY a.title ASC
-  `);
+    ORDER BY FIELD(a.id, ${customOrder.map(() => '?').join(',')})
+  `, customOrder);
   return rows;
 };
 
@@ -68,7 +69,8 @@ const searchAndFilterArtifacts = async ({ searchQuery = '', categoryIds = [], ty
   if (hasSearch) {
     baseQuery += ` ORDER BY relevance ASC, a.title ASC`;
   } else {
-    baseQuery += ` ORDER BY a.title ASC`;
+    baseQuery += ` ORDER BY FIELD(a.id, ${customOrder.map(() => '?').join(',')})`;
+    params.push(...customOrder);
   }
 
   const [rows] = await db.query(baseQuery, params);
