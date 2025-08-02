@@ -761,7 +761,7 @@ textarea.form-control {
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-  max-width: 370px;
+  max-width: 99%;
 }
 
 @media (max-width: 425px) {
@@ -770,18 +770,17 @@ textarea.form-control {
   }
 }
 
-.testimonial-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  background-color: #E6B244;
+@media (min-width: 768px) {
+  .testimonial-bubble p {
+    text-align: center !important;
+  }
 }
 
-@media (max-width: 990px) {
-  .testimonial-bubble {
-    max-width: 99%;
-  }
+.testimonial-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .team-member {
