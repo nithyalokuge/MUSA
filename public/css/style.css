@@ -741,20 +741,17 @@ body:has(.hero) .hamburger-btn {
   font-style: italic;
 }
 
-input.form-control,
-textarea.form-control {
+input.form-control, textarea.form-control {
   background-color: #D5CEC8 !important;
   border: 1px solid #D5CEC8;
 }
 
-.dark-mode input.form-control,
-.dark-mode textarea.form-control {
+.dark-mode input.form-control, .dark-mode textarea.form-control {
   background-color: #FFFCF9 !important;
   border: 1px solid #FFFCF9;
 }
 
 .testimonial-bubble {
-  text-align: center;
   background-color: #5C0023;
   color: #FFFCF9;
   padding: 1.5rem;
@@ -762,17 +759,50 @@ textarea.form-control {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   max-width: 99%;
-}
-
-@media (max-width: 425px) {
-  .testimonial-bubble {
-    padding: 4rem;
-  }
+  height: 450px;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 768px) {
   .testimonial-bubble p {
     text-align: center !important;
+  }
+}
+
+@media (min-width: 320px) {
+  .sean {
+    margin-top: 7.5rem !important;
+  }
+}
+
+@media (min-width: 375px) {
+  .testimonial-bubble {
+    height: 400px !important;
+  }
+}
+
+@media (min-width: 390px) {
+  .testimonial-bubble {
+    height: 420px !important;
+  }
+}
+
+@media (min-width: 430px) {
+  .testimonial-bubble {
+    height: 410px !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .sean {
+    margin-top: 5rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .testimonial-bubble {
+    height: 350px !important;
   }
 }
 
