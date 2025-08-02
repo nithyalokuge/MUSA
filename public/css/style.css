@@ -551,7 +551,7 @@ body:has(.hero) .hamburger-btn {
   opacity: 0.4;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1030px) { /* 1024px if wrong */
   .hero::before {
     background: url('/img/bg2.jpg') center center / cover no-repeat;
   }
