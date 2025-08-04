@@ -1452,15 +1452,6 @@ body.dark-mode .arch-img {
 
 /* Quiz game page */
 
-#quiz-container {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-#quiz-container.show {
-  opacity: 1;
-}
-
 .quiz-image {
   width: 100%;
   max-height: 320px;
@@ -1473,7 +1464,6 @@ body.dark-mode .arch-img {
 @media (min-width: 321px) {
   .quiz-image {
     width: auto;
-    max-height: 320px;
   }
 }
 
@@ -1482,39 +1472,25 @@ body.dark-mode .arch-img {
   width: 100%;
 }
 
-.question-timer {
+.question-score {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 0.75rem;
-  text-align: center;
+  justify-content: space-between;
 }
 
-@media (min-width: 868px) {
-  .question-timer {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
-  }
+#score-display{
+  font-style: italic;
 }
 
 #question {
   font-weight: 700;
-  margin: 0;
   font-family: var(--font-body);
   color: var(--text-color);
-}
-
-.timer-badge, .quiz-score {
-  font-style: italic;
 }
 
 .quiz-options {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
-  margin-bottom: 2rem;
   justify-content: center;
 }
 
@@ -1706,10 +1682,6 @@ body.dark-mode .arch-img {
 .matched {
   pointer-events: none;
   opacity: 0.4;
-}
-
-#score {
-  font-style: italic;
 }
 
 .card.selectable {
