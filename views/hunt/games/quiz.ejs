@@ -19,32 +19,25 @@
         <main>
             <section class="py-5">
                 <div class="container">
-                    <div id="intro-screen">
+                    <div class="mb-4">
                         <a href="/hunt/games" class="back-to-home" aria-label="Back to The Hunt Museum's Games page">
                             <i class="bi bi-x-lg" aria-hidden="true"></i>
                         </a>
                         <h2 class="d-inline">Test your knowledge</h2>
-                        <p class="mt-4">Answer each question within 30 seconds. Only one answer is correct!</p>
-                        <div class="text-center">
-                            <button id="start-btn" class="default-btn">START GAME</button>
-                        </div>
                     </div>
-                    <div id="quiz-container" class="d-none">
+                    <div>
                         <div class="game-content">
-                            <div class="mb-3">
+                            <div class="mb-3 question-score">
                                 <span id="progress-count"></span>
+                                <span id="score-display"></span>
                             </div>
-                            <div class="question-timer mb-3">
+                            <div class="mb-3">
                                 <h3 id="question"></h3>
-                                <span id="timer-box" class="timer-badge"></span>
                             </div>
                             <div>
                                 <img id="quiz-image" class="quiz-image" src="" alt="Quiz image">
                             </div>
                             <div id="options" class="quiz-options"></div>
-                            <div class="quiz-score">
-                                <span id="score-display"></span>
-                            </div>
                         </div>
                     </div>
                 </div>
