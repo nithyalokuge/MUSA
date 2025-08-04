@@ -3,11 +3,9 @@
 let cardsData = [];
 let cards = [];
 let selectedCards = [];
-let score = 0; // Number of matched pairs
 let matchesFound = 0;
 
 const board = document.getElementById('gameBoard');
-const scoreDisplay = document.getElementById('score');
 const modal = document.getElementById('modal');
 const modalText = modal.querySelector('p');
 const modalIcon = modal.querySelector('.modal-icon');
@@ -50,10 +48,8 @@ function createCard(item, type) {
 }
 
 function initializeGame() {
-  score = 0;
   matchesFound = 0;
   selectedCards = [];
-  updateScore();
 
   board.innerHTML = '';
 
@@ -89,9 +85,7 @@ function handleCardClick(card) {
       if (isMatch) {
         card1.classList.add('matched');
         card2.classList.add('matched');
-        score++;
         matchesFound++;
-        updateScore();
 
         if (matchesFound === cardsData.length) {
           showModal('Well done! You matched all pairs! Resetting...', 'bi-emoji-wink-fill');
@@ -107,10 +101,6 @@ function handleCardClick(card) {
       selectedCards = [];
     }, 800); // If cards don't match, their border will return to normal after a delay of 800ms. Their opacity will reduce after 800ms if they match.
   }
-}
-
-function updateScore() {
-  scoreDisplay.textContent = `Score: ${score}`;
 }
 
 function showModal(message, iconClass) {

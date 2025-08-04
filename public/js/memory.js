@@ -4,11 +4,9 @@ let cardsData = [];
 let cards = [];
 let firstCard = null; // First card that the user flips over
 let lock = false;
-let score = 0; // Number of matched pairs
 let matchesFound = 0;
 
 const board = document.getElementById('gameBoard');
-const scoreDisplay = document.getElementById('score');
 const modal = document.getElementById('modal');
 const modalText = modal.querySelector('p');
 const modalIcon = modal.querySelector('.modal-icon');
@@ -60,11 +58,9 @@ function initializeGame() {
   duplicatedCards.forEach(item => createCard(item));
 
   cards = duplicatedCards;
-  score = 0;
   matchesFound = 0;
   firstCard = null;
   lock = false;
-  updateScore();
 }
 
 function handleCardClick(card) {
@@ -84,9 +80,7 @@ function handleCardClick(card) {
       if (isMatch) {
         firstCard.classList.add('matched');
         secondCard.classList.add('matched');
-        score++;
         matchesFound++;
-        updateScore();
 
         if (matchesFound === cardsData.length) {
           showModal('Well done! Resetting...', 'bi-emoji-wink-fill');
@@ -104,10 +98,6 @@ function handleCardClick(card) {
       lock = false;
     }, 900); // If cards don't match, they are flipped back over after a delay of 900ms. Their opacity will reduce after 900ms if they match.
   }
-}
-
-function updateScore() {
-  scoreDisplay.textContent = `Score: ${score}`;
 }
 
 function showModal(message, iconClass) {

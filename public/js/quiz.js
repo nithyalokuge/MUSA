@@ -4,16 +4,10 @@ let originalQuizData = []; // Array storing the JSON quiz data in the exact orde
 let quiz = []; // Array containing rearranged list of quiz questions
 let current = 0; // Current question the player is on
 let score = 0; 
-let time = 30; // Countdown timer value for each question
-let timer = null; // Start and stop countdown when a question is shown or answered
 
-const startBtn = document.getElementById("start-btn");
-const startScreen = document.getElementById('intro-screen');
-const quizContainer = document.getElementById("quiz-container");
 const questionEl = document.getElementById("question");
 const optionsEl = document.getElementById("options");
 const imageEl = document.getElementById("quiz-image");
-const timerBox = document.getElementById("timer-box");
 const progressCount = document.getElementById("progress-count");
 const scoreDisplay = document.getElementById("score-display");
 const modal = document.getElementById("modal");
@@ -26,14 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       originalQuizData = data;
       quiz = rearrange([...originalQuizData]);
+      startGame();
     })
     .catch(err => console.error("Failed to load quiz data: ", err));
-});
-
-startBtn.addEventListener('click', () => {
-  startScreen.classList.add('d-none');
-  quizContainer.classList.remove('d-none');
-  startGame();
 });
 
 function rearrange(array) {
@@ -72,9 +61,6 @@ function startGame() {
 function showQuestion() {
   const q = quiz[current];
   
-  const quizContainer = document.getElementById('quiz-container');
-  quizContainer.classList.remove('show');
-
   questionEl.textContent = q.question;
 
   if (q.image) {
@@ -83,12 +69,10 @@ function showQuestion() {
 
     imageEl.onload = () => {
       imageEl.classList.add('show');
-      quizContainer.classList.add('show'); 
     };
   } else {
     imageEl.removeAttribute('src');
     imageEl.classList.remove('show');
-    quizContainer.classList.add('show'); 
   }
 
   optionsEl.innerHTML = "";
@@ -107,26 +91,9 @@ function showQuestion() {
     btnWrapper.appendChild(btn);
     optionsEl.appendChild(btnWrapper);
   });
-
-  startTimer();
-}
-
-function startTimer() {
-  clearInterval(timer);
-  time = 30;
-  timerBox.textContent = `Timer: ${time}s`;
-  timer = setInterval(() => {
-    time--;
-    timerBox.textContent = `Timer: ${time}s`;
-    if (time === 0) {
-      clearInterval(timer);
-      showAnswer(null);
-    }
-  }, 1000);
 }
 
 function showAnswer(selected) {
-  clearInterval(timer);
   const q = quiz[current];
   const buttons = optionsEl.querySelectorAll("button");
 
@@ -154,7 +121,7 @@ function showAnswer(selected) {
 }
 
 function endGame() {
-  showModal(`Game completed! Your score is: ${score}/${quiz.length}.`, "bi-emoji-smile-fill");
+  showModal(`Game completed! Your score is: ${score}/${quiz.length}. Resetting...`, "bi-emoji-smile-fill");
 }
 
 function showModal(message, iconClass) {
@@ -167,12 +134,6 @@ function showModal(message, iconClass) {
   setTimeout(() => {
     modal.classList.remove('active');
     document.body.style.pointerEvents = 'auto';
-    showStartScreen();
+    startGame();
   }, 4500);
-}
-
-function showStartScreen() {
-  quizContainer.classList.add('d-none');
-  startScreen.classList.remove('d-none');
-  startBtn.textContent = "PLAY AGAIN";
 }
