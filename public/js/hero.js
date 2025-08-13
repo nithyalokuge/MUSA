@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hands[0].classList.add('active'); 
     }, 1500);
 
-    // Hands (one-by-one) appear after 3000ms every 400ms - first hand is shown for 1300ms
+    // Hands (one-by-one) appear after 3000ms every 400ms
     hands.forEach((hand, index) => {
         if (index !== 0) {
             setTimeout(() => {

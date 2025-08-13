@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  document.querySelectorAll('.menu-btn').forEach(button => {
+  document.querySelectorAll('.team-modal-btn').forEach(button => {
     button.addEventListener('click', () => {
       const key = button.dataset.member;
       const data = memberInfo[key];

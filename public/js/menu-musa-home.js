@@ -4,18 +4,18 @@ const hamburger = document.getElementById('hamburger');
 const circularMenu = document.getElementById('circularMenu');
 const closeMenu = document.getElementById('closeMenu');
 
-// Function that calculates the center point of the hamburger button. It doesn't return pixels, but the position as percentages of the viewport size so that window resize doesn't create issues 
+// Function that calculates the center point of the hamburger button 
 function getHamburgerCenterPercent() {
   const width = window.innerWidth;
 
   if (width >= 2560) {
-    return { xPercent: 75, yPercent: 2.5 };
+    return { xPercent: 75, yPercent: 2 };
   } else if (width >= 1440) {
-    return { xPercent: 94.5, yPercent: 5.5 };
+    return { xPercent: 94.5, yPercent: 3.5 };
   } else if (width >= 1200) {
     return { xPercent: 93.5, yPercent: 7 };
   } else if (width >= 1024) {
-    return { xPercent: 95, yPercent: 6 };
+    return { xPercent: 95, yPercent: 4 };
   } else if (width >= 820) {
     return { xPercent: 92, yPercent: 4 };
   } else {
