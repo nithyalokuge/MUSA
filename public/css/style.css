@@ -467,54 +467,6 @@ footer hr {
   font-weight: 500;
 }
 
-.modal {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  display: none;
-  transform: translate(-50%, -50%);
-  max-width: 450px;
-  width: 95%;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal.active {
-  display: flex;
-}
-
-.modal-content {
-  padding: 40px;
-  border-radius: 10px;
-  text-align: center;
-  background-color: #D5CEC8;
-}
-
-.dark-mode .modal-content {
-  background-color: #A8B9C6;
-  color: #272727 !important;
-}
-
-.dark-mode .modal-content p {
-  color: #272727 !important;
-}
-
-.modal-icon {
-  font-size: 3rem;
-}
-
-.modal-content p {
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-@media (max-width: 600px) {
-  .modal {
-    width: 365px;
-    height: auto;
-  }
-}
-
 iframe {
   border-radius: 15px;
 }
