@@ -71,7 +71,7 @@
 body {
   font-family: var(--font-body);
   font-size: var(--body-font-size);
-  line-height: 1.6;
+  line-height: 1.5;
   font-weight: 300;
   color: var(--text-color);
   background-color: var(--bg-color);
@@ -286,7 +286,6 @@ header {
     padding-left: 2.15rem;
     padding-right: 2.15rem;
   }
-
   .close-btn {
     margin-right: -0.12rem;
   }
@@ -297,7 +296,6 @@ header {
     padding-left: 3.42rem;
     padding-right: 3.42rem;
   }
-
   .close-btn {
     margin-right: -0.20rem;
   }
@@ -381,6 +379,10 @@ footer {
   background-color: #D5CEC8;
   font-family: var(--font-footer);
   color: #1C1B1F;
+}
+
+.dyslexia-font .footer {
+  font-family: var(--font-dyslexia);
 }
 
 body.dark-mode .footer-logo {
@@ -498,7 +500,7 @@ footer small {
   }
 }
 
-.modal {
+.modal, .certificateModal {
   position: fixed;
   left: 50%;
   top: 50%;
@@ -510,7 +512,7 @@ footer small {
   align-items: center;
 }
 
-.modal.active {
+.modal.active, .certificateModal.active {
   display: flex; 
 }
 
@@ -526,10 +528,6 @@ footer small {
   color: #272727 !important;
 }
 
-.dark-mode .modal-content p {
-  color: #272727 !important;
-}
-
 .modal-icon {
   font-size: 3rem;
 }
@@ -539,11 +537,25 @@ footer small {
   color: var(--text-color);
 }
 
+.dark-mode .modal-content p {
+  color: #272727 !important;
+}
+
 @media (max-width: 600px) {
   .modal {
     width: 365px;
     height: auto;
   }
+}
+
+.certificateModal input.form-control {
+  background-color: #D9D9D9 !important;
+  border: 1px solid #272727;
+}
+
+.certificateModal .dark-mode input.form-control {
+  background-color: #D9D9D9 !important;
+  border: 1px solid #272727;
 }
 
 .ratio iframe {
@@ -700,10 +712,6 @@ iframe {
   background-color: #809FD2;
 }
 
-.italic {
-  font-style: italic;
-}
-
 .font1 {
   font-family: var(--font-body);
   font-weight: 500;
@@ -721,7 +729,7 @@ iframe {
   font-size: clamp(1.5rem, 4vw, 2rem);
 }
 
-.dark-mode .quote p {
+.dark-mode .quote p, .dark-mode .quote small {
   color: #272727;
 }
 
@@ -810,7 +818,7 @@ body.dark-mode .arch-img {
 
 @media (min-width: 320px) {
   .modal-close-btn {
-    top: 0.70rem;
+    top: 0.85rem;
     right: 0.80rem;
   }
 }
@@ -918,7 +926,7 @@ body.dark-mode .arch-img {
   color: #D2D2D3;
 }
 
-.hunt-location h2, .hunt-location h3 {
+.hunt-location h2 {
   color: #D2D2D3 !important;
 }
 
@@ -1173,14 +1181,15 @@ body.dark-mode .arch-img {
 }
 
 .artifact-carousel img {
+  border-radius: 3px !important;
   max-width: 100%;
-  max-height: 500px;
+  height: 500px;
   object-fit: contain;
 }
 
 @media (max-width: 768px) {
   .artifact-carousel img {
-    max-height: 60vh;
+    height: 40vh;
   }
 }
 
@@ -1334,10 +1343,6 @@ body.dark-mode .arch-img {
 #scan-content {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 #qr-error {
@@ -1361,6 +1366,10 @@ body.dark-mode .arch-img {
 
 #qr-message, #stop-scan {
   margin-top: 1rem;
+}
+
+.large-text #qr-message {
+  word-wrap: break-word;
 }
 
 /* Map page */
@@ -1504,6 +1513,7 @@ body.dark-mode .arch-img {
   width: 100%;
   padding: 0.75rem 1rem;
   border: 2px solid #7FA0D5;
+  color: #000000;
   background-color: #7FA0D5;
   border-radius: 10px;
   transition: all 0.2s ease;
@@ -1538,6 +1548,43 @@ body.dark-mode .arch-img {
   background-color: #c74f5b;
   border-color: #c74f5b;
   color: #272727;
+}
+
+#nameInputModal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+#nameInputModal.active {
+  display: flex;
+}
+
+#nameInputModal .modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#nameInputModal input {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#nameInputModal button {
+  padding: 10px 20px;
+  margin-top: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 /* Puzzle game page */
@@ -1654,16 +1701,18 @@ body.dark-mode .arch-img {
 .card-front {
   background-color: #ff671c;
   z-index: 2;
-  background-image: url('/img/hunt-logo.png'); 
+  background-image: url('/img/memory-game-logo.png'); 
+  background-size: 70%; /* Remove this line completely if Hunt's Arch Logo (hunt-logo.png) */
   background-position: center; 
   background-repeat: no-repeat; 
 }
 
+/* If Hunt's Arch Logo (hunt-logo.png)
 @media (max-width: 768px) {
   .card-front {
-    background-size: 50%;
+    background-size: 60%;
   }
-}
+} */
 
 .card-back {
   background-color: #ff671c;
@@ -2075,3 +2124,4 @@ body.dark-mode .arch-img {
     flex-direction: column;
   }
 }
+
