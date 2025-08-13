@@ -1,4 +1,4 @@
-// Script for scanning QR codes
+// Script for scanning QR codes - Html5-qrcode: https://github.com/mebjas/html5-qrcode, https://blog.minhazav.dev/research/html5-qrcode (Accessed July 4, 2025)
 
 document.addEventListener("DOMContentLoaded", function () {
   const scanBox = document.getElementById("scan-box");
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function loadInitialLayout() {
     scanContent.innerHTML = `
       <i class="bi bi-qr-code-scan"></i>
-      <p class="mb-3">Point your camera at a QR Code and capture it.</p>
+      <p class="mb-3">Point your camera at a QR Code<br>and capture it.</p>
       <button id="start-scan" class="btn default-btn">START SCANNING</button>
     `;
     qrError.style.display = "none";

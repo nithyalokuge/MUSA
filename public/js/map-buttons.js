@@ -2,6 +2,8 @@
 
 function filterImages(floor) {
   const allImages = document.querySelectorAll('.gallery-img');
+  const buttons = document.querySelectorAll('.button-row .btn');
+
   allImages.forEach(img => img.classList.remove('active'));
 
   if (floor === 'all') {
@@ -16,7 +18,6 @@ function filterImages(floor) {
     }
   }
 
-  const buttons = document.querySelectorAll('.button-row .btn');
   buttons.forEach(btn => {
     btn.classList.remove('btn-active');
     btn.classList.add('btn-not-active');

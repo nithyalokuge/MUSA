@@ -103,6 +103,10 @@ if (isIOS) {
   recognition.onend = () => {
     if (isListening) {
       recognition.start(); // Auto-restart
+    } else {
+      if (output.textContent === 'Listening...') {
+        output.textContent = '';
+      }
     }
   };
 
@@ -122,6 +126,9 @@ if (isIOS) {
     startBtn.disabled = false;
     stopBtn.disabled = true;
     startBtn.classList.remove('glow');
+    if (output.textContent === 'Listening...') {
+      output.textContent = '';  
+    }
   };
 
   clearBtn.onclick = () => {
@@ -153,5 +160,5 @@ function showModal(message, iconClass) {
 
   setTimeout(() => {
     modal.classList.remove('active');
-  }, 1800); 
+  }, 2000); 
 }
