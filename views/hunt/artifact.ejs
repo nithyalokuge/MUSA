@@ -84,13 +84,7 @@
                         </div>
                     </div>
                 <% } %>
-                <h3>
-                    <% if (artifact.id === 17 || artifact.id === 16) { %>
-                        Explanatory Video
-                    <% } else { %>
-                        <i class="fas fa-sign-language" aria-hidden="true"></i> Interpretive Video
-                    <% } %>
-                </h3>
+                <h3><i class="fas fa-sign-language" aria-hidden="true"></i> Interpretive Video</h3>
                 <div class="ratio ratio-16x9 mb-5">
                     <iframe 
                         src="https://www.youtube-nocookie.com/embed/<%= artifact.isl_video_url %>?rel=0&modestbranding=1"
