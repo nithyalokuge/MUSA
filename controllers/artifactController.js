@@ -47,14 +47,14 @@ const renderArtifactPage = async (req, res) => {
     const artifact = await artifactModel.getArtifactById(id);
 
     if (!artifact) {
-      return res.status(404).render('404');
+      return res.status(404).json({ message: 'Item not found' });
     }
 
     const allArtifacts = await artifactModel.getAllArtifactsWithPreview();
     const index = allArtifacts.findIndex(a => a.id === parseInt(id));
 
     if (index === -1) {
-      return res.status(404).render('404');
+      return res.status(404).json({ message: 'Item not found' });
     }
 
     const previousIndex = (index - 1 + allArtifacts.length) % allArtifacts.length;
@@ -70,7 +70,7 @@ const renderArtifactPage = async (req, res) => {
     });
   } catch (err) {
     console.error("Error rendering artifact page: ", err);
-    res.status(500).render('error');
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
 
