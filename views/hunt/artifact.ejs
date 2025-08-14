@@ -18,9 +18,9 @@
     <%- include("../partials/header-hunt") %>
 
     <main>
-        <section class="py-5 artifact">
+        <section class="pt-5 artifact">
             <div class="container">
-                <div class="artifact-section1 mb-4">
+                <div class="artifact-section1 mb-4 <%= (artifact.id === 17 || artifact.id === 16) ? 'special' : '' %>">
                     <a href="/hunt/explore" class="fs-3 artifact-close-btn" aria-label="Back to Hunt's Explore page">&times;</a>
                     <div>
                         <% if (artifact.author) { %>
@@ -110,28 +110,36 @@
                         <p><%= artifact.transcript %></p>
                     <% } %>
                 </div>
-                <% if (artifact.model_url) { %>
-                    <div class="mb-5">
-                        <h3>Explore in 3D</h3>
-                        <div class="ratio ratio-16x9 my-4">
-                            <iframe
-                                title="<%= artifact.title %> 3D Model"
-                                src="https://sketchfab.com/models/<%= artifact.model_url %>/embed"
-                                allow="autoplay; fullscreen; xr-spatial-tracking"
-                                frameborder="0"
-                                xr-spatial-tracking
-                                execution-while-out-of-viewport
-                                execution-while-not-rendered>
-                            </iframe>
-                        </div>
+            </div>
+        </section>
+
+        <% if (artifact.model_url) { %>
+            <section class="d-model py-5">
+                <div class="container">
+                    <h3>Explore in 3D</h3>
+                    <div class="ratio ratio-16x9 my-4">
+                        <iframe
+                            title="<%= artifact.title %> 3D Model"
+                            src="https://sketchfab.com/models/<%= artifact.model_url %>/embed"
+                            allow="autoplay; fullscreen; xr-spatial-tracking"
+                            frameborder="0"
+                            xr-spatial-tracking
+                            execution-while-out-of-viewport
+                            execution-while-not-rendered>
+                        </iframe>
                     </div>
-                <% } %>
+                </div>
+            </section>
+        <% } %>
+        
+        <section>
+            <div class="container">
                 <% if (artifact.game) { %>
-                    <div class="mb-5 artifact-game">
+                    <div class="artifact-game mt-5">
                         <a href="<%= artifact.game %>">Play game</a>
                     </div>
                 <% } %>
-                <div class="artifact-nav mb-5">
+                <div class="artifact-nav mt-5 mb-5">
                     <a href="/hunt/artifacts/<%= previousArtifact.id %>" class="next-prev-link me-2" aria-label="Previous artifact: <%= previousArtifact.title %>">
                         <div class="next-prev-icon">
                             <i class="bi bi-chevron-left me-2" aria-hidden="true"></i>
@@ -150,7 +158,7 @@
                     </a>
                 </div>
                 <% if (artifact.sources && artifact.sources.length > 0) { %>
-                    <div>
+                    <div class="pb-5">
                         <p class="sources">
                             <span class="sources-title">Sources</span>:
                             <span class="sources-italic preserve-format"><%= artifact.sources %></span>
