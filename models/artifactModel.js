@@ -1,7 +1,7 @@
 // Artifact model
 
 const db = require('../config/db');
-const customOrder = [17, 16, 6, 3, 10, 5, 7, 2, 14, 1, 15, 13, 9, 11, 18, 4, 12, 8]; // Artifacts will appear in this order as it reflects The Hunt's Museum tour order
+const customOrder = [17, 16, 6, 3, 10, 5, 7, 2, 14, 1, 15, 13, 9, 11, 18, 4, 12, 8]; // Artifacts will appear in this order as it reflects The Hunt Museum's tour order
 
 // On page load fetch all artifacts with 1st image and title 
 const getAllArtifactsWithPreview = async () => {
@@ -77,7 +77,7 @@ const searchAndFilterArtifacts = async ({ searchQuery = '', categoryIds = [], ty
   return rows;
 };
 
-// All artifact details 
+// Artifact details 
 const getArtifactById = async (id) => {
   const [[artifact]] = await db.query(`
     SELECT a.*, t.name AS type
