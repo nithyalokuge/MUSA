@@ -3,9 +3,9 @@
 let artifacts = [];
 let correctOrder = [];
 let currentOrder = [];
-let lockedIndexes = new Set(); // Indices that have been guessed correctly
+let lockedIndexes = new Set(); // Indices for artifacts that have been guessed correctly
 let wrongAttempts = 0; // Count of user mistakes
-const MAX_ATTEMPTS = 3; // Max number of allowed wrong tries
+const MAX_ATTEMPTS = 3;
 
 const timelineList = document.getElementById('timeline-list');
 const checkButton = document.getElementById('check-order');
@@ -142,20 +142,20 @@ checkButton.addEventListener('click', () => {
       startGame(); 
     }, 4000); 
   } else {
-      wrongAttempts++;
-      if (wrongAttempts >= MAX_ATTEMPTS) {
-        showModal('No more attempts left! Here is the correct order: ', 'bi-emoji-tear-fill');
-        renderCorrectTimeline();
-        checkButton.textContent = 'PLAY AGAIN';
-      } else {
-        const triesLeft = MAX_ATTEMPTS - wrongAttempts;
-        const msg = triesLeft === 1
-          ? 'You have one attempt left.'
-          : `You got ${correctCount} correct and have ${triesLeft} attempts left.`;
-        showModal(msg, 'bi-emoji-smile-fill');
-        renderList();
-      }
+    wrongAttempts++;
+    if (wrongAttempts >= MAX_ATTEMPTS) {
+      showModal('No more attempts left! Here is the correct order: ', 'bi-emoji-tear-fill');
+      renderCorrectTimeline();
+      checkButton.textContent = 'PLAY AGAIN';
+    } else {
+      const triesLeft = MAX_ATTEMPTS - wrongAttempts;
+      const msg = triesLeft === 1
+      ? 'You have one attempt left.'
+      : `You got ${correctCount} correct and have ${triesLeft} attempts left.`;
+      showModal(msg, 'bi-emoji-smile-fill');
+      renderList();
     }
+  }
 });
 
 function renderCorrectTimeline() {

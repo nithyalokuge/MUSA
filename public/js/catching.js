@@ -10,7 +10,7 @@ const scoreDisplay = document.getElementById("score");
 const livesDisplay = document.getElementById("lives");
 const gameContainer = document.querySelector(".game-container");
 const startBtn = document.getElementById("start-btn");
-const introScreen = document.getElementById("intro-screen");
+const introScreen = document.querySelectorAll(".intro-screen");
 const modal = document.getElementById("modal");
 const modalContent = modal.querySelector("p");
 const modalIcon = modal.querySelector(".modal-icon");
@@ -157,7 +157,7 @@ function dropLoop() {
       score++;
       scoreDisplay.textContent = `Flowers caught: ${score}`;
       flower.el.remove();
-      if (flower.debugEl) flower.debugEl.remove();
+      // if (flower.debugEl) flower.debugEl.remove();
       flowers.splice(i, 1);
       continue;
     }
@@ -168,7 +168,7 @@ function dropLoop() {
       lives--;
       updateLives();
       flower.el.remove();
-      if (flower.debugEl) flower.debugEl.remove();
+      // if (flower.debugEl) flower.debugEl.remove();
       flowers.splice(i, 1);
 
       if (lives === 0) {
@@ -228,7 +228,9 @@ function endGame() {
       modal.classList.remove("active");
       document.body.style.pointerEvents = 'auto';
       gameContainer.classList.add("d-none");
-      introScreen.classList.remove("d-none");
+      introScreen.forEach(element => {
+        element.classList.remove("d-none"); 
+      });
       startBtn.textContent = "PLAY AGAIN";
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }, 4500);
@@ -236,11 +238,13 @@ function endGame() {
 }
 
 startBtn.addEventListener("click", () => {
-  introScreen.classList.add("d-none");
+  introScreen.forEach(element => {
+    element.classList.add("d-none");  
+  });
   gameContainer.classList.remove("d-none");
   setTimeout(() => {
     startTip.style.display = "block";
-    setTimeout(() => startTip.style.display = "none", 5500);
+    setTimeout(() => startTip.style.display = "none", 7500);
   }, 200);
 
   resetGame();
