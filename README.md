@@ -24,6 +24,7 @@ This group project is part of the **"Research Project" module (CS7043)** of the 
 - **QR code scanning**: scan QR codes to access specific artifacts.
 - **Speech-to-text**: available on Chrome, Opera, and Edge (excluding iOS), this feature allows users to follow docents guided tours, which are then converted into text.
 - **Search and filter for artifacts**: search bar and filter system help users quickly find artifacts based on category, type, and floor.
+- **Downloadable certificate of achievement**: pdf certificate is available for download if the user scores 80% or more in the quiz game.
   
 ---
 
