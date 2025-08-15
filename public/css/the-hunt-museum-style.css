@@ -548,12 +548,7 @@ footer small {
   }
 }
 
-.certificateModal input.form-control {
-  background-color: #D9D9D9 !important;
-  border: 1px solid #272727;
-}
-
-.certificateModal .dark-mode input.form-control {
+.certificateModal input.form-control, .certificateModal .dark-mode input.form-control {
   background-color: #D9D9D9 !important;
   border: 1px solid #272727;
 }
@@ -1495,21 +1490,6 @@ body.dark-mode .arch-img {
 
 /* Quiz game page */
 
-.quiz-image {
-  width: 100%;
-  max-height: 320px;
-  object-fit: contain;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto 3rem auto;
-}
-
-@media (min-width: 321px) {
-  .quiz-image {
-    width: auto;
-  }
-}
-
 .game-content {
   text-align: center;
   width: 100%;
@@ -1528,6 +1508,21 @@ body.dark-mode .arch-img {
   font-weight: 700;
   font-family: var(--font-body);
   color: var(--text-color);
+}
+
+.quiz-image {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 3rem auto;
+}
+
+@media (min-width: 321px) {
+  .quiz-image {
+    width: auto;
+  }
 }
 
 .quiz-options {
@@ -1584,64 +1579,7 @@ body.dark-mode .arch-img {
   color: #272727;
 }
 
-#nameInputModal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  align-items: center;
-  justify-content: center;
-}
-
-#nameInputModal.active {
-  display: flex;
-}
-
-#nameInputModal .modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-#nameInputModal input {
-  padding: 10px;
-  margin-top: 10px;
-}
-
-#nameInputModal button {
-  padding: 10px 20px;
-  margin-top: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
 /* Puzzle game page */
-
-.puzzle-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.2rem;
-  max-width: 95vmin;
-  margin: 0 auto;
-}
-
-.puzzle-piece {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 2px solid transparent;
-  cursor: pointer;
-}
-
-.puzzle-piece.selected {
-  border-color: #ed6eba;
-}
 
 .show-pic {
   display: flex;
@@ -1680,6 +1618,26 @@ body.dark-mode .arch-img {
   .puzzle.modal-close-btn {
     right: 39.6rem;
   }
+}
+
+.puzzle-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.2rem;
+  max-width: 95vmin;
+  margin: 0 auto;
+}
+
+.puzzle-piece {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.puzzle-piece.selected {
+  border-color: #ed6eba;
 }
 
 /* Memory and matching game pages */
@@ -1736,17 +1694,10 @@ body.dark-mode .arch-img {
   background-color: #ff671c;
   z-index: 2;
   background-image: url('/img/memory-game-logo.png'); 
-  background-size: 70%; /* Remove this line completely if Hunt's Arch Logo (hunt-logo.png) */
+  background-size: 70%;
   background-position: center; 
   background-repeat: no-repeat; 
 }
-
-/* If Hunt's Arch Logo (hunt-logo.png)
-@media (max-width: 768px) {
-  .card-front {
-    background-size: 60%;
-  }
-} */
 
 .card-back {
   background-color: #ff671c;
@@ -1782,6 +1733,10 @@ body.dark-mode .arch-img {
 
 .card.selected {
   border-color: #21428e;
+}
+
+.dark-mode .card.selected {
+  border-color: #809FD2;
 }
 
 .card img {
