@@ -47,7 +47,7 @@ This group project is part of the **"Research Project" module (CS7043)** of the 
 - Lucy Jacobson: UI/UX Designer & Marketing materials
 - Kiera O'Hara: Content Creator & Partnerships
 - Robyn Quigley: Project Manager & Video editor
-- Xinkai Ge: 3D Modeler & Programming - Contributed to Quiz game and Catching game
+- Xinkai Ge: 3D Modeler & Contributed to Quiz game and Catching game
 - Nithya Samadhi Lokuge: Full-stack Developer - Frontend, Database structure, Backend
   
 ---
@@ -113,6 +113,7 @@ PORT = 5500
 - `docs`: contains the `musa.sql` dump and a screeshot of the database structure.
 - `models`: contains the database model that defines the structure of the application's data.
 - `public`: stores files such as CSS, images, fonts and JavaScript.
+- `routes`: defines the application's routes.
 - `views`: contains the files that define the UI of the application. It uses the EJS template engine for dynamic content rendering.
     - `hunt`: stores views of The Hunt Museum.
         - `games`: stores views of The Hunt Museum's games.
@@ -124,5 +125,3 @@ PORT = 5500
 ## Deployment
 
 **MUSA** is currently available on this [website](https://musa.scss.tcd.ie/). 
-
----
