@@ -712,6 +712,11 @@ input.form-control, textarea.form-control {
   align-items: center;
 }
 
+.dark-mode .testimonial-bubble {
+  background-color: #80C5E4;
+  color: #272727;
+}
+
 @media (min-width: 768px) {
   .testimonial-bubble p {
     text-align: center !important;
