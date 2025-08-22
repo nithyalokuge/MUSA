@@ -2114,3 +2114,17 @@ body.dark-mode .arch-img {
   }
 }
 
+.placeholder2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .placeholder2 {
+    max-width: 100%;
+  }
+}
