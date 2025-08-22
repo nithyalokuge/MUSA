@@ -1,6 +1,7 @@
 // Artifact controller
 
 const artifactModel = require('../models/artifactModel');
+const { isSketchfabModelValid } = require('../utils/sketchfab');
 
 const getAllArtifacts = async (req, res) => {
   try {
@@ -48,6 +49,11 @@ const renderArtifactPage = async (req, res) => {
 
     if (!artifact) {
       return res.status(404).json({ message: 'Item not found' });
+    }
+
+    if (artifact.model_url) {
+      const isValid = await isSketchfabModelValid(artifact.model_url);
+      if (!isValid) artifact.model_url = null;
     }
 
     const allArtifacts = await artifactModel.getAllArtifactsWithPreview();
