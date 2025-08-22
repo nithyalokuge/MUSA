@@ -24,5 +24,4 @@ async function isSketchfabModelValid(id) {
   }
 }
 
-
 module.exports = { isSketchfabModelValid };
