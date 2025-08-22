@@ -115,6 +115,7 @@ PORT = 5500
 - `models`: contains the database model that defines the structure of the application's data.
 - `public`: stores files such as CSS, images, fonts and JavaScript.
 - `routes`: defines the application's routes.
+- `utils`: contains the file that checks if the model_url is valid.
 - `views`: contains the files that define the UI of the application. It uses the EJS template engine for dynamic content rendering.
     - `hunt`: stores views of The Hunt Museum.
         - `games`: stores views of The Hunt Museum's games.
