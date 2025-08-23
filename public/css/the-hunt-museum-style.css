@@ -667,6 +667,21 @@ iframe {
   }
 }
 
+.placeholder2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .placeholder2 {
+    max-width: 100%;
+  }
+}
+
 .featured-artwork {
   display: flex;
   flex-direction: column;
@@ -2111,20 +2126,5 @@ body.dark-mode .arch-img {
 @media (max-width: 768px) {
   .text-style-options {
     flex-direction: column;
-  }
-}
-
-.placeholder2 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 50%;
-  height: auto;
-  border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-  .placeholder2 {
-    max-width: 100%;
   }
 }
