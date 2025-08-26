@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     Kiera: {
       img: '/img/Kiera.jpg',
-      blurb: 'Hi, I\'m Kiera!<br><br>I led content and partnerships for MUSA. I worked closely with museums and community groups throughout the planning and production process to ensure that the final product would be meaningful, helpful, and inclusive. When I\'m not working, you\'ll usually find me outdoors hiking, kayaking, or camping. I\'m a big believer in balancing screentime with time in nature.'
+      blurb: 'Hi, I\'m Kiera!<br><br>I led partnerships for MUSA. I collaborated closely with Robyn on the content and worked with museums and community groups throughout the planning and production process to ensure that the final product would be meaningful, helpful, and inclusive. When I\'m not working, you\'ll usually find me outdoors hiking, kayaking, or camping. I\'m a big believer in balancing screentime with time in nature.'
     },
     Robyn: {
       img: '/img/Robyn.png',
