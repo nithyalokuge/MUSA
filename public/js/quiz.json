@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What does Apollo represent in this sculpture?",
+    "image": "/img/games/apollo-game.jpg",
+    "options": ["War and conquest", "Trades and arts", "Weather and farming", "Time and space"],
+    "answer": "Trades and arts"
+  },
+  {
+    "question": "Who ordered the O Dea Mitre in 1418?",
+    "image": "/img/games/o-dea-mitre-game.png",
+    "options": ["Bishop O'Malley", "Bishop O Dea", "Bishop Thomas", "Bishop Forth"],
+    "answer": "Bishop O Dea"
+  },
+  {
+    "question": "Who drew the Four Cats Menu Card?",
+    "image": "/img/games/plat-del-dia-game.png",
+    "options": ["Salvador Dalí", "Pablo Picasso", "Joan Miró", "Henri Matisse"],
+    "answer": "Pablo Picasso"
+  },
+  {
+    "question": "How is the rim of the Drinking Horn decorated?",
+    "image": "/img/games/drinking-horn-game.jpg",
+    "options": ["Painted with animal motifs", "Carved with floral patterns", "Incised with lettering", "Covered in velvet trim"],
+    "answer": "Incised with lettering"
+  },
+  {
+    "question": "What phrase is inscribed on the gold band around the coin?",
+    "image": "/img/games/dekadrachm-coin-game.jpg",
+    "options": ["In God We Trust", "Victory for the Charioteer", "This is the price of blood", "Paid in silver"],
+    "answer": "This is the price of blood"
+  },
+  {
+    "question": "What is depicted in this Jack B. Yeats' painting?",
+    "image": "/img/games/atlantic-drive-game.jpg",
+    "options": ["A stormy sea with a distant lighthouse", "Travelers in a sidecar", "A rural farmhouse surrounded by mountains", "A portrait of the poet William B. Yeats"],
+    "answer": "Travelers in a sidecar"
+  },
+  {
+    "question": "What artistic influence is most evident in Christy Keeney's sculpture Cello Player?",
+    "image": "/img/games/cello-player-game.jpg",
+    "options": ["Ancient Greek pottery", "Japanese minimalism", "Picasso's figurative style", "Italian Renaissance frescoes"],
+    "answer": "Picasso's figurative style"
+  },
+  {
+    "question": "What does the skeleton in Keating's painting symbolize?",
+    "image": "/img/games/nights-candles-are-burnt-out-game.jpg",
+    "options": ["Religious opposition", "Engineering failure", "Keating's past work", "Ireland's troubled history"],
+    "answer": "Ireland's troubled history"
+  },
+  {
+    "question": "What was the believed purpose of sheela-na-gig carvings on medieval buildings?",
+    "image": "/img/games/sheela-na-nig-game.png",
+    "options": ["To celebrate fertility rituals", "To represent noblewomen in history", "To protect against evil and death", "To mark sacred pilgrimage routes"],
+    "answer": "To protect against evil and death"
+  },
+  {
+    "question": "What style most influenced William Leech's painting Suzanne Botterell?",
+    "image": "/img/games/suzanne-boterell-game.jpg",
+    "options": ["German Expressionism", "French Impressionism", "Italian Renaissance", "Cubism"],
+    "answer": "French Impressionism"
+  }
+]

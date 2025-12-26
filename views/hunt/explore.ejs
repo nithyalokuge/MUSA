@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - MUSA x The Hunt Museum</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Onest:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="/js/apply-settings.js"></script>
+    <link rel="stylesheet" href="/css/the-hunt-museum-style.css">
+  </head>
+  <body>
+    <%- include("../partials/header-musa") %>
+
+    <main>
+      <section class="explore">
+        <div class="container">
+          <div class="arrow-title">
+            <a href="/hunt/home" class="back-to-home" aria-label="Back to The Hunt Museum's page">
+              <i class="bi bi-arrow-90deg-left" aria-hidden="true"></i>
+            </a>
+            <div class="title">
+              <h1>Explore</h1>
+              <a href="/scan" class="scan-icon-link" aria-label="Go to Scan page">
+                <i class="bi bi-qr-code-scan" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+          <p>Click the artworks below, or scan the physical QR code in the museum to learn more about the pieces through Sign Language videos.</p>
+          <div class="row">
+            <div class="col-lg">
+              <div class="search-container d-flex">
+                <div class="search-input-container position-relative w-100">
+                  <i class="bi bi-search search-icon" aria-hidden="true"></i>
+                  <input type="text" class="form-control search-input" placeholder="Type here to search" id="searchInput">
+                </div>
+                <div class="dropdown">
+                  <button class="btn filter-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Filter dropdown">
+                    Filter <i class="bi bi-caret-down" aria-hidden="true"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-end py-4 px-3">
+                    <h6>Category</h6>
+                    <div class="form-check">
+                      <label for="cat1">The Story of Our Building</label>
+                      <input type="checkbox" value="1" id="cat1">
+                    </div>
+                    <div class="form-check">
+                      <label for="cat2">The Hunts</label>
+                      <input type="checkbox" value="2" id="cat2">
+                    </div>
+                    <div class="form-check">
+                      <label for="cat3">Hunt Museum Collection</label>
+                      <input type="checkbox" value="3" id="cat3">
+                    </div>
+                    <div class="form-check">
+                      <label for="cat4">Irish Contemporary<br>Ceramics Collection</label>
+                      <input type="checkbox" value="4" id="cat4">
+                    </div>
+                    <hr>
+                    <h6>Artifact Type</h6>
+                    <% const artifactTypes = ["Sculpture", "Painting", "Containers", "Ceramics", "Ritual objects"]; %>
+                    <% artifactTypes.forEach((type, i) => { %>
+                      <div class="form-check">
+                        <label for="type<%= i %>"><%= type %></label>
+                        <input type="checkbox" value="<%= i+1 %>" id="type<%= i %>">
+                      </div>
+                    <% }) %>
+                    <hr>
+                    <h6>Floor</h6>
+                    <% const floors = ["Ground", "First", "Top"]; %>
+                    <% floors.forEach((floor, i) => { %>
+                      <div class="form-check">
+                        <label for="floor<%= i %>"><%= floor %></label>
+                        <input type="checkbox" value="<%= floor.toLowerCase() %>" id="floor<%= i %>">
+                      </div>
+                    <% }) %>
+                    <div class="explore-btns">
+                      <button class="btn" id="clearFilters">Clear</button>
+                      <button class="btn" id="applyFilters">Apply</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="artifactResults" class="row gx-2 gy-4"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <%- include("../partials/footer") %>
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/active-link.js"></script>
+    <script src="/js/explore.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

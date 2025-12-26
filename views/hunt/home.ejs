@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - MUSA x The Hunt Museum</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Onest:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <script src="/js/apply-settings.js"></script>
+    <link rel="stylesheet" href="/css/the-hunt-museum-style.css">
+  </head>
+  <body>
+    <%- include("../partials/header-musa") %>
+
+    <main>
+      <!-- Intro1 section -->
+      <section class="intro1">
+        <div class="container">
+          <div class="arrow-title">
+            <a href="../museums" class="back-to-home" aria-label="Back to the Partner Museums page">
+              <i class="bi bi-arrow-90deg-left" aria-hidden="true"></i>
+            </a>
+            <div>
+              <h1>The Hunt Museum</h1>
+              <p>Limerick, Ireland</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <img src="/img/museums1.png" alt="The Hunt Museum" class="intro-img">
+
+      <!-- Intro2 section -->
+      <section class="intro2">
+        <div class="container">
+          <p>The Hunt Museum is an all-round cultural experience, exhibiting one of Ireland's greatest private collections of art and antiquities, dating from the Neolithic to the 20th Century, including works by Renoir, Picasso and Yeats.</p>
+        </div>
+      </section>
+
+      <!-- Featured Artwork (Explore) section -->
+      <section class="featured-artwork">
+        <div class="container">
+          <h2>Explore</h2>
+          <img src="/img/littlegirl3.jpg" alt="Suzanne Botterell">
+          <p>Dive into our curated collection and discover artworks that inspire, resonate, and spark conversation. Ready to be amazed? Explore more and find the art that speaks to you!</p>
+          <div class="text-center">
+            <a href="/hunt/explore" class="btn default-btn">Start Exploring</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Play and Learn section -->
+      <section class="play" id="play-section">
+        <div class="container">
+          <h2>Play and Learn</h2>
+          <p>Play the games below after watching all of the ISL videos to test your new knowledge.</p>
+          <div class="games-list">
+            <a href="games/quiz" class="game-item" aria-label="Play the Quiz game">
+              <p>Quizzes</p>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+            <a href="games/puzzle" class="game-item" aria-label="Play the Puzzle game">
+              <p>Puzzle</p>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+            <a href="games/memory" class="game-item" aria-label="Play the Memory game">
+              <p>Memory Game</p>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+            <a href="games/matching" class="game-item" aria-label="Play the Matching game">
+              <p>Matching Game</p>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+            <a href="games/timeline" class="game-item" aria-label="Play the Timeline game">
+              <p>Timeline Game</p>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+            <a href="games/catching" class="game-item" aria-label="Play the Catch the Flowers game">
+              <p>Catch the Flowers</p>
+              <i class="bi bi-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location & Times section -->
+      <section class="hunt-location">
+        <div class="container">
+          <h2>Location & Opening Times</h2>
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2419.6567781934837!2d-8.626789223939443!3d52.66617672539753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485b5c67df44de69%3A0x3ef9248504f96893!2sThe%20Hunt%20Museum!5e0!3m2!1sen!2sie!4v1751562138606!5m2!1sen!2sie"
+            title="Map showing the location of The Hunt Museum"
+            width="100%" 
+            height="250" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div>
+            <p class="lead-p1">The Hunt Museum is conveniently located in the heart of Limerick City, just a 15-minute walk from the train station and only 3 minutes from the bus station at Arthur's Quay.</p>
+            <p class="lead-p">Opening Times</p>
+            <p>Monday: Closed<br>Tuesday – Saturday: 10am – 5pm<br>Sunday: 11am – 5pm</p>
+            <p class="lead-p">Address</p>
+            <p>The Hunt Museum,<br>The Custom House,<br>Rutland Street, Limerick<br>V94 EV8A</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Footer -->
+    <%- include("../partials/footer") %>
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/active-link.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

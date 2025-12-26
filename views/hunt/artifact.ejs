@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= artifact.title %> - MUSA x The Hunt Museum</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Onest:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="/js/apply-settings.js"></script>
+    <link rel="stylesheet" href="/css/the-hunt-museum-style.css">
+  </head>
+  <body>
+    <%- include("../partials/header-musa") %>
+
+    <main>
+        <section class="artifact">
+            <div class="container">
+                <div class="arrow-title <%= (artifact.id === 17 || artifact.id === 16) ? 'special' : '' %>">
+                    <a href="/hunt/explore" class="back-to-home" aria-label="Back to The Hunt Museum's Explore page">
+                        <i class="bi bi-arrow-90deg-left" aria-hidden="true"></i>
+                    </a>
+                    <div>
+                        <h1><%= artifact.title %></h1>
+                        <p><%=artifact.author%></p>
+                    </div>
+                </div>
+                <div class="artifact-carousel">
+                    <div id="artifactCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <% artifact.images.forEach((img, index) => { %>
+                                <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                                    <img src="<%= img %>" class="d-block mx-auto" alt="<%= artifact.title %>">
+                                </div>
+                            <% }) %>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#artifactCarousel" data-bs-slide="prev">
+                            <span><i class="bi bi-chevron-left" aria-hidden="true"></i></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#artifactCarousel" data-bs-slide="next">
+                            <span><i class="bi bi-chevron-right" aria-hidden="true"></i></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <p class="artifact-blurb"><%= artifact.blurb %></p>
+                <% 
+                    const hiddenCategories = ['The Story of Our Building', 'The Hunts'];
+                    const visibleCategory = artifact.categories.find(name => !hiddenCategories.includes(name));
+                %>
+                <% if (artifact.date_info || artifact.materials?.length || artifact.dimensions || artifact.floor_number || visibleCategory) { %>
+                    <div class="artifact-info">
+                        <div class="artifact-info-row">
+                            <% if (artifact.date_info) { %>
+                                <div class="artifact-info-item">
+                                    <div class="artifact-info-label">Date</div>
+                                    <div class="artifact-info-value"><%= artifact.date_info %></div>
+                                </div>
+                            <% } %>
+                            <% if (artifact.materials?.length) { %>
+                                <div class="artifact-info-item">
+                                    <div class="artifact-info-label">Materials</div>
+                                    <div class="artifact-info-value">
+                                        <% artifact.materials.forEach((material) => { %>
+                                            <div><%= material %></div>
+                                        <% }) %>
+                                    </div>
+                                </div>
+                            <% } %>
+                            <% if (artifact.dimensions) { %>
+                                <div class="artifact-info-item">
+                                    <div class="artifact-info-label">Size (cm)</div>
+                                    <div class="artifact-info-value"><%= artifact.dimensions %></div>
+                                </div>
+                            <% } %>
+                            <% if (artifact.floor_number) { %>
+                                <div class="artifact-info-item">
+                                    <div class="artifact-info-label">Location</div>
+                                    <div class="artifact-info-value"><%= artifact.floor_number %> Floor</div>
+                                </div>
+                            <% } %>
+                            <% if (visibleCategory) { %>
+                                <div class="artifact-info-item">
+                                    <div class="artifact-info-label">Collection</div>
+                                    <div class="artifact-info-value"><%= visibleCategory %></div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </section> 
+        <section class="artifact">
+            <div class="container">
+                <h2><i class="fas fa-sign-language" aria-hidden="true"></i> Interpretive Video</h2>
+                <div class="ratio ratio-16x9">
+                    <iframe 
+                        src="https://www.youtube-nocookie.com/embed/<%= artifact.isl_video_url %>?rel=0&modestbranding=1"
+                        title="<%= artifact.title %> video"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
+                </div>
+                <div class="transcript">
+                    <h3 class="title">Transcript</h3>
+                    <% const isLong = artifact.transcript && artifact.transcript.length > 200; %>
+                    <% if (isLong) { %>
+                        <p id="transcript-short" class="preserve-format"><%= artifact.transcript.slice(0, 200) %>...</p>
+                        <p id="transcript-full" class="d-none preserve-format"><%= artifact.transcript %></p>
+                        <div class="text-center">
+                            <button id="toggleTranscriptBtn" class="btn default-btn">Read More</button>
+                        </div>
+                    <% } else { %>
+                        <p><%= artifact.transcript %></p>
+                    <% } %>
+                </div>
+            </div>
+        </section>
+        <% if (artifact.model_url) { %>
+            <section class="d-model">
+                <div class="container">
+                    <h2>Explore in 3D</h2>
+                    <div class="ratio ratio-16x9">
+                        <iframe title="<%= artifact.title %> 3D Model"
+                            src="https://sketchfab.com/models/<%= artifact.model_url %>/embed"
+                            allow="autoplay; fullscreen; xr-spatial-tracking" frameborder="0" xr-spatial-tracking
+                            execution-while-out-of-viewport execution-while-not-rendered>
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+        <% } %>
+        <section>
+            <div class="container">
+                <% if (artifact.game) { %>
+                    <div class="artifact-game">
+                        <a href="<%= artifact.game %>">Play Game</a>
+                    </div>
+                <% } %>
+                <div class="artifact-nav">
+                    <a href="/hunt/artifacts/<%= previousArtifact.id %>" class="next-prev-link me-2" aria-label="Previous artifact: <%= previousArtifact.title %>">
+                        <div class="next-prev-icon">
+                            <i class="bi bi-chevron-left me-2" aria-hidden="true"></i>
+                        </div>
+                        <div class="next-prev-title">
+                            <span class="medium"><%= previousArtifact.title %></span>
+                        </div>
+                    </a>
+                    <a href="/hunt/artifacts/<%= nextArtifact.id %>" class="next-prev-link next ms-2" aria-label="Next artifact: <%= nextArtifact.title %>">
+                        <div class="next-prev-title text-end">
+                            <span class="medium"><%= nextArtifact.title %></span>
+                        </div>
+                        <div class="next-prev-icon ms-2">
+                            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <%- include("../partials/footer") %>
+
+    <script src="/js/menu.js"></script>
+    <script src="/js/active-link.js"></script>
+    <script src="/js/transcript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
