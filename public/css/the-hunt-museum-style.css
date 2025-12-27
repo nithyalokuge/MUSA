@@ -750,6 +750,7 @@ section {
   -webkit-appearance: none;
   background-color: #EDEDED !important;
   border: 1px solid #272727;
+  border-radius: 0px;
   margin-left: 0.5rem !important;
   width: 16px;
   height: 16px;
@@ -784,19 +785,19 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #444444 !important;
-  color: #FFFFFF !important;
+  background-color: #EDEDED !important;
+  color: #272727 !important;
   width: 79px;
   height: 28.32px;
   text-align: center;
-  padding: 1.2rem;
-  border: none;
-  border-radius: 0px;
+  padding: 20px 46px;
+  border: 1px solid #000000;
+  border-radius: 100px;
 }
 
 #applyFilters {
-  background-color: #C6B987 !important;
-  color: #454645 !important;
+  background-color: #272727 !important;
+  color: #FFFFFF !important;
 }
 
 .artifact-img {
