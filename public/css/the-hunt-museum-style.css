@@ -577,10 +577,13 @@ section {
   margin: 0 auto;
   padding-top: 16px;
   padding-bottom: 16px;
-  border-top: 1px solid var(--text-color);
   border-bottom: 1px solid var(--text-color); 
   text-decoration: none;
   color: inherit; 
+}
+
+.game-item1 {
+  border-top: 1px solid var(--text-color);
 }
 
 .game-item p {
@@ -1324,6 +1327,7 @@ section.artifact {
 }
 
 .move-buttons button {
+  color: #272727;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -1331,7 +1335,7 @@ section.artifact {
 }
 
 .move-buttons button:disabled {
-  opacity: 0.3;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
