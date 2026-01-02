@@ -871,8 +871,8 @@ label {
   text-align: center;
   position: relative;
   cursor: pointer;
-  background-color: #D5CEC8;
-  border: 1px solid #D5CEC8;
+  background-color: #E2E2E2;
+  border: 1px solid #E2E2E2;
   transition: all 0.3s ease-in-out;
 }
 
@@ -885,7 +885,7 @@ label {
   height: 16px;
   border-radius: 50%;
   background-color: #FFFFFF;
-  border: 1px solid #9F9F9F;
+  /* border: 1px solid #9F9F9F; */
   cursor: pointer;
 }
 
@@ -910,19 +910,15 @@ label {
   background-color: #CEE2EC;
 }
 
-.dark-mode .radio-option:has(input[type="radio"]:checked) {
-  border-width: 2px;
-}
-
 .dark-mode .radio-option input[type="radio"] {
   background-color: #272727;
-  border: 1px solid #9F9F9F;
+  /* border: 1px solid #9F9F9F; */
 }
 
 .dark-mode .radio-option {
-  background-color: #F9F4EE;
+  background-color: #E2E2E2;
   color: var(--bg-color);
-  border: 1px solid #F9F4EE;
+  border: 1px solid #E2E2E2;
 }
 
 .visual-box {
