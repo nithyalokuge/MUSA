@@ -501,13 +501,7 @@ section.contact {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 552px; /* It was 60vh */
-}
-
-@media (min-width: 768px) {
-  .hero {
-    min-height: 60vh;
-  }
+  height: 60dvh;
 }
 
 .intro-MUSA {

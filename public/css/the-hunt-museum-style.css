@@ -531,6 +531,12 @@ section {
   display: block; 
 }
 
+@media (max-width: 500px) {
+  .intro-img { 
+    height: 220px;
+  }
+}
+
 .intro2 {
   padding-bottom: 64px;
   width: 100%;
