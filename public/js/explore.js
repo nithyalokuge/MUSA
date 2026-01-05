@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderResults(json.data || [], q);
     };
 
-    const renderResults = (artifacts, searchQuery) => {
+    const renderResults = (artifacts) => {
         resultsContainer.innerHTML = '';
 
         if (!artifacts.length) {
@@ -39,58 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        if (!searchQuery) {
-            const firstTwoArtifacts = artifacts.filter(artifact => artifact.id === 17 || artifact.id === 16);
-            const remainingArtifacts = artifacts.filter(artifact => artifact.id !== 17 && artifact.id !== 16);
-
-            // Display the first two artifacts (ids 17 and 16) if they exist
-            firstTwoArtifacts.forEach(artifact => {
-                const col = document.createElement('div');
-                col.className = 'col-6 col-md-4 col-lg-3';
-                col.innerHTML = `
-                    <a href="/hunt/artifacts/${artifact.id}" class="artifact-link">
-                        <img src="${artifact.image_url}" alt="${artifact.title}" class="artifact-img">
-                        <div class="artifact-title">${artifact.title}</div>
-                        <div class="artifact-author">${artifact.author}</div>
-                    </a>
-                `;
-                resultsContainer.appendChild(col);
-            });
-
-            // If artifact(s) with ids 17 and/or 16 are/is displayed, there will be a breaking line before the other artifacts
-            if (firstTwoArtifacts.length > 0 && remainingArtifacts.length > 0) {
-                const hr = document.createElement('hr');
-                resultsContainer.appendChild(hr);
-            }
-
-            // Show the remaining artifacts (after ids 17 and 16)
-            remainingArtifacts.forEach(artifact => {
-                const col = document.createElement('div');
-                col.className = 'col-6 col-md-4 col-lg-3';
-                col.innerHTML = `
-                    <a href="/hunt/artifacts/${artifact.id}" class="artifact-link">
-                        <img src="${artifact.image_url}" alt="${artifact.title}" class="artifact-img">
-                        <div class="artifact-title">${artifact.title}</div>
-                        <div class="artifact-author">${artifact.author}</div>
-                    </a>
-                `;
-                resultsContainer.appendChild(col);
-            });
-        } else {
-            // If search query exists, results will be displayed with order defined by back-end
-            artifacts.forEach(artifact => {
-                const col = document.createElement('div');
-                col.className = 'col-6 col-md-4 col-lg-3';
-                col.innerHTML = `
-                    <a href="/hunt/artifacts/${artifact.id}" class="artifact-link">
-                        <img src="${artifact.image_url}" alt="${artifact.title}" class="artifact-img">
-                        <div class="artifact-title">${artifact.title}</div>
-                        <div class="artifact-author">${artifact.author}</div>
-                    </a>
-                `;
-                resultsContainer.appendChild(col);
-            });
-        }
+        artifacts.forEach(artifact => {
+            const col = document.createElement('div');
+            col.className = 'col-6 col-md-4 col-lg-3';
+            col.innerHTML = `
+                <a href="/hunt/artifacts/${artifact.id}" class="artifact-link">
+                    <img src="${artifact.image_url}" alt="${artifact.title}" class="artifact-img">
+                    <div class="artifact-title">${artifact.title}</div>
+                    <div class="artifact-author">${artifact.author}</div>
+                </a>
+            `;
+            resultsContainer.appendChild(col);
+        });
     };
 
     searchInput.addEventListener('input', fetchAndRender);
