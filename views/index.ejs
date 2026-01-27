@@ -35,22 +35,6 @@
         </div>
       </section>
 
-      <!-- How to use MUSA section -->
-      <section id="howto" class="howto">
-        <div class="container">
-          <h1>New to MUSA?</h1>
-          <p>Learn how to navigate the site and explore artwork ISL videos in just a few steps.</p>
-          <div class="ratio ratio-16x9 my-4">
-            <iframe src="https://www.youtube-nocookie.com/embed/zbJn_7rx-2M?rel=0&modestbranding=1"
-              title="Tutorial on how to use the MUSA web-app"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen
-              referrerpolicy="strict-origin-when-cross-origin">
-            </iframe>
-          </div>
-        </div>
-      </section>
-
       <!-- Our Museum Partners -->
       <section class="partners">
         <div class="container">
@@ -148,20 +132,20 @@
           <p>Whether you're a museum, a user, or just curious about collaborating, we'd love to hear from you.</p>
           <form id="contact-form">
             <div>
-              <label for="name" class="form-label">Name*</label>
-              <input type="text" class="form-control" name="name" id="name" required>
+              <label for="name" class="form-label">Name <span class="required-field">(Required)</span></label>
+              <input type="text" class="form-control" name="name" id="name" placeholder="Jane Doe" required>
             </div>
             <div>
-              <label for="email" class="form-label">Email*</label>
-              <input type="email" class="form-control" name="email" id="email" required>
+              <label for="email" class="form-label">Email <span class="required-field">(Required)</span></label>
+              <input type="email" class="form-control" name="email" id="email" placeholder="janedoe@gmail.com" required>
             </div>
             <div>
-              <label for="subject" class="form-label">Subject*</label>
-              <input type="text" class="form-control" name="subject" id="subject" required>
+              <label for="subject" class="form-label">Subject <span class="required-field">(Required)</span></label>
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Hello!" required>
             </div>
             <div>
-              <label for="message" class="form-label">Message*</label>
-              <textarea class="form-control" name="message" id="message" rows="5" required></textarea>
+              <label for="message" class="form-label">Message <span class="required-field">(Required)</span></label>
+              <textarea class="form-control" name="message" id="message" rows="5" placeholder="Type your message here." required></textarea>
             </div>
             <div class="text-center">
               <button type="submit" class="btn default-btn" id="button">Send</button>
