@@ -30,9 +30,9 @@ app.get("/scan", (req, res) => {
   res.render("scan"); 
 });
 
-// Contact Us page
-app.get("/contact", (req, res) => {
-  res.render("contact"); 
+// About Us page
+app.get("/about-us", (req, res) => {
+  res.render("about-us"); 
 });
 
 // Settings page
