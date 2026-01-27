@@ -8,7 +8,7 @@
   --bg-color: #FFFFFF;
   --body-font-size: 16px;
   --h1-size: 38px;
-  --h2-size: 28px;
+  --h2-size: 30px;
   --h3-size: 18px;
   --nav-link-size: 28px;
   --small-size: 14px;
@@ -436,7 +436,7 @@ header {
   border-color: #FFFFFF;
 }
 
-.form-control {
+.form-control, .dark-mode .form-control {
   background-color: transparent;
   border-radius: 0px;
 }
@@ -481,7 +481,7 @@ body:has(.hero) .hamburger-btn {
   top: 1.21rem;
 }
 
-section.intro, section.howto, section.partners, section.testimonials, section.contact {
+section.intro, section.partners, section.testimonials, section.contact {
   padding-top: 64px;
   padding-bottom: 64px;
 }
@@ -680,8 +680,7 @@ form {
 }
 
 input.form-control, textarea.form-control {
-  border: none;
-  border-bottom: 1px solid;
+  border: 1px solid;
 }
 
 input.form-control {
@@ -696,9 +695,17 @@ label {
   color: var(--text-color);
 }
 
+.required-field, #contact-form input::placeholder, #contact-form textarea::placeholder {
+  color: #7E7E7E
+}
+
 .dark-mode input.form-control, .dark-mode textarea.form-control {
-  border: none;
-  border-bottom: 1px solid #FFFFFF;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+}
+
+.dark-mode .required-field, .dark-mode #contact-form input::placeholder, .dark-mode #contact-form textarea::placeholder {
+  color: #FFFFFF
 }
 
 .full-width-image {
@@ -817,9 +824,9 @@ label {
   text-decoration: underline;
 }
 
-/* Contact us page */
+/* About us page */
 
-.contact-page .container {
+.contact-in-about-page .container {
   display: block;
 }
 

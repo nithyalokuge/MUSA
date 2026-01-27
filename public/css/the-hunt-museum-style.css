@@ -614,6 +614,10 @@ section {
   margin-top: 24px;
 }
 
+.days {
+  font-weight: 500;
+}
+
 /* Explore page */
 
 .explore h1 {
